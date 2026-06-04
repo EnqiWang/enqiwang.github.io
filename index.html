@@ -134,10 +134,11 @@
     }
 
     .project-grid.featured {
-      grid-template-columns: 1fr;
-      max-width: 820px;
-      margin: 0 auto;
-    }
+	  grid-template-columns: repeat(2, 1fr);
+	  max-width: 1200px;
+	  margin: 0 auto;
+	  gap: 20px;
+	}
 
     .project-grid.college {
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -163,9 +164,9 @@
 
     .project-image {
 	  width: 100%;
-	  height: auto;
+	  height: 280px;
 	  display: block;
-	  object-fit: contain;
+	  object-fit: cover;
 	}
 
     .project-overlay {
@@ -338,7 +339,7 @@
 
       <div class="project-grid featured">
         <a class="project-card" href="kapture.html">
-          <img class="project-image" src="icons_images/game.PNG" alt="Kapture the Snake of 88 banner">
+          <img class="project-image" src="icons_images/Kapture the Snake of 88'.PNG" alt="Kapture the Snake of 88 banner">
           <div class="project-overlay">
             <div>
               <div class="project-title">Kapture the Snake of 88'</div>
