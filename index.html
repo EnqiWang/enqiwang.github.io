@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enqi Wang | Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #2f2f2f;
+      --bg-2: #232323;
+      --panel: #1f1f1f;
+      --panel-2: #262626;
+      --text: #f4f4f4;
+      --muted: #c9c9c9;
+      --accent: #f0b15a;
+      --line: rgba(255,255,255,0.08);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Inter", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,0.05), transparent 35%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(45, 45, 45, 0.95);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+
+    .header-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-left: 28px;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--accent);
+    }
+
+    .page-section {
+      min-height: 100vh;
+      padding: 96px 22px 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      scroll-margin-top: 88px;
+    }
+
+    .container {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+    }
+
+    .hero {
+      text-align: center;
+      padding-top: 30px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 133, 162, 0.12);
+      color: var(--accent);
+      font-size: 1.3rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 18px;
+      border: 1px solid rgba(240, 177, 90, 0.18);
+    }
+
+    .hero-title {
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: 0.95;
+      margin: 0;
+      color: #ffffff;
+      letter-spacing: -0.05em;
+      font-weight: 800;
+    }
+
+    .hero-subtitle {
+      margin: 18px auto 0;
+      max-width: 860px;
+      font-size: clamp(1.05rem, 2.4vw, 1.45rem);
+      line-height: 1.75;
+      color: var(--muted);
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .pink-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(180deg, #ff9db8 0%, #ff7fa2 100%);
+      box-shadow: 0 18px 50px rgba(255, 133, 162, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
+
+    .pink-button:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.02);
+    }
+
+    .section-card {
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(255, 133, 162, 0.22);
+      border-radius: 28px;
+      box-shadow: 0 18px 50px rgba(255, 133, 162, 0.16);
+      padding: 30px;
+      backdrop-filter: blur(8px);
+      color: #3f2a34;
+    }
+
+    .section-heading {
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      margin: 0 0 10px;
+      color: #2f2328;
+      text-align: left;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    .section-lead {
+      font-size: 1.25rem;
+      line-height: 1.8;
+      margin: 0 0 22px;
+      color: #5b4a53;
+      max-width: 920px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .project-grid.three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .project-banner,
+    .project-card {
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 133, 162, 0.18);
+      background: linear-gradient(180deg, #ffffff 0%, #fff7fa 100%);
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .project-banner {
+      position: relative;
+      min-height: 220px;
+      display: block;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.16);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .project-banner:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 38px rgba(0, 0, 0, 0.2);
+    }
+
+    .banner-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      filter: saturate(0.92) contrast(1.02);
+    }
+
+    .banner-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: end;
+      justify-content: flex-start;
+      padding: 18px;
+      background: linear-gradient(180deg, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.46) 100%);
+      color: #fff;
+    }
+
+    .banner-title {
+      font-size: 1.7rem;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.35);
+    }
+
+    .banner-subtitle {
+      display: block;
+      margin-top: 8px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.88);
+    }
+
+    .project-card {
+      padding: 22px;
+    }
+
+    .project-card h3 {
+      font-size: 2rem;
+      margin: 0 0 10px;
+      color: var(--pink);
+      color: #ff7fa2;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .project-card p {
+      margin: 0;
+      font-size: 1.08rem;
+      line-height: 1.7;
+      color: #5d4d56;
+    }
+
+    .contact-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .contact-strip a {
+      text-decoration: none;
+      font-size: 1.05rem;
+      padding: 14px 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 133, 162, 0.2);
+      background: rgba(255, 133, 162, 0.08);
+      color: #d85d83;
+      font-weight: 700;
+    }
+
+    .contact-strip a:hover {
+      background: rgba(255, 133, 162, 0.14);
+    }
+
+    .resume-box {
+      margin-top: 20px;
+      padding: 24px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(255, 133, 162, 0.18);
+      text-align: center;
+    }
+
+    .resume-box p {
+      margin: 0 0 14px;
+      color: #5d4d56;
+      font-size: 1.08rem;
+      line-height: 1.7;
+    }
+
+    .resume-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 800;
+      color: #fff;
+      background: linear-gradient(180deg, #ff9db8 0%, #ff7fa2 100%);
+      box-shadow: 0 18px 50px rgba(255, 133, 162, 0.16);
+    }
+
+    .footer-note {
+      text-align: center;
+      padding: 28px 18px 40px;
+      color: #d25a7e;
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    @media (max-width: 900px) {
+      .project-grid,
+      .project-grid.three {
+        grid-template-columns: 1fr;
+      }
+
+      .page-section {
+        padding-top: 88px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .header-inner {
+        padding: 14px 18px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav a {
+        margin-left: 0;
+        margin-right: 18px;
+      }
+
+      .menu-item {
+        font-size: 1.2rem;
+      }
+
+      .section-card {
+        padding: 20px;
+        border-radius: 22px;
+      }
+
+      .section-lead,
+      .project-card p,
+      .resume-box p {
+        font-size: 1rem;
+      }
+
+      .contact-strip a,
+      .pink-button,
+      .resume-button {
+        width: 100%;
+      }
+
+      .banner-image {
+        height: 190px;
+      }
+
+      .banner-title {
+        font-size: 1.45rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="brand">Enqi Wang</div>
+      <nav aria-label="Primary">
+        <a href="#home" class="active">Home</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="page-section hero">
+      <div class="container">
+        <div class="hero-badge">Portfolio</div>
+        <h1 class="hero-title">Hi, I'm Enqi Wang.</h1>
+        <p class="hero-subtitle">
+          I’m an Electrical and Computer Engineering student at USC focused on game development,
+          interactive systems, and hands-on hardware projects.
+        </p>
+        <div class="button-row">
+          <a href="#portfolio" class="pink-button">View Portfolio</a>
+          <a href="#contact" class="pink-button">Contact Me</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio" class="page-section">
+      <div class="container section-card">
+        <h2 class="section-heading">Featured Projects</h2>
+        <p class="section-lead">
+          Click any project banner to open its future detail page. This page is set up so you can add screenshots,
+          devlogs, and full descriptions later without changing the homepage layout.
+        </p>
+
+        <div class="project-grid">
+          <a class="project-banner" href="kapture.html" aria-label="Open Kapture the Snake of 88 project">
+            <img class="banner-image" src="icons_images/game.PNG" alt="Kapture the Snake of 88 banner">
+            <div class="banner-overlay">
+              <div>
+                <div class="banner-title">Kapture the Snake of 88'</div>
+                <span class="banner-subtitle">Game Project</span>
+              </div>
+            </div>
+          </a>
+
+          <a class="project-banner" href="territoria.html" aria-label="Open Territoria project">
+            <img class="banner-image" src="icons_images/room.PNG" alt="Territoria banner">
+            <div class="banner-overlay">
+              <div>
+                <div class="banner-title">Territoria</div>
+                <span class="banner-subtitle">Game Project</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="hardware-projects" class="page-section">
+      <div class="container section-card">
+        <h2 class="section-heading">Hardware Projects</h2>
+        <p class="section-lead">
+          A few hardware-focused projects that show the engineering side of my work.
+        </p>
+
+        <div class="project-grid three">
+          <article class="project-card">
+            <h3>Customized Controller</h3>
+            <p>
+              Add your custom controller project here. This can include the design process, electronics,
+              enclosure, and any special interactions.
+            </p>
+          </article>
+
+          <article class="project-card">
+            <h3>OWC Prototype</h3>
+            <p>
+              Oscillating Water Column prototype with sensing and monitoring systems. This project won in Portland,
+              and you can expand with results and visuals later.
+            </p>
+          </article>
+
+          <article class="project-card">
+            <h3>More Coming Soon</h3>
+            <p>
+              Keep this spot open for future engineering builds, fabrication work, or other technical projects you add later.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="resume" class="page-section">
+      <div class="container section-card">
+        <h2 class="section-heading">Resume</h2>
+        <div class="resume-box">
+          <p>
+            View or download my resume for a quick overview of my experience, projects, and technical background.
+          </p>
+          <a class="resume-button" href="YOUR_GOOGLE_DRIVE_LINK_HERE" target="_blank" rel="noopener noreferrer">
+            Click for Resume
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="page-section">
+      <div class="container section-card">
+        <h2 class="section-heading">Contact</h2>
+        <p class="section-lead">
+          Reach out if you want to talk about games, engineering projects, design, or collaboration.
+        </p>
+
+        <div class="contact-strip">
+          <a href="mailto:enqiwang0805@gmail.com">Email</a>
+          <a href="https://www.linkedin.com/in/enqi-wang" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://github.com/EnqiWang" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="footer-note">Enqi Wang © 2026</div>
+</body>
+</html>

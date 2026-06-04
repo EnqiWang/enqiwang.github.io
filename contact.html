@@ -1,0 +1,259 @@
+<!-- about.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enqi Wang | About</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #2f2f2f;
+      --bg-2: #232323;
+      --panel: #1f1f1f;
+      --text: #f4f4f4;
+      --muted: #c9c9c9;
+      --accent: #f0b15a;
+      --line: rgba(255,255,255,0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,0.05), transparent 35%),
+        linear-gradient(180deg, var(--bg), var(--bg-2));
+      color: var(--text);
+      min-height: 100vh;
+      padding-top: 78px;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(45,45,45,0.95);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-left: 28px;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--accent);
+    }
+
+    main {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 44px 24px 72px;
+    }
+
+    .panel {
+      background: rgba(0,0,0,0.18);
+      border: 1px solid var(--line);
+      padding: 44px;
+      margin-bottom: 24px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .photo {
+      width: 100%;
+      display: block;
+      border: 1px solid var(--line);
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1.05;
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      font-size: 1rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    p {
+      color: var(--muted);
+      line-height: 1.85;
+      font-size: 1.02rem;
+      margin-bottom: 16px;
+    }
+
+    .resume-box {
+      margin-top: 30px;
+      padding: 30px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .resume-button {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 14px 24px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #1f1f1f;
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    .contact-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 16px 20px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .contact-link:hover {
+      color: var(--accent);
+      border-color: rgba(240,177,90,0.45);
+    }
+
+    @media (max-width: 800px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .panel {
+        padding: 26px;
+      }
+
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav a {
+        margin-left: 0;
+        margin-right: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="brand">Enqi Wang</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About / Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel">
+      <div class="about-grid">
+        <img src="icons_images/selfie.jfif" alt="Enqi Wang" class="photo">
+
+        <div>
+          <h1>About Me</h1>
+          <h2>Electrical &amp; Computer Engineering · USC</h2>
+
+          <p>
+            I am an Electrical and Computer Engineering student at the University of Southern California with interests in game development, interactive systems, engineering design, and digital fabrication.
+          </p>
+
+          <p>
+            As a PlayStation Career Pathways Scholar and Autodesk Design &amp; Make Ambassador, I enjoy combining creativity and technical problem-solving to build meaningful projects.
+          </p>
+
+          <p>
+            My experience includes CAD modeling, 3D printing, prototyping, embedded systems, and software development. I am especially interested in turning ideas into functional systems through hands-on design and iteration.
+          </p>
+        </div>
+      </div>
+
+      <div id="resume" class="resume-box">
+        <h2>Resume</h2>
+        <p>
+          Want a quick look at my experience, projects, and technical background?
+        </p>
+        <a class="resume-button" href="YOUR_GOOGLE_DRIVE_LINK_HERE" target="_blank" rel="noopener noreferrer">
+          Click for Resume
+        </a>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h1>Contact</h1>
+      <p>
+        Let’s collaborate on games, engineering projects, design work, or interactive experiences.
+      </p>
+
+      <div class="contact-row">
+        <a class="contact-link" href="mailto:enqiwang0805@gmail.com">enqiwang0805@gmail.com</a>
+        <a class="contact-link" href="https://www.linkedin.com/in/enqi-wang" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a class="contact-link" href="https://github.com/EnqiWang" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
