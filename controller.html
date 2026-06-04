@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kapture the Snake of 88' | Enqi Wang</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #2f2f2f;
+      --panel: #333333;
+      --panel-2: #383838;
+      --text: #f3f3f3;
+      --muted: #d1d1d1;
+      --accent: #f974a6;
+      --line: rgba(255,255,255,0.45);
+      --soft: rgba(255,255,255,0.08);
+      --shadow: 0 16px 44px rgba(0,0,0,0.34);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,0.05), transparent 35%),
+        linear-gradient(180deg, #333333 0%, #2b2b2b 100%);
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .topbar {
+      background: #3b3b3b;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 8px 26px rgba(0,0,0,0.18);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .topbar-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 16px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 0.9rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #f0f0f0;
+      font-weight: 900;
+    }
+
+    .brand small {
+      font-size: 0.72rem;
+      letter-spacing: 0.28em;
+      color: rgba(255,255,255,0.72);
+      font-weight: 700;
+    }
+
+    nav {
+      display: flex;
+      gap: 34px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    nav a {
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.52);
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--accent);
+    }
+
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 22px 72px;
+    }
+
+    .panel {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+      padding: 34px 34px 30px;
+      margin-bottom: 22px;
+    }
+
+    .hero {
+      text-align: center;
+      padding-top: 32px;
+    }
+
+    .title {
+      font-size: clamp(2rem, 3.8vw, 3.4rem);
+      line-height: 1.05;
+      font-weight: 900;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: clamp(1.1rem, 2vw, 1.55rem);
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 18px;
+    }
+
+    .rule {
+      width: min(100%, 980px);
+      height: 1px;
+      margin: 0 auto 28px;
+      background: var(--line);
+      opacity: 0.75;
+    }
+
+    .video-frame {
+      width: min(100%, 980px);
+      margin: 0 auto;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: #222;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .video-frame img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      aspect-ratio: 16 / 9;
+    }
+
+    .section-row {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 28px;
+      margin-top: 28px;
+    }
+
+    .meta-grid {
+      display: grid;
+      gap: 18px;
+      align-content: start;
+    }
+
+    .meta-item,
+    .overview,
+    .breakdown,
+    .timeline {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 18px 18px 16px;
+    }
+
+    .label {
+      display: block;
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .value,
+    .text {
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--text);
+    }
+
+    .value.compact {
+      line-height: 1.45;
+    }
+
+    .overview h3,
+    .breakdown h3,
+    .timeline h3,
+    .gallery h3 {
+      font-size: 1.2rem;
+      color: var(--accent);
+      margin-bottom: 10px;
+      font-weight: 800;
+    }
+
+    .overview p,
+    .breakdown p,
+    .timeline p,
+    .text {
+      color: var(--text);
+    }
+
+    .list {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+      padding-left: 18px;
+      color: var(--text);
+    }
+
+    .list li {
+      line-height: 1.65;
+    }
+
+    .gallery {
+      margin-top: 28px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 14px;
+    }
+
+    .shot {
+      border: 1px solid rgba(255,255,255,0.08);
+      background: #1f1f1f;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .shot img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .shot .caption {
+      padding: 12px 14px;
+      color: rgba(255,255,255,0.88);
+      font-size: 0.95rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .pill {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(242, 177, 90, 0.12);
+      color: #ffe2b9;
+      border: 1px solid rgba(242, 177, 90, 0.22);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .footer-note {
+      text-align: center;
+      color: rgba(255,255,255,0.72);
+      font-size: 0.92rem;
+      padding: 20px 0 0;
+    }
+
+    @media (max-width: 900px) {
+      .section-row,
+      .two-col,
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .shot img {
+        height: 220px;
+      }
+
+      .panel {
+        padding: 24px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .topbar-inner {
+        padding: 14px 16px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        gap: 18px;
+      }
+
+      main {
+        padding: 20px 14px 56px;
+      }
+
+      .title {
+        font-size: 1.9rem;
+      }
+
+      .subtitle {
+        font-size: 1.05rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        Enqi Wang
+        <small>Game Developer</small>
+      </div>
+      <nav aria-label="Primary">
+        <a href="index.html">Portfolio</a>
+        <a href="kapture.html" class="active">Kapture</a>
+        <a href="contact.html">About/Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel hero">
+      <h1 class="title">Kapture the Snake of 88'</h1>
+      <div class="subtitle">Co-op Horror Investigation</div>
+      <div class="rule"></div>
+
+      <div class="video-frame">
+        <img src="icons_images/Kapture the snake of 88'.PNG" alt="Kapture the Snake of 88 project banner">
+      </div>
+
+      <div class="section-row">
+        <div class="meta-grid">
+          <div class="meta-item">
+            <span class="label">Genre</span>
+            <div class="value">Co-op Horror Investigation</div>
+          </div>
+
+          <div class="meta-item">
+            <span class="label">Players</span>
+            <div class="value">2-Player Local Split-Screen Co-op<br>(Online TBD)</div>
+          </div>
+
+          <div class="meta-item">
+            <span class="label">Tools Used</span>
+            <div class="value compact">Unity<br>C#<br>Blender<br>Fusion 360<br>Substance Painter<br>Photoshop<br>VRoid Studio<br>LLM / Voice Integration</div>
+          </div>
+        </div>
+
+        <div class="overview">
+          <h3>Overview</h3>
+          <p>
+            In 1988, seven USC students were found dead inside Kappa House after a college party, and the case remained unsolved for over forty years. Hired by an anonymous client, players take on the role of independent investigators who return to the abandoned site armed with a Snake Camera, a device capable of connecting the living to the spirit world.
+          </p>
+          <p style="margin-top: 12px;">
+            By gathering clues, photographing evidence, and questioning the spirits of the victims, players must uncover the truth behind the tragedy.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="two-col">
+        <div class="breakdown">
+          <h3>Gameplay</h3>
+          <p>
+            Explore haunted locations, ask ghosts questions through the microphone, and capture ghosts using your camera device while gathering testimonies.
+          </p>
+          <ul class="list">
+            <li>Cooperative deduction gameplay</li>
+            <li>Voice-based ghost interactions</li>
+            <li>Evidence bulletin board system</li>
+            <li>Randomized killer system</li>
+          </ul>
+        </div>
+
+        <div class="breakdown">
+          <h3>Final Voting Phase</h3>
+          <p>
+            After gathering evidence, players enter a final voting phase to determine the true murderer. The team must discuss the clues they uncovered and vote correctly to successfully complete the investigation.
+          </p>
+          <div class="pill-row">
+            <span class="pill">Voice LLM</span>
+            <span class="pill">Deduction</span>
+            <span class="pill">Co-op Mystery</span>
+            <span class="pill">Evidence Gathering</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h3 style="color: var(--accent); font-size: 1.2rem; margin-bottom: 10px; font-weight: 800;">My Role &amp; Ownerships</h3>
+      <div class="two-col">
+        <div class="meta-item">
+          <div class="text">
+            <strong>Game Design</strong><br>
+            Narrative structure, gameplay loops, deduction flow, and player experience.
+          </div>
+        </div>
+        <div class="meta-item">
+          <div class="text">
+            <strong>Production &amp; Visuals</strong><br>
+            Environment art direction, level dressing, asset integration, character art and polish.
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 16px;" class="meta-item">
+        <div class="text">
+          <strong>Systems</strong><br>
+          Custom controller concept, evidence board design, interactive ghost dialogue, and gameplay support systems.
+        </div>
+      </div>
+    </section>
+
+    <section class="panel gallery">
+      <h3>Development Gallery</h3>
+      <p class="text" style="color: var(--muted); margin-bottom: 14px;">
+        Use this section for screenshots, posters, and development stills. Each image can have a short caption.
+      </p>
+
+      <div class="gallery-grid">
+        <div class="shot">
+          <img src="icons_images/game.PNG" alt="In-game scene 1">
+          <div class="caption">Core scene / gameplay view</div>
+        </div>
+        <div class="shot">
+          <img src="icons_images/frieren.png" alt="In-game scene 2">
+          <div class="caption">Atmospheric environment / art direction</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h3 style="color: var(--accent); font-size: 1.2rem; margin-bottom: 10px; font-weight: 800;">Reflection</h3>
+      <p class="text">
+        This project expanded my ability to combine game design, narrative, and systems thinking into a cohesive playable experience. It strengthened my Unity workflow, improved my ability to iterate quickly, and taught me how to balance atmosphere with clear gameplay goals.
+      </p>
+    </section>
+  </main>
+
+  <div class="footer-note">Enqi Wang © 2026</div>
+</body>
+</html>
