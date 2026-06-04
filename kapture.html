@@ -47,68 +47,10 @@
       text-decoration: none;
     }
 
-    .topbar {
-      background: #3b3b3b;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 8px 26px rgba(0,0,0,0.18);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .topbar-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 16px 22px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .brand {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      font-size: 0.9rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #f0f0f0;
-      font-weight: 900;
-    }
-
-    .brand small {
-      font-size: 0.72rem;
-      letter-spacing: 0.28em;
-      color: rgba(255,255,255,0.72);
-      font-weight: 700;
-    }
-
-    nav {
-      display: flex;
-      gap: 34px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    nav a {
-      font-size: 0.95rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.52);
-      transition: color 0.2s ease;
-    }
-
-    nav a:hover,
-    nav a.active {
-      color: var(--accent);
-    }
-
     main {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 28px 22px 72px;
+      padding: 36px 22px 72px;
     }
 
     .panel {
@@ -313,16 +255,6 @@
     }
 
     @media (max-width: 640px) {
-      .topbar-inner {
-        padding: 14px 16px;
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      nav {
-        gap: 18px;
-      }
-
       main {
         padding: 20px 14px 56px;
       }
@@ -338,19 +270,7 @@
   </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="topbar-inner">
-      <div class="brand">
-        Enqi Wang
-        <small>Game Developer</small>
-      </div>
-      <nav aria-label="Primary">
-        <a href="index.html">Portfolio</a>
-        <a href="kapture.html" class="active">Kapture</a>
-        <a href="contact.html">About/Contact</a>
-      </nav>
-    </div>
-  </header>
+  <div id="header"></div>
 
   <main>
     <section class="panel hero">
@@ -474,5 +394,13 @@
   </main>
 
   <div class="footer-note">Enqi Wang © 2026</div>
+
+  <script>
+    fetch("header.html")
+      .then((response) => response.text())
+      .then((data) => {
+        document.getElementById("header").innerHTML = data;
+      });
+  </script>
 </body>
 </html>
