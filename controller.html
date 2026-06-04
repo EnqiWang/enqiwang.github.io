@@ -11,12 +11,14 @@
 
   <style>
     :root {
-      --bg: #2f2f2f;
-      --text: #f4f4f4;
-      --muted: #d8d8d8;
-      --accent: #f974a6;
-      --line: rgba(255,255,255,0.12);
-      --shadow: 0 18px 44px rgba(0,0,0,0.32);
+      --pink: #f974a6;
+      --light-pink: #ffd1e2;
+      --bg: #ffffff;
+      --text: #2f2f2f;
+      --muted: #6d6d6d;
+      --card: #fff7fa;
+      --line: #f3d7e3;
+      --shadow: 0 18px 50px rgba(249, 116, 166, 0.10);
     }
 
     * {
@@ -27,15 +29,12 @@
 
     html {
       scroll-behavior: smooth;
-      background: var(--bg);
     }
 
     body {
       font-family: "Inter", sans-serif;
+      background: var(--bg);
       color: var(--text);
-      background:
-        radial-gradient(circle at top, rgba(255,255,255,0.04), transparent 30%),
-        linear-gradient(180deg, #343434 0%, #2b2b2b 100%);
       min-height: 100vh;
     }
 
@@ -44,19 +43,19 @@
       text-decoration: none;
     }
 
-    .topbar {
-      background: #3a3a3a;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 8px 26px rgba(0,0,0,0.18);
+    header {
       position: sticky;
       top: 0;
       z-index: 1000;
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
     }
 
-    .topbar-inner {
-      max-width: 1120px;
+    .header-inner {
+      max-width: 1180px;
       margin: 0 auto;
-      padding: 16px 22px;
+      padding: 18px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -64,104 +63,81 @@
     }
 
     .brand {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      font-size: 0.9rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #f0f0f0;
+      font-size: 1.15rem;
       font-weight: 900;
-    }
-
-    .brand small {
-      font-size: 0.72rem;
-      letter-spacing: 0.28em;
-      color: rgba(255,255,255,0.72);
-      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--pink);
+      white-space: nowrap;
     }
 
     nav {
       display: flex;
-      gap: 34px;
-      flex-wrap: wrap;
       align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
     }
 
     nav a {
+      color: var(--muted);
       font-size: 0.95rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
+      font-weight: 700;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.52);
       transition: color 0.2s ease;
     }
 
     nav a:hover,
     nav a.active {
-      color: var(--accent);
+      color: var(--pink);
     }
 
     main {
-      max-width: 1120px;
+      max-width: 1180px;
       margin: 0 auto;
-      padding: 28px 22px 72px;
+      padding: 38px 24px 70px;
     }
 
-    .panel {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: var(--shadow);
-      padding: 30px;
-      margin-bottom: 22px;
+    .section {
+      padding: 28px 0 18px;
     }
 
-    .hero {
+    .section-title {
       text-align: center;
-      padding-top: 28px;
-    }
-
-    .title {
-      font-size: clamp(2rem, 3.8vw, 3.4rem);
-      line-height: 1.05;
+      font-size: clamp(2.2rem, 4vw, 4rem);
       font-weight: 900;
-      color: #ffffff;
-      margin-bottom: 10px;
+      letter-spacing: -0.05em;
+      color: var(--pink);
+      text-transform: uppercase;
+      margin-bottom: 12px;
     }
 
-    .subtitle {
-      font-size: clamp(1.05rem, 2vw, 1.45rem);
-      font-weight: 500;
-      color: var(--accent);
-      margin-bottom: 18px;
-    }
-
-    .rule {
-      width: min(100%, 980px);
+    .underline {
+      width: min(420px, 70%);
       height: 1px;
-      margin: 0 auto 24px;
-      background: rgba(255,255,255,0.36);
-      opacity: 0.75;
+      background: var(--light-pink);
+      margin: 0 auto 28px;
     }
 
-    .intro {
-      max-width: 920px;
-      margin: 0 auto;
-      font-size: 1.05rem;
-      line-height: 1.75;
+    .lead {
+      text-align: center;
+      max-width: 860px;
+      margin: 0 auto 26px;
       color: var(--muted);
-      text-align: left;
+      line-height: 1.8;
+      font-size: 1.05rem;
     }
 
     .viewer-wrap {
-      margin: 24px auto 0;
+      margin: 28px auto 0;
       width: 100%;
       max-width: 980px;
       aspect-ratio: 16 / 9;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: #1f1f1f;
+      border: 1px solid var(--line);
+      background: #fff7fa;
       box-shadow: var(--shadow);
       overflow: hidden;
+      border-radius: 0;
     }
 
     .viewer-wrap iframe {
@@ -171,43 +147,56 @@
       display: block;
     }
 
+    .gallery-section {
+      margin-top: 34px;
+    }
+
     .gallery-title {
-      font-size: 1.25rem;
-      font-weight: 800;
-      color: var(--accent);
-      margin-bottom: 14px;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--pink);
+      margin-bottom: 18px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
     }
 
     .gallery-grid {
-	  display: grid;
-	  grid-template-columns: repeat(2, 1fr);
-	  gap: 20px;
-	}
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
 
-	.shot {
-	  background: #242424;
-	  border: 1px solid rgba(255,255,255,0.06);
-	  border-radius: 12px;
-	  padding: 12px;
+    .shot {
+      background: var(--card);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      padding: 12px;
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
 
-	  height: 320px;
-
-	  display: flex;
-	  align-items: center;
-	  justify-content: center;
-	}
-
-	.shot img {
-	  max-width: 100%;
-	  max-height: 100%;
-	  object-fit: contain;
-	}
+    .shot img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
 
     .footer-note {
       text-align: center;
-      color: rgba(255,255,255,0.72);
-      font-size: 0.92rem;
-      padding: 20px 0 0;
+      padding: 38px 20px 46px;
+      color: var(--pink);
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
     }
 
     @media (max-width: 900px) {
@@ -215,18 +204,14 @@
         grid-template-columns: 1fr;
       }
 
-      .shot img {
-        height: 220px;
-      }
-
-      .panel {
-        padding: 22px;
+      .shot {
+        height: 280px;
       }
     }
 
     @media (max-width: 640px) {
-      .topbar-inner {
-        padding: 14px 16px;
+      .header-inner {
+        padding: 14px 18px;
         flex-direction: column;
         align-items: flex-start;
       }
@@ -236,42 +221,42 @@
       }
 
       main {
-        padding: 20px 14px 56px;
+        padding: 28px 16px 60px;
       }
 
-      .title {
-        font-size: 1.9rem;
+      .section-title {
+        font-size: clamp(2rem, 8vw, 3rem);
       }
 
-      .subtitle {
-        font-size: 1.05rem;
+      .lead {
+        font-size: 1rem;
+      }
+
+      .gallery-title {
+        font-size: 1.2rem;
       }
     }
   </style>
 </head>
+
 <body>
-  <header class="topbar">
-    <div class="topbar-inner">
-      <div class="brand">
-        Enqi Wang
-        <small>Game Developer</small>
-      </div>
+  <header>
+    <div class="header-inner">
+      <div class="brand">Enqi Wang</div>
       <nav aria-label="Primary">
-        <a href="index.html">Portfolio</a>
-        <a href="kapture.html">Kapture</a>
-        <a href="controller.html" class="active">Controller</a>
+        <a href="index.html">Home</a>
+        <a href="contact.html">About / Contact</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="panel hero">
-      <h1 class="title">Custom Snake Camera Controller</h1>
-      <div class="subtitle">Hardware prop for Kapture the Snake of 88'</div>
-      <div class="rule"></div>
-
-      <p class="intro">
-        Designed the enclosure in Fusion 360 and printed it with a Bambu Lab P1S using PLA.
+    <section class="section">
+      <h1 class="section-title">Custom Controller</h1>
+      <div class="underline"></div>
+      <p class="lead">
+        A custom Snake camera controller made as a hardware prop for <em>Kapture the Snake of 88'</em>.
+        The enclosure was designed in Fusion 360 and printed with a Bambu Lab P1S using PLA.
       </p>
 
       <div class="viewer-wrap">
@@ -279,8 +264,9 @@
       </div>
     </section>
 
-    <section class="panel">
-      <div class="gallery-title">Controller Gallery</div>
+    <section class="gallery-section">
+      <h2 class="gallery-title">Controller Gallery</h2>
+
       <div class="gallery-grid">
         <div class="shot">
           <img src="icons_images/controller1.png" alt="Controller 1">
