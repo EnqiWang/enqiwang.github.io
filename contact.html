@@ -1,4 +1,3 @@
-<!-- about.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,13 +11,12 @@
 
   <style>
     :root {
-      --bg: #2f2f2f;
-      --bg-2: #232323;
-      --panel: #1f1f1f;
-      --text: #f4f4f4;
-      --muted: #c9c9c9;
-      --accent: #f0b15a;
-      --line: rgba(255,255,255,0.08);
+      --pink: #f974a6;
+      --light-pink: #ffd1e2;
+      --bg: #ffffff;
+      --text: #333333;
+      --muted: #666666;
+      --line: #f3d7e3;
     }
 
     * {
@@ -33,9 +31,7 @@
 
     body {
       font-family: "Inter", sans-serif;
-      background:
-        radial-gradient(circle at top, rgba(255,255,255,0.05), transparent 35%),
-        linear-gradient(180deg, var(--bg), var(--bg-2));
+      background: var(--bg);
       color: var(--text);
       min-height: 100vh;
       padding-top: 78px;
@@ -47,7 +43,7 @@
       left: 0;
       width: 100%;
       z-index: 1000;
-      background: rgba(45,45,45,0.95);
+      background: rgba(255, 255, 255, 0.96);
       border-bottom: 1px solid var(--line);
       backdrop-filter: blur(10px);
     }
@@ -67,7 +63,8 @@
       font-weight: 800;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--text);
+      color: var(--pink);
+      white-space: nowrap;
     }
 
     nav a {
@@ -82,7 +79,7 @@
 
     nav a:hover,
     nav a.active {
-      color: var(--accent);
+      color: var(--pink);
     }
 
     main {
@@ -92,10 +89,12 @@
     }
 
     .panel {
-      background: rgba(0,0,0,0.18);
+      background: #fff;
       border: 1px solid var(--line);
       padding: 44px;
       margin-bottom: 24px;
+      border-radius: 24px;
+      box-shadow: 0 18px 50px rgba(249, 116, 166, 0.08);
     }
 
     .about-grid {
@@ -109,19 +108,21 @@
       width: 100%;
       display: block;
       border: 1px solid var(--line);
+      border-radius: 18px;
     }
 
     h1 {
       font-size: clamp(2rem, 4vw, 3.5rem);
       line-height: 1.05;
       margin-bottom: 18px;
+      color: var(--text);
     }
 
     h2 {
       font-size: 1rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--pink);
       margin-bottom: 14px;
     }
 
@@ -132,23 +133,21 @@
       margin-bottom: 16px;
     }
 
-    .resume-box {
-      margin-top: 30px;
-      padding: 30px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--line);
-      text-align: center;
-    }
-
     .resume-button {
       display: inline-block;
-      margin-top: 16px;
-      padding: 14px 24px;
+      margin-top: 10px;
+      padding: 14px 26px;
       border-radius: 999px;
-      background: var(--accent);
-      color: #1f1f1f;
+      background: var(--pink);
+      color: white;
       text-decoration: none;
-      font-weight: 800;
+      font-weight: 700;
+      transition: 0.25s ease;
+    }
+
+    .resume-button:hover {
+      background: var(--light-pink);
+      color: var(--pink);
     }
 
     .contact-row {
@@ -164,15 +163,18 @@
       align-items: center;
       padding: 16px 20px;
       border: 1px solid var(--line);
-      background: rgba(255,255,255,0.03);
-      color: var(--text);
+      background: var(--light-pink);
+      color: var(--pink);
       text-decoration: none;
       font-weight: 600;
+      border-radius: 16px;
+      transition: 0.25s ease;
     }
 
     .contact-link:hover {
-      color: var(--accent);
-      border-color: rgba(240,177,90,0.45);
+      background: var(--pink);
+      color: white;
+      border-color: var(--pink);
     }
 
     @media (max-width: 800px) {
@@ -226,26 +228,20 @@
           </p>
 
           <p>
-            My experience includes CAD modeling, 3D printing, prototyping, embedded systems, and software development. I am especially interested in turning ideas into functional systems through hands-on design and iteration.
+            
           </p>
-        </div>
-      </div>
 
-      <div id="resume" class="resume-box">
-        <h2>Resume</h2>
-        <p>
-          Want a quick look at my experience, projects, and technical background?
-        </p>
-        <a class="resume-button" href="YOUR_GOOGLE_DRIVE_LINK_HERE" target="_blank" rel="noopener noreferrer">
-          Click for Resume
-        </a>
+          <a class="resume-button" href="YOUR_GOOGLE_DRIVE_LINK_HERE" target="_blank" rel="noopener noreferrer">
+            Click for Resume
+          </a>
+        </div>
       </div>
     </section>
 
     <section class="panel">
       <h1>Contact</h1>
       <p>
-        Let’s collaborate on games, engineering projects, design work, or interactive experiences.
+        Let’s collaborate!
       </p>
 
       <div class="contact-row">
