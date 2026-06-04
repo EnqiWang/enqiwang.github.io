@@ -10,163 +10,192 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-	   :root {
-	  --pink: #f974a6;
-	  --light-pink: #ffd1e2;
-	  --bg: #ffffff;
-	  --text: #333333;
-	  --muted: #666666;
-	  --line: #f3d7e3;
-	}
+    :root {
+      --pink: #f974a6;
+      --light-pink: #ffd1e2;
+      --bg: #ffffff;
+      --text: #333333;
+      --muted: #666666;
+      --line: #f3d7e3;
+    }
 
-	* {
-	  box-sizing: border-box;
-	  margin: 0;
-	  padding: 0;
-	}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-	html {
-	  scroll-behavior: smooth;
-	}
+    html {
+      scroll-behavior: smooth;
+    }
 
-	body {
-	  font-family: "Inter", sans-serif;
-	  background: var(--bg);
-	  color: var(--text);
-	  min-height: 100vh;
-	  padding-top: 78px;
-	}
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding-top: 78px;
+    }
 
-	/* ===========================
-	   HEADER
-	=========================== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
 
-	header {
-	  position: fixed;
-	  top: 0;
-	  left: 0;
-	  width: 100%;
-	  z-index: 1000;
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
 
-	  background: var(--pink);
+    .brand {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--pink);
+      white-space: nowrap;
+    }
 
-	  box-shadow: 0 6px 24px rgba(249, 116, 166, 0.25);
-	}
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-left: 28px;
+    }
 
-	.header-inner {
-	  max-width: 1200px;
-	  margin: 0 auto;
-	  padding: 18px 24px;
+    nav a:hover,
+    nav a.active {
+      color: var(--pink);
+    }
 
-	  display: flex;
-	  align-items: center;
-	  justify-content: space-between;
-	  gap: 24px;
-	}
+    main {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 44px 24px 72px;
+    }
 
-	.brand {
-	  font-size: 1.15rem;
-	  font-weight: 800;
-	  letter-spacing: 0.12em;
-	  text-transform: uppercase;
+    .panel {
+      background: #fff;
+      border: 1px solid var(--line);
+      padding: 44px;
+      margin-bottom: 24px;
+      border-radius: 24px;
+      box-shadow: 0 18px 50px rgba(249, 116, 166, 0.08);
+    }
 
-	  color: white;
-	  white-space: nowrap;
-	}
+    .about-grid {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 32px;
+      align-items: start;
+    }
 
-	/* ===========================
-	   NAVIGATION
-	=========================== */
+    .photo {
+      width: 100%;
+      display: block;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+    }
 
-	nav {
-	  display: flex;
-	  align-items: center;
-	}
+    h1 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1.05;
+      margin-bottom: 18px;
+      color: var(--text);
+    }
 
-	nav a {
-	  position: relative;
+    h2 {
+      font-size: 1rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 14px;
+    }
 
-	  color: rgba(255,255,255,0.85);
+    p {
+      color: var(--muted);
+      line-height: 1.85;
+      font-size: 1.02rem;
+      margin-bottom: 16px;
+    }
 
-	  text-decoration: none;
-	  font-size: 0.95rem;
-	  font-weight: 600;
-	  letter-spacing: 0.06em;
-	  text-transform: uppercase;
+    .resume-button {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 14px 26px;
+      border-radius: 999px;
+      background: var(--pink);
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      transition: 0.25s ease;
+    }
 
-	  margin-left: 28px;
+    .resume-button:hover {
+      background: var(--light-pink);
+      color: var(--pink);
+    }
 
-	  transition: 0.25s ease;
-	}
+    .contact-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 16px;
+    }
 
-	nav a:hover {
-	  color: white;
-	}
+    .contact-link {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 16px 20px;
+      border: 1px solid var(--line);
+      background: var(--light-pink);
+      color: var(--pink);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 16px;
+      transition: 0.25s ease;
+    }
 
-	nav a.active {
-	  color: white;
-	}
+    .contact-link:hover {
+      background: var(--pink);
+      color: white;
+      border-color: var(--pink);
+    }
 
-	nav a.active::after {
-	  content: "";
+    @media (max-width: 800px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
 
-	  position: absolute;
-	  left: 0;
-	  bottom: -8px;
+      .panel {
+        padding: 26px;
+      }
 
-	  width: 100%;
-	  height: 2px;
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
 
-	  background: white;
-	  border-radius: 999px;
-	}
-
-	/* ===========================
-	   MAIN CONTENT
-	=========================== */
-
-	main {
-	  max-width: 980px;
-	  margin: 0 auto;
-	  padding: 44px 24px 72px;
-	}
-
-	.panel {
-	  background: #fff;
-	  border: 1px solid var(--line);
-
-	  padding: 44px;
-	  margin-bottom: 24px;
-
-	  border-radius: 24px;
-
-	  box-shadow: 0 18px 50px rgba(249, 116, 166, 0.08);
-	}
-
-	/* ===========================
-	   MOBILE
-	=========================== */
-
-	@media (max-width: 800px) {
-
-	  .about-grid {
-		grid-template-columns: 1fr;
-	  }
-
-	  .panel {
-		padding: 26px;
-	  }
-
-	  .header-inner {
-		flex-direction: column;
-		align-items: flex-start;
-	  }
-
-	  nav a {
-		margin-left: 0;
-		margin-right: 18px;
-	  }
-	}
+      nav a {
+        margin-left: 0;
+        margin-right: 18px;
+      }
+    }
   </style>
 </head>
 
