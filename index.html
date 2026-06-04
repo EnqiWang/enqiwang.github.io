@@ -63,7 +63,7 @@
     }
 
     .brand {
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       font-weight: 900;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -104,11 +104,10 @@
 
     .section-title {
       text-align: center;
-      font-size: clamp(2.2rem, 4vw, 4rem);
+      font-size: clamp(2rem, 3.6vw, 3.2rem);
       font-weight: 900;
       letter-spacing: -0.05em;
       color: var(--pink);
-      text-transform: uppercase;
       margin-bottom: 12px;
     }
 
@@ -130,19 +129,12 @@
 
     .project-grid {
       display: grid;
-      gap: 16px;
+      gap: 20px;
     }
 
     .project-grid.featured {
-	  grid-template-columns: repeat(2, 1fr);
-	  max-width: 1200px;
-	  margin: 0 auto;
-	  gap: 20px;
-	}
-
-    .project-grid.college {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      max-width: 820px;
+      grid-template-columns: 1fr;
+      max-width: 1000px;
       margin: 0 auto;
     }
 
@@ -150,11 +142,11 @@
       position: relative;
       display: block;
       overflow: hidden;
-      border-radius: 0;
       background: var(--card);
       border: 1px solid var(--line);
       box-shadow: var(--shadow);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
+      aspect-ratio: 16 / 9;
     }
 
     .project-card:hover {
@@ -163,11 +155,11 @@
     }
 
     .project-image {
-	  width: 100%;
-	  height: 280px;
-	  display: block;
-	  object-fit: cover;
-	}
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
 
     .project-overlay {
       position: absolute;
@@ -191,7 +183,7 @@
     }
 
     .project-title {
-      font-size: 1.55rem;
+      font-size: 1.45rem;
       font-weight: 900;
       line-height: 1.05;
       letter-spacing: 0.02em;
@@ -209,9 +201,9 @@
 
     .tile-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-      max-width: 820px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      max-width: 900px;
       margin: 0 auto;
     }
 
@@ -222,7 +214,7 @@
       border: 1px solid var(--line);
       background: var(--card);
       box-shadow: var(--shadow);
-      min-height: 170px;
+      aspect-ratio: 1 / 1;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
@@ -233,9 +225,10 @@
 
     .tile img {
       width: 100%;
-      height: 170px;
+      height: 100%;
       display: block;
       object-fit: cover;
+      object-position: center;
     }
 
     .tile-overlay {
@@ -256,12 +249,12 @@
 
     .tile-title {
       color: white;
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       font-weight: 900;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.10em;
       text-transform: uppercase;
       text-align: center;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.35);
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
       padding: 0 14px;
     }
 
@@ -269,23 +262,14 @@
       text-align: center;
       padding: 38px 20px 46px;
       color: var(--pink);
-      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
       font-weight: 900;
       letter-spacing: -0.04em;
     }
 
     @media (max-width: 900px) {
-      .project-grid.college,
-      .tile-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .project-image {
-        height: 200px;
-      }
-
-      .tile img {
-        height: 180px;
+      .project-card {
+        aspect-ratio: 16 / 10;
       }
     }
 
@@ -305,7 +289,7 @@
       }
 
       .section-title {
-        font-size: clamp(2rem, 8vw, 3rem);
+        font-size: clamp(1.8rem, 7vw, 2.5rem);
       }
 
       .lead {
@@ -313,7 +297,11 @@
       }
 
       .project-title {
-        font-size: 1.25rem;
+        font-size: 1.1rem;
+      }
+
+      .tile-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -334,8 +322,7 @@
     <section id="home" class="section">
       <h1 class="section-title">Portfolio</h1>
       <div class="underline"></div>
-      <p class="lead">
-      </p>
+      <p class="lead"></p>
 
       <div class="project-grid featured">
         <a class="project-card" href="kapture.html">
@@ -369,7 +356,7 @@
 
       <div class="tile-grid">
         <a class="tile" href="controller.html">
-          <img src="icons_images/controller-placeholder.jpg" alt="Customized Controller">
+          <img src="icons_images/controller4.png" alt="Customized Controller">
           <div class="tile-overlay">
             <div class="tile-title">Customized Controller</div>
           </div>
@@ -381,12 +368,8 @@
             <div class="tile-title">OWC Prototype</div>
           </div>
         </a>
-
-        </a>
       </div>
     </section>
   </main>
-
-
 </body>
 </html>
