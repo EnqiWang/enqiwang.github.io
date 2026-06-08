@@ -157,7 +157,7 @@
     }
 
     .gallery-section {
-      margin-top: 34px;
+      margin-top: 60px;
     }
 
     .gallery-title {
@@ -169,55 +169,109 @@
       text-transform: uppercase;
       letter-spacing: 0.06em;
     }
+    .carousel-card {
+    max-width: 850px;
+    margin: 0 auto 4px;
+    position: relative;
+    background: #222;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: var(--shadow);
+    border-radius: 20px;
+    overflow: hidden;
 
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    .shot {
-      background: #222;
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: var(--shadow);
-      padding: 12px;
-      height: 320px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
+    padding: 12px;
+  }
 
-    .shot img {
-      max-width: 100%;
-      max-height: 100%;
-      width: auto;
-      height: auto;
-      object-fit: contain;
-      display: block;
-    }
+  .carousel-image-wrap {
+    width: 100%;
+    height: 100%;
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-    .bom-section {
-      margin-top: 54px;
-    }
+  .carousel-image-wrap img {
+    max-width: 100%;
+    max-height: 440px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    border: none;
+    background: rgba(0,0,0,0.45);
+    color: white;
+    width: 48px;
+    height: 48px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .carousel-btn:hover {
+    background: rgba(249,116,166,0.9);
+  }
+
+  .prev-btn {
+    left: 14px;
+  }
+
+  .next-btn {
+    right: 14px;
+  }
+
+  .carousel-dots {
+    margin-top: 14px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+
+
+  .carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.28);
+    cursor: pointer;
+  }
+
+  .carousel-dot.active {
+    background: var(--pink);
+  }
 
     .bom-intro {
-      text-align: center;
-      max-width: 860px;
-      margin: 0 auto 22px;
-      color: var(--muted);
-      line-height: 1.8;
-      font-size: 1.02rem;
+        text-align: center;
+        max-width: 860px;
+        margin: 0 auto 22px;
+        color: var(--muted);
+        line-height: 1.8;
+        font-size: 1.02rem;
     }
 
     .bom-stats {
-      max-width: 1000px;
-      margin: 0 auto 20px;
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
+        max-width: 900px;
+        margin: 0 auto 20px;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
     }
 
     .stat {
@@ -307,7 +361,7 @@
     }
 
     .process-section {
-      margin-top: 54px;
+      margin-top: 80px;
     }
 
     .process-card {
@@ -398,7 +452,7 @@
       width: 100%;
       min-width: 1080px;
       border-collapse: collapse;
-      font-size: 0.9rem;
+      font-size: 0.8rem;
     }
 
     .sheet-table thead th,
@@ -594,40 +648,41 @@
       </div>
     </section>
 
-    <section class="gallery-section">
-      <h2 class="gallery-title">Controller Gallery</h2>
-
-      <div class="gallery-grid">
-        <div class="shot">
-          <img src="icons_images/controller/controller1.png" alt="Controller 1">
-        </div>
-        <div class="shot">
-          <img src="icons_images/controller/controller2.png" alt="Controller 2">
-        </div>
-        <div class="shot">
-          <img src="icons_images/controller/controller4.png" alt="Controller 3">
-        </div>
-        <div class="shot">
-          <img src="icons_images/controller/controller3.jpg" alt="Controller 4">
-        </div>
-      </div>
-    </section>
-
-    <section class="process-section">
+     <section class="process-section">
       <h2 class="gallery-title">Build Process</h2>
       <p class="bom-intro">
-        A refreshed process view showing the prototype flow from enclosure design to assembly and final fit-up.
+        Prototype flow from Enclosure Design, 3D Printing Parts, Raw Prototype, PCB DFM, Hardware assembly and final fit-up.
       </p>
 
       <div class="process-card">
-        <div class="process-badge">Updated process image</div>
-        <img
-          class="process-image"
-          alt="Updated build process diagram for the custom controller"
-          src="process-update.svg"
-        />
-      </div>
+      <img
+        src="icons_images/controller/Controller_Design_Process.png"
+        alt="Controller Process"
+        class="process-image">
+    </div>
     </section>
+
+    <section class="gallery-section">
+  <h2 class="gallery-title">Controller Gallery</h2>
+
+  <div class="carousel-card">
+    <button class="carousel-btn prev-btn" type="button" aria-label="Previous image">
+      &#10094;
+    </button>
+
+    <div class="carousel-image-wrap">
+      <img id="galleryImage" src="icons_images/controller/controller1.png" alt="Controller 1">
+    </div>
+
+    <button class="carousel-btn next-btn" type="button" aria-label="Next image">
+      &#10095;
+    </button>
+  </div>
+
+  <div class="carousel-dots" id="carouselDots"></div>
+</section>
+
+   
 
     <section class="bom-section">
       <h2 class="gallery-title">Bill of Materials (BOM)</h2>
@@ -642,7 +697,7 @@
         </div>
         <div class="stat">
           <span>$189.35</span>
-          <p>Prototype Cost</p>
+          <p>Prototype Cost Per Unit</p>
         </div>
         <div class="stat">
           <span>10</span>
@@ -900,5 +955,61 @@
       </div>
     </section>
   </main>
+
+  <script>
+  const galleryImages = [
+    "icons_images/controller/controller1.png",
+    "icons_images/controller/controller2.png",
+    "icons_images/controller/controller4.png",
+    "icons_images/controller/controller3.jpg"
+  ];
+
+  const galleryAlts = [
+    "Controller 1",
+    "Controller 2",
+    "Controller 3",
+    "Controller 4"
+  ];
+
+  let currentIndex = 0;
+
+  const galleryImage = document.getElementById("galleryImage");
+  const prevBtn = document.querySelector(".prev-btn");
+  const nextBtn = document.querySelector(".next-btn");
+  const dotsContainer = document.getElementById("carouselDots");
+
+  function renderDots() {
+    dotsContainer.innerHTML = "";
+    galleryImages.forEach((_, index) => {
+      const dot = document.createElement("button");
+      dot.className = "carousel-dot" + (index === currentIndex ? " active" : "");
+      dot.type = "button";
+      dot.setAttribute("aria-label", `View image ${index + 1}`);
+      dot.addEventListener("click", () => {
+        currentIndex = index;
+        updateGallery();
+      });
+      dotsContainer.appendChild(dot);
+    });
+  }
+
+  function updateGallery() {
+    galleryImage.src = galleryImages[currentIndex];
+    galleryImage.alt = galleryAlts[currentIndex];
+    renderDots();
+  }
+
+  prevBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+    updateGallery();
+  });
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % galleryImages.length;
+    updateGallery();
+  });
+
+  updateGallery();
+</script>
 </body>
 </html>
