@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,19 +8,29 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-	
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
   <style>
     :root {
-      --bg: #2f2f2f;
-      --panel: #333333;
-      --panel-2: #383838;
-      --text: #f3f3f3;
-      --muted: #d1d1d1;
-      --accent: #f974a6;
-      --line: rgba(255,255,255,0.45);
-      --soft: rgba(255,255,255,0.08);
-      --shadow: 0 16px 44px rgba(0,0,0,0.34);
+      --pink: #ff6fae;
+      --pink-strong: #ff4f9a;
+      --pink-soft: #ffd6e8;
+      --lavender: #f6efff;
+      --lavender-2: #efe7ff;
+
+      --bg: #faf7ff;
+      --bg-2: #f5efff;
+      --panel: rgba(255, 255, 255, 0.78);
+      --panel-2: rgba(255, 255, 255, 0.92);
+
+      --text: #4a3a52;
+      --muted: #6f5e79;
+
+      --card: #ffffff;
+      --line: rgba(214, 107, 232, 0.16);
+
+      --shadow: 0 18px 44px rgba(167, 97, 207, 0.14);
     }
 
     * {
@@ -30,16 +41,18 @@
 
     html {
       scroll-behavior: smooth;
-      background: var(--bg);
     }
 
     body {
       font-family: "Inter", sans-serif;
       color: var(--text);
-      background:
-        radial-gradient(circle at top, rgba(255,255,255,0.05), transparent 35%),
-        linear-gradient(180deg, #333333 0%, #2b2b2b 100%);
       min-height: 100vh;
+      padding-top: 78px;
+      background:
+        radial-gradient(circle at top left, rgba(255, 111, 174, 0.16), transparent 28%),
+        radial-gradient(circle at top right, rgba(185, 117, 255, 0.16), transparent 24%),
+        radial-gradient(circle at bottom left, rgba(255, 214, 232, 0.65), transparent 30%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
     }
 
     a {
@@ -47,165 +60,400 @@
       text-decoration: none;
     }
 
-    main {
-      max-width: 1120px;
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.74);
+      border-bottom: 1px solid rgba(214, 107, 232, 0.14);
+      box-shadow: 0 8px 26px rgba(167, 97, 207, 0.08);
+      backdrop-filter: blur(14px);
+    }
+
+    .header-inner {
+      max-width: 1180px;
       margin: 0 auto;
-      padding: 36px 22px 72px;
+      padding: 16px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 0.9rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #5d476a;
+      white-space: nowrap;
+    }
+
+    .brand small {
+      font-size: 0.72rem;
+      letter-spacing: 0.28em;
+      color: rgba(93, 71, 106, 0.68);
+      font-weight: 700;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: rgba(93, 71, 106, 0.66);
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--pink-strong);
+      transform: translateY(-1px);
+    }
+
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 44px 24px 72px;
     }
 
     .panel {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255, 255, 255, 0.76);
+      border: 1px solid rgba(214, 107, 232, 0.12);
+      padding: 42px;
+      margin-bottom: 24px;
       box-shadow: var(--shadow);
-      padding: 34px 34px 30px;
-      margin-bottom: 22px;
+      border-radius: 26px;
+      backdrop-filter: blur(10px);
     }
 
     .hero {
-      text-align: center;
-      padding-top: 32px;
+      padding-top: 34px;
+    }
+
+    .project-tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin: 0 auto 18px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 111, 174, 0.12);
+      border: 1px solid rgba(255, 111, 174, 0.18);
+      color: var(--pink-strong);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      width: fit-content;
     }
 
     .title {
-      font-size: clamp(2rem, 3.8vw, 3.4rem);
-      line-height: 1.05;
+      font-size: clamp(2.2rem, 4.2vw, 4rem);
+      line-height: 1.02;
       font-weight: 900;
-      color: #ffffff;
+      color: #6f3d67;
+      text-align: center;
       margin-bottom: 10px;
+      letter-spacing: -0.05em;
     }
 
     .subtitle {
-      font-size: clamp(1.1rem, 2vw, 1.55rem);
-      font-weight: 500;
-      color: var(--accent);
+      font-size: clamp(1.02rem, 1.7vw, 1.35rem);
+      font-weight: 700;
+      color: var(--pink-strong);
+      text-align: center;
       margin-bottom: 18px;
     }
 
-    .rule {
-      width: min(100%, 980px);
-      height: 1px;
-      margin: 0 auto 28px;
-      background: var(--line);
-      opacity: 0.75;
+    .hero-text {
+      max-width: 860px;
+      margin: 0 auto 26px;
+      text-align: center;
+      color: var(--muted);
+      line-height: 1.85;
+      font-size: 1.02rem;
     }
 
-    .video-frame {
-      width: min(100%, 980px);
-      margin: 0 auto;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: #222;
+    .hero-media {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+      align-items: stretch;
+      margin-top: 18px;
+    }
+
+    .hero-banner,
+    .hero-side-card {
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(214, 107, 232, 0.12);
+      border-radius: 22px;
       box-shadow: var(--shadow);
       overflow: hidden;
-      position: relative;
     }
 
-    .video-frame img {
+    .hero-banner img {
       width: 100%;
+      height: 100%;
+      min-height: 420px;
       display: block;
       object-fit: cover;
+    }
+
+    .presentation-frame {
       aspect-ratio: 16 / 9;
+      overflow: hidden;
     }
 
-    .section-row {
-      display: grid;
-      grid-template-columns: 0.92fr 1.08fr;
-      gap: 28px;
-      margin-top: 28px;
+    .presentation-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
     }
 
-    .meta-grid {
-      display: grid;
+    .hero-side-card {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       gap: 18px;
-      align-content: start;
     }
 
-    .meta-item,
-    .overview,
-    .breakdown,
-    .timeline {
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.08);
-      padding: 18px 18px 16px;
+    .info-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .info-card {
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(214, 107, 232, 0.12);
+      border-radius: 18px;
+      padding: 16px 16px 14px;
     }
 
     .label {
       display: block;
-      font-size: 0.92rem;
-      font-weight: 800;
-      color: var(--accent);
-      margin-bottom: 4px;
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--pink-strong);
+      font-weight: 900;
+      margin-bottom: 6px;
     }
 
-    .value,
-    .text {
-      font-size: 1rem;
-      line-height: 1.65;
+    .value {
       color: var(--text);
+      line-height: 1.6;
+      font-size: 0.98rem;
     }
 
-    .value.compact {
-      line-height: 1.45;
-    }
-
-    .overview h3,
-    .breakdown h3,
-    .timeline h3,
-    .gallery h3 {
-      font-size: 1.2rem;
-      color: var(--accent);
-      margin-bottom: 10px;
-      font-weight: 800;
-    }
-
-    .overview p,
-    .breakdown p,
-    .timeline p,
-    .text {
-      color: var(--text);
-    }
-
-    .list {
-      display: grid;
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
       gap: 10px;
-      margin-top: 14px;
-      padding-left: 18px;
-      color: var(--text);
+      margin-top: 6px;
     }
 
-    .list li {
-      line-height: 1.65;
+    .pill {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 111, 174, 0.10);
+      color: #7a4c06;
+      border: 1px solid rgba(214, 107, 232, 0.12);
+      font-size: 0.88rem;
+      font-weight: 700;
+      white-space: nowrap;
     }
 
-    .gallery {
-      margin-top: 28px;
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 4px;
     }
 
-    .gallery-grid {
+    .primary-btn,
+    .secondary-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 18px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.92rem;
+      transition: 0.2s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .primary-btn {
+      background: linear-gradient(90deg, var(--pink-strong), var(--pink));
+      color: white;
+      box-shadow: 0 14px 28px rgba(255, 79, 154, 0.18);
+    }
+
+    .primary-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 34px rgba(255, 79, 154, 0.24);
+    }
+
+    .secondary-btn {
+      background: rgba(255, 255, 255, 0.9);
+      color: #6f3d67;
+      border-color: rgba(214, 107, 232, 0.18);
+    }
+
+    .secondary-btn:hover {
+      border-color: rgba(255, 111, 174, 0.26);
+      transform: translateY(-2px);
+    }
+
+    .section-title {
+      font-size: 1.55rem;
+      font-weight: 900;
+      color: var(--pink-strong);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .section-lead {
+      text-align: center;
+      max-width: 840px;
+      margin: 0 auto 22px;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    .feature-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 18px;
-      margin-top: 14px;
     }
 
-    .shot {
-      border: 1px solid rgba(255,255,255,0.08);
-      background: #1f1f1f;
+    .feature-card {
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid rgba(214, 107, 232, 0.12);
+      border-radius: 24px;
       overflow: hidden;
       box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
     }
 
-    .shot img {
+    .feature-card.large {
+      min-height: 100%;
+    }
+
+    .feature-image {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      background: linear-gradient(180deg, #fff 0%, #faf4ff 100%);
+      overflow: hidden;
+    }
+
+    .feature-image img {
       width: 100%;
-      height: 240px;
+      height: 100%;
       object-fit: cover;
       display: block;
     }
 
-    .shot .caption {
-      padding: 12px 14px;
-      color: rgba(255,255,255,0.88);
+    .feature-image .overlay {
+      position: absolute;
+      left: 14px;
+      bottom: 14px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #6f3d67;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 0.84rem;
+      font-weight: 800;
+      box-shadow: 0 10px 24px rgba(167, 97, 207, 0.16);
+      border: 1px solid rgba(214, 107, 232, 0.14);
+    }
+
+    .feature-body {
+      padding: 18px 18px 20px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .feature-title {
+      font-size: 1.12rem;
+      font-weight: 900;
+      color: #6f3d67;
+    }
+
+    .feature-text {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 0.96rem;
+    }
+
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .resource-card {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-height: 220px;
+    }
+
+    .resource-card h3 {
+      font-size: 1.05rem;
+      color: #6f3d67;
+      font-weight: 900;
+      letter-spacing: 0.02em;
+    }
+
+    .resource-card p {
+      color: var(--muted);
+      line-height: 1.7;
       font-size: 0.95rem;
-      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .resource-btn {
+      margin-top: auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 16px;
+      border-radius: 999px;
+      background: rgba(255, 111, 174, 0.08);
+      border: 1px solid rgba(255, 111, 174, 0.18);
+      color: var(--pink-strong);
+      font-weight: 800;
+      font-size: 0.92rem;
+      transition: 0.2s ease;
+      width: fit-content;
+    }
+
+    .resource-btn:hover {
+      background: var(--pink-strong);
+      color: white;
+      transform: translateY(-2px);
     }
 
     .two-col {
@@ -214,271 +462,378 @@
       gap: 18px;
     }
 
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 10px;
+    .box {
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid rgba(214, 107, 232, 0.12);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 22px;
     }
 
-    .pill {
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(242, 177, 90, 0.12);
-      color: #ffe2b9;
-      border: 1px solid rgba(242, 177, 90, 0.22);
-      font-size: 0.9rem;
-      font-weight: 700;
+    .box h3 {
+      font-size: 1.05rem;
+      color: #6f3d67;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    .box p {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 0.98rem;
+    }
+
+    .list {
+      margin-top: 12px;
+      padding-left: 20px;
+      color: var(--text);
+      line-height: 1.75;
+    }
+
+    .list li {
+      margin-bottom: 8px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .shot {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(214, 107, 232, 0.12);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .shot img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+      background: #fff;
+    }
+
+    .shot .caption {
+      padding: 12px 14px;
+      color: #6f5e79;
+      font-size: 0.94rem;
+      border-top: 1px solid rgba(214, 107, 232, 0.10);
+      background: rgba(255, 255, 255, 0.92);
+    }
+
+    .full-width-card {
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid rgba(214, 107, 232, 0.12);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+
+    .full-width-card p {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 0.98rem;
+      max-width: 920px;
     }
 
     .footer-note {
       text-align: center;
-      color: rgba(255,255,255,0.72);
-      font-size: 0.92rem;
-      padding: 20px 0 0;
+      padding: 34px 20px 46px;
+      color: var(--pink-strong);
+      font-size: 0.98rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
     }
 
-    @media (max-width: 900px) {
-      .section-row,
+    @media (max-width: 980px) {
+
+      .hero-media,
+      .feature-grid,
+      .resource-grid,
       .two-col,
       .gallery-grid {
         grid-template-columns: 1fr;
       }
 
-      .shot img {
-        height: 220px;
+      .hero-banner img {
+        min-height: 320px;
       }
 
-      .panel {
-        padding: 24px;
+      .shot img {
+        height: 240px;
       }
     }
 
     @media (max-width: 640px) {
+      .header-inner {
+        padding: 14px 16px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        gap: 18px;
+      }
+
       main {
-        padding: 20px 14px 56px;
+        padding: 28px 14px 56px;
+      }
+
+      .panel {
+        padding: 22px;
       }
 
       .title {
-        font-size: 1.9rem;
+        font-size: 2rem;
       }
 
-      .subtitle {
-        font-size: 1.05rem;
+      .hero-text,
+      .section-lead {
+        font-size: 0.98rem;
+      }
+
+      .resource-card {
+        min-height: auto;
       }
     }
-			header {
-	  position: sticky;
-	  top: 0;
-	  z-index: 1000;
-	  background: #3b3b3b;
-	  border-bottom: 1px solid rgba(255,255,255,0.08);
-	  box-shadow: 0 8px 26px rgba(0,0,0,0.18);
-	  backdrop-filter: blur(10px);
-	}
-
-	.header-inner {
-	  max-width: 1180px;
-	  margin: 0 auto;
-	  padding: 16px 22px;
-	  display: flex;
-	  align-items: center;
-	  justify-content: space-between;
-	  gap: 24px;
-	}
-
-	.brand {
-	  display: flex;
-	  flex-direction: column;
-	  gap: 4px;
-	  font-size: 0.9rem;
-	  font-weight: 900;
-	  letter-spacing: 0.14em;
-	  text-transform: uppercase;
-	  color: #f0f0f0;
-	  white-space: nowrap;
-	}
-
-	.brand small {
-	  font-size: 0.72rem;
-	  letter-spacing: 0.28em;
-	  color: rgba(255,255,255,0.72);
-	  font-weight: 700;
-	}
-
-	nav {
-	  display: flex;
-	  align-items: center;
-	  gap: 34px;
-	  flex-wrap: wrap;
-	}
-
-	nav a {
-	  color: rgba(255,255,255,0.52);
-	  font-size: 0.95rem;
-	  font-weight: 800;
-	  letter-spacing: 0.08em;
-	  text-transform: uppercase;
-	  transition: color 0.2s ease;
-	}
-
-	nav a:hover,
-	nav a.active {
-	  color: #f974a6;
-	}
-
-	@media (max-width: 640px) {
-	  .header-inner {
-		padding: 14px 16px;
-		flex-direction: column;
-		align-items: flex-start;
-	  }
-
-	  nav {
-		gap: 18px;
-	  }
-	}
   </style>
-  
 </head>
-<body>
-	 <header>
-	  <div class="header-inner">
-		<div class="brand">
-		  Enqi Wang
-		  <small>Portfolio</small>
-		</div>
 
-		<nav aria-label="Primary">
-		  <a href="index.html">Home</a>
-		  <a href="contact.html">About / Contact</a>
-		</nav>
-	  </div>
-	</header>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        Enqi Wang
+        <small>Portfolio</small>
+      </div>
+
+      <nav aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="contact.html">About / Contact</a>
+      </nav>
+    </div>
+  </header>
 
   <main>
     <section class="panel hero">
+      <div class="project-tag">Game / Art / Hardware</div>
       <h1 class="title">Kapture the Snake of 88'</h1>
       <div class="subtitle">Co-op Horror Investigation</div>
-      <div class="rule"></div>
 
-      <div class="video-frame">
-        <img src="icons_images/Kapture the snake of 88'.PNG" alt="Kapture the Snake of 88 project banner">
+      <p class="hero-text">
+        A co-op horror mystery set in 1988 where players investigate the abandoned Kappa House,
+        gather evidence, question spirits, and uncover the truth behind the case.
+        This page is set up to highlight the character work, environment work, and project materials first.
+      </p>
+
+      <div class="hero-media">
+        <div class="hero-banner presentation-frame">
+          <iframe src="https://canva.link/ep6rpiz8vre2xi0" allowfullscreen loading="lazy">
+          </iframe>
+        </div>
+
+        <div class="hero-side-card">
+          <div class="info-grid">
+            <div class="info-card">
+              <span class="label">Team</span>
+              <div class="value">Designed and developed by Magen Mozeh and Enqi Wang</div>
+            </div>
+
+            <div class="info-card">
+              <span class="label">Focus</span>
+              <div class="value">Character art, environment art, game systems, and hardware controller design</div>
+            </div>
+
+            <div class="info-card">
+              <span class="label">Tools Used</span>
+              <div class="value">
+                Unity, C#, Blender, Fusion 360, Substance Painter, Photoshop,
+                VRoid Studio, Bambu Studio, and LLM / voice integration
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="label">Quick Links</div>
+            <div class="pill-row">
+              <span class="pill">Trailer / Video</span>
+              <span class="pill">Pitch Deck PDF</span>
+              <span class="pill">Development Log PDF</span>
+              <span class="pill">Controller Project</span>
+            </div>
+
+            <div class="button-row" style="margin-top: 16px;">
+              <a class="primary-btn" href="#featured-art">View Artwork</a>
+              <a class="secondary-btn" href="#resources">Project Files</a>
+            </div>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="section-row">
-        <div class="meta-grid">
-          <div class="meta-item">
-            <span class="label">Genre</span>
-            <div class="value">Co-op Horror Investigation</div>
+    <section class="panel" id="featured-art">
+      <h2 class="section-title">Featured Art</h2>
+      <p class="section-lead">
+        This section is built to show the work you want to showcase most: the character designs and the environments.
+        Replace these images with your final art, concept sheets, renders, or scene captures.
+      </p>
+
+      <div class="feature-grid">
+        <article class="feature-card large">
+          <div class="feature-image">
+            <img src="icons_images/game.PNG" alt="Environment showcase">
+            <div class="overlay">Environment Art</div>
           </div>
-
-          <div class="meta-item">
-            <span class="label">Players</span>
-            <div class="value">2-Player Local Split-Screen Co-op<br>(Online TBD)</div>
+          <div class="feature-body">
+            <div class="feature-title">Environment Showcase</div>
+            <div class="feature-text">
+              Replace this with your strongest scene renders, layout views, or lighting passes.
+              This card should be the main visual hook for the project.
+            </div>
           </div>
+        </article>
 
-          <div class="meta-item">
-            <span class="label">Tools Used</span>
-            <div class="value compact">Unity<br>C#<br>Blender<br>Fusion 360<br>Substance Painter<br>Photoshop<br>VRoid Studio<br>LLM / Voice Integration</div>
+        <article class="feature-card large">
+          <div class="feature-image">
+            <img src="icons_images/frieren.png" alt="Character showcase">
+            <div class="overlay">Character Design</div>
           </div>
-        </div>
+          <div class="feature-body">
+            <div class="feature-title">Character Showcase</div>
+            <div class="feature-text">
+              Use this space for character concepts, model sheets, facial expressions, or in-game character captures.
+              If you have turnarounds, put them here.
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
 
-        <div class="overview">
-          <h3>Overview</h3>
-          <p>
-            In 1988, seven USC students were found dead inside Kappa House after a college party, and the case remained unsolved for over forty years. Hired by an anonymous client, players take on the role of independent investigators who return to the abandoned site armed with a Snake Camera, a device capable of connecting the living to the spirit world.
-          </p>
-          <p style="margin-top: 12px;">
-            By gathering clues, photographing evidence, and questioning the spirits of the victims, players must uncover the truth behind the tragedy.
-          </p>
-        </div>
+    <section class="panel" id="resources">
+      <h2 class="section-title">Project Resources</h2>
+      <p class="section-lead">
+        Keep these as simple cards so the page stays clean. You can later swap each button to a PDF, a video link, or a
+        full page.
+      </p>
+
+      <div class="resource-grid">
+        <article class="box resource-card">
+          <h3>Development Log</h3>
+          <p>Weekly notes, process images, iteration history, and production updates.</p>
+          <a class="resource-btn" href="pdfs/development_log.pdf" target="_blank" rel="noopener noreferrer">
+            Open PDF
+          </a>
+        </article>
+
+        <article class="box resource-card">
+          <h3>Pitch Deck</h3>
+          <p>Original concept deck, project goals, gameplay pitch, and visual direction.</p>
+          <a class="resource-btn" href="pdfs/pitch_deck.pdf" target="_blank" rel="noopener noreferrer">
+            View Deck
+          </a>
+        </article>
+
+        <article class="box resource-card">
+          <h3>Project Video</h3>
+          <p>Trailer or gameplay video. This can link to YouTube, Vimeo, or an embedded page.</p>
+          <a class="resource-btn" href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
+            Watch Video
+          </a>
+        </article>
+
+        <article class="box resource-card">
+          <h3>Hardware Controller</h3>
+          <p>Custom SnakeBoy controller project with enclosure design, PCB work, and assembly.</p>
+          <a class="resource-btn" href="controller.html">
+            View Controller
+          </a>
+        </article>
       </div>
     </section>
 
     <section class="panel">
-      <div class="two-col">
-        <div class="breakdown">
-          <h3>Gameplay</h3>
-          <p>
-            Explore haunted locations, ask ghosts questions through the microphone, and capture ghosts using your camera device while gathering testimonies.
-          </p>
-          <ul class="list">
-            <li>Cooperative deduction gameplay</li>
-            <li>Voice-based ghost interactions</li>
-            <li>Evidence bulletin board system</li>
-            <li>Randomized killer system</li>
-          </ul>
-        </div>
-
-        <div class="breakdown">
-          <h3>Final Voting Phase</h3>
-          <p>
-            After gathering evidence, players enter a final voting phase to determine the true murderer. The team must discuss the clues they uncovered and vote correctly to successfully complete the investigation.
-          </p>
-          <div class="pill-row">
-            <span class="pill">Voice LLM</span>
-            <span class="pill">Deduction</span>
-            <span class="pill">Co-op Mystery</span>
-            <span class="pill">Evidence Gathering</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="panel">
-      <h3 style="color: var(--accent); font-size: 1.2rem; margin-bottom: 10px; font-weight: 800;">My Role &amp; Ownerships</h3>
-      <div class="two-col">
-        <div class="meta-item">
-          <div class="text">
-            <strong>Game Design</strong><br>
-            Narrative structure, gameplay loops, deduction flow, and player experience.
-          </div>
-        </div>
-        <div class="meta-item">
-          <div class="text">
-            <strong>Production &amp; Visuals</strong><br>
-            Environment art direction, level dressing, asset integration, character art and polish.
-          </div>
-        </div>
-      </div>
-
-      <div style="margin-top: 16px;" class="meta-item">
-        <div class="text">
-          <strong>Systems</strong><br>
-          Custom controller concept, evidence board design, interactive ghost dialogue, and gameplay support systems.
-        </div>
-      </div>
-    </section>
-
-    <section class="panel gallery">
-      <h3>Development Gallery</h3>
-      <p class="text" style="color: var(--muted); margin-bottom: 14px;">
-        Use this section for screenshots, posters, and development stills. Each image can have a short caption.
+      <h2 class="section-title">Gallery</h2>
+      <p class="section-lead">
+        Use this area for extra screenshots, sketches, world-building images, and development stills.
+        It works well for environment passes, character iterations, and any polish shots.
       </p>
 
       <div class="gallery-grid">
-        <div class="shot">
-          <img src="icons_images/game.PNG" alt="In-game scene 1">
-          <div class="caption">Core scene / gameplay view</div>
+        <figure class="shot">
+          <img src="icons_images/game.PNG" alt="Environment screenshot or concept">
+          <figcaption class="caption">Environment / scene shot</figcaption>
+        </figure>
+
+        <figure class="shot">
+          <img src="icons_images/frieren.png" alt="Character screenshot or concept">
+          <figcaption class="caption">Character / design shot</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="two-col">
+        <div class="box">
+          <h3>Gameplay</h3>
+          <p>
+            Explore haunted spaces, gather evidence, question spirits, and use the snake camera to uncover hidden
+            information.
+            The design supports co-op deduction and a final voting phase.
+          </p>
+          <ul class="list">
+            <li>Co-op mystery gameplay</li>
+            <li>Voice interaction with ghosts</li>
+            <li>Evidence collection and deduction</li>
+            <li>Final voting phase</li>
+          </ul>
         </div>
-        <div class="shot">
-          <img src="icons_images/frieren.png" alt="In-game scene 2">
-          <div class="caption">Atmospheric environment / art direction</div>
+
+        <div class="box">
+          <h3>My Contributions</h3>
+          <p>
+            This page is a good place to separate your role from the team's work. It keeps the focus on what you made.
+          </p>
+          <ul class="list">
+            <li>Character art and character design</li>
+            <li>Environment art and scene dressing</li>
+            <li>Hardware controller design support</li>
+            <li>Game systems and implementation support</li>
+          </ul>
         </div>
       </div>
     </section>
 
     <section class="panel">
-      <h3 style="color: var(--accent); font-size: 1.2rem; margin-bottom: 10px; font-weight: 800;">Reflection</h3>
-      <p class="text">
-        This project expanded my ability to combine game design, narrative, and systems thinking into a cohesive playable experience. It strengthened my Unity workflow, improved my ability to iterate quickly, and taught me how to balance atmosphere with clear gameplay goals.
-      </p>
+      <div class="full-width-card">
+        <h2 class="section-title" style="margin-bottom: 12px;">Project Overview</h2>
+        <p>
+          In 1988, seven USC students were found dead inside Kappa House after a college party, and the case remained
+          unsolved for over forty years.
+          Hired by an anonymous client, players return to the abandoned site as independent investigators armed with a
+          Snake Camera that connects the living to the spirit world.
+          The project combines horror, deduction, environmental storytelling, and interactive dialogue systems.
+        </p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="full-width-card">
+        <h2 class="section-title" style="margin-bottom: 12px;">Reflection</h2>
+        <p>
+          This project strengthened my game art workflow and helped me practice creating a consistent visual identity
+          across character design, environment design, and presentation materials.
+          It also gave me experience working across the full process, from concept work and visual development to
+          hardware and gameplay support.
+        </p>
+      </div>
     </section>
   </main>
 
   <div class="footer-note">Enqi Wang © 2026</div>
-
-  
 </body>
+
 </html>
+```

@@ -526,13 +526,41 @@
       white-space: nowrap;
     }
 
-    .sheet-table td:nth-child(2) { min-width: 72px; }   /* Level */
-    .sheet-table td:nth-child(3) { min-width: 92px; }   /* Part # */
-    .sheet-table td:nth-child(4) { min-width: 220px; }  /* Part Name */
-    .sheet-table td:nth-child(5) { min-width: 360px; }  /* Description */
-    .sheet-table td:nth-child(6) { min-width: 82px; }   /* Material */
-    .sheet-table td:nth-child(7) { min-width: 92px; }   /* Cost */
-    .sheet-table td:nth-child(8) { min-width: 140px; }  /* Vendor */
+    .sheet-table td:nth-child(2) {
+      min-width: 72px;
+    }
+
+    /* Level */
+    .sheet-table td:nth-child(3) {
+      min-width: 92px;
+    }
+
+    /* Part # */
+    .sheet-table td:nth-child(4) {
+      min-width: 220px;
+    }
+
+    /* Part Name */
+    .sheet-table td:nth-child(5) {
+      min-width: 360px;
+    }
+
+    /* Description */
+    .sheet-table td:nth-child(6) {
+      min-width: 82px;
+    }
+
+    /* Material */
+    .sheet-table td:nth-child(7) {
+      min-width: 92px;
+    }
+
+    /* Cost */
+    .sheet-table td:nth-child(8) {
+      min-width: 140px;
+    }
+
+    /* Vendor */
 
     .sheet-table td:nth-child(7) {
       white-space: nowrap;
@@ -669,6 +697,20 @@
         margin-bottom: 12px;
       }
     }
+
+    .process-list {
+      max-width: 850px;
+      margin: 20px auto 0;
+      padding-left: 24px;
+
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    .process-list li {
+      margin-bottom: 8px;
+    }
   </style>
 </head>
 
@@ -692,7 +734,7 @@
       <div class="underline"></div>
       <p class="lead">
         A custom Snake camera controller made as a hardware prop for <em>Kapture the Snake of 88'</em>.
-        The enclosure was designed in Fusion 360 and printed with a Bambu Lab P1S using PLA.
+        The enclosure was designed in Fusion 360 and printed with a Bambu Lab P1S using PLA. Co-designed and developed by Magen Mozeh and Enqi Wang.
       </p>
 
       <div class="viewer-wrap">
@@ -702,14 +744,20 @@
 
     <section class="process-section">
       <h2 class="gallery-title">Build Process</h2>
-      <p class="bom-intro">
-        Prototype flow from Enclosure Design, 3D Printing Parts, Raw Prototype, PCB DFM, Hardware assembly and final
-        fit-up.
-      </p>
+      
 
       <div class="process-card">
         <img src="icons_images/Controller/Controller_Design_Process.png" alt="Controller Process" class="process-image">
       </div>
+      <ul class="process-list">
+      <li>CAD enclosure design with measured dimensions (Fusion 360)</li>
+      <li>Developed and reviewed custom PCB layouts</li>
+      <li>Created a Bill of Materials (BOM) and component cost-analysis</li>
+      <li>3D printing (Slicer: Bambu Studio. Printer: Bambu Lab P1s)</li>
+      <li>Raw Prototype fabrication and assembly</li>
+      <li>PCB soldering and electronics integration</li>
+      <li>Testing, debugging, and validation</li>
+    </ul>
     </section>
 
     <section class="gallery-section">
@@ -742,7 +790,7 @@
 
       <div class="bom-stats">
         <div class="stat">
-          <span>16</span>
+          <span>19</span>
           <p>Total Line Items</p>
         </div>
         <div class="stat">
@@ -1004,6 +1052,11 @@
         </a>
       </div>
     </section>
+     <p class="bom-intro">
+        Copyright © 2026 Magen Mozeh and Enqi Wang. 
+        All hardware designs, schematics, layouts, and related documentation are the intellectual property of Magen Mozeh and Enqi Wang. 
+
+      </p>
   </main>
 
   <script>
