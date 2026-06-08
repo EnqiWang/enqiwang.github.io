@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,7 +8,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
 
   <style>
     :root {
@@ -191,111 +193,112 @@
       text-transform: uppercase;
       letter-spacing: 0.06em;
     }
+
     .carousel-card {
-    max-width: 780px;
-    margin: 0 auto 4px;
-    position: relative;
-    background: rgba(255, 255, 255, 0.86);
-    border: 1px solid rgba(214, 107, 232, 0.12);
-    box-shadow: var(--shadow);
-    border-radius: 22px;
-    overflow: hidden;
+      max-width: 780px;
+      margin: 0 auto 4px;
+      position: relative;
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid rgba(214, 107, 232, 0.12);
+      box-shadow: var(--shadow);
+      border-radius: 22px;
+      overflow: hidden;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-    padding: 10px;
-  }
+      padding: 10px;
+    }
 
-  .carousel-image-wrap {
-    width: 100%;
-    height: 100%;
-    padding: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+    .carousel-image-wrap {
+      width: 100%;
+      height: 100%;
+      padding: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-  .carousel-image-wrap img {
-    max-width: 100%;
-    max-height: 390px;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    display: block;
-  }
+    .carousel-image-wrap img {
+      max-width: 100%;
+      max-height: 390px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
 
-  .carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 2;
-    border: none;
-    background: rgba(255,255,255,0.88);
-    color: var(--pink-strong);
-    width: 44px;
-    height: 44px;
-    border-radius: 999px;
-    cursor: pointer;
-    font-size: 1.35rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 10px 22px rgba(167, 97, 207, 0.16);
-  }
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      border: none;
+      background: rgba(255, 255, 255, 0.88);
+      color: var(--pink-strong);
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 1.35rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 22px rgba(167, 97, 207, 0.16);
+    }
 
-  .carousel-btn:hover {
-    background: rgba(255,255,255,0.98);
-    color: var(--pink);
-  }
+    .carousel-btn:hover {
+      background: rgba(255, 255, 255, 0.98);
+      color: var(--pink);
+    }
 
-  .prev-btn {
-    left: 14px;
-  }
+    .prev-btn {
+      left: 14px;
+    }
 
-  .next-btn {
-    right: 14px;
-  }
+    .next-btn {
+      right: 14px;
+    }
 
-  .carousel-dots {
-    margin-top: 14px;
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-bottom: 40px;
-  }
+    .carousel-dots {
+      margin-top: 14px;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
 
 
-  .carousel-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    border: none;
-    background: rgba(255,255,255,0.28);
-    cursor: pointer;
-  }
+    .carousel-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255, 255, 255, 0.28);
+      cursor: pointer;
+    }
 
-  .carousel-dot.active {
-    background: var(--pink);
-  }
+    .carousel-dot.active {
+      background: var(--pink);
+    }
 
     .bom-intro {
-        text-align: center;
-        max-width: 860px;
-        margin: 0 auto 22px;
-        color: var(--muted);
-        line-height: 1.85;
-        font-size: 1rem;
+      text-align: center;
+      max-width: 860px;
+      margin: 0 auto 22px;
+      color: var(--muted);
+      line-height: 1.85;
+      font-size: 1rem;
     }
 
     .bom-stats {
-        max-width: 860px;
-        margin: 0 auto 20px;
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 14px;
+      max-width: 860px;
+      margin: 0 auto 20px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
     }
 
     .stat {
@@ -370,7 +373,7 @@
     .bom-table td.level {
       white-space: nowrap;
       width: 70px;
-      color: rgba(255,255,255,0.78);
+      color: rgba(255, 255, 255, 0.78);
     }
 
     .bom-table td.partnum {
@@ -382,7 +385,7 @@
 
     .bom-table td.vendor {
       white-space: nowrap;
-      color: rgba(255,255,255,0.82);
+      color: rgba(255, 255, 255, 0.82);
     }
 
     .process-section {
@@ -423,15 +426,17 @@
       background: #ffffff;
     }
 
+
     .sheet-frame {
       max-width: 900px;
       margin: 0 auto;
       background: #ffffff;
       color: #202020;
-      border-radius: 22px;
-      border: 1px solid rgba(214, 107, 232, 0.12);
-      box-shadow: var(--shadow);
+      border-radius: 12px;
+      border: 1px solid #d7d7d7;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
       overflow: hidden;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
     .sheet-topbar {
@@ -439,109 +444,123 @@
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      padding: 10px 14px;
-      background: linear-gradient(180deg, #fff6fb, #f5eefb);
-      border-bottom: 1px solid rgba(214, 107, 232, 0.12);
+      padding: 8px 12px;
+      background: linear-gradient(180deg, #ffffff, #f4f4f4);
+      border-bottom: 1px solid #d9d9d9;
     }
 
     .sheet-topbar strong {
       display: block;
-      font-size: 0.96rem;
-      color: #4f3b57;
+      font-size: 0.95rem;
+      color: #444;
+      font-weight: 700;
     }
 
     .sheet-topbar span {
       display: block;
-      font-size: 0.82rem;
-      color: #7a6a83;
+      font-size: 0.78rem;
+      color: #777;
       margin-top: 2px;
     }
 
     .sheet-pill {
-      background: #ffffff;
-      color: #7a4c06;
-      border: 1px solid rgba(214, 107, 232, 0.14);
+      background: #f8f8f8;
+      color: #666;
+      border: 1px solid #d2d2d2;
       border-radius: 999px;
-      padding: 7px 11px;
-      font-size: 0.76rem;
+      padding: 6px 10px;
+      font-size: 0.72rem;
       font-weight: 700;
       white-space: nowrap;
     }
 
     .sheet-scroll {
       overflow-x: auto;
-      background: #fafafa;
+      background: #ffffff;
     }
 
     .sheet-table {
       width: 100%;
-      min-width: 920px;
+      min-width: 1110px;
       border-collapse: collapse;
-      font-size: 0.74rem;
+      font-size: 0.72rem;
+      line-height: 1.15;
     }
 
     .sheet-table thead th,
     .sheet-table tbody th,
     .sheet-table td {
-      background: white;
+      border: 1px solid #e0e0e0;
+      padding: 6px 8px;
+      text-align: left;
+      vertical-align: top;
+      background: #ffffff;
       color: #222;
     }
 
     .sheet-table thead th {
-      background: #f6f0f8;
-      color: #6a5a75;
-      font-size: 0.76rem;
-      font-weight: 800;
+      background: #f3f3f3;
+      color: #5f5f5f;
+      font-size: 0.73rem;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.05em;
       text-align: center;
       position: sticky;
       top: 0;
       z-index: 1;
+      white-space: nowrap;
     }
 
     .sheet-table thead .sheet-corner {
-      background: linear-gradient(135deg, #f2e4f7, #ead7f4);
-      width: 48px;
+      background: #ededed;
+      width: 42px;
     }
 
     .sheet-table tbody th {
-      background: #faf6fc;
-      width: 48px;
+      background: #f7f7f7;
+      width: 42px;
       text-align: center;
-      color: #7a6a83;
+      color: #666;
       font-weight: 700;
+      white-space: nowrap;
     }
 
-    .sheet-table td {
-      background: white;
-      color: #222;
-    }
-
-    .sheet-header-row td {
-      background: #fff0f6;
-      font-weight: 800;
-      color: #7d3866;
-    }
-
-    .sheet-total-row td,
-    .sheet-total-row th {
-      background: #fff8ec;
-    }
-
-    .sheet-total-row td strong {
-      color: #7a4c06;
-    }
+    .sheet-table td:nth-child(2) { min-width: 72px; }   /* Level */
+    .sheet-table td:nth-child(3) { min-width: 92px; }   /* Part # */
+    .sheet-table td:nth-child(4) { min-width: 220px; }  /* Part Name */
+    .sheet-table td:nth-child(5) { min-width: 360px; }  /* Description */
+    .sheet-table td:nth-child(6) { min-width: 82px; }   /* Material */
+    .sheet-table td:nth-child(7) { min-width: 92px; }   /* Cost */
+    .sheet-table td:nth-child(8) { min-width: 140px; }  /* Vendor */
 
     .sheet-table td:nth-child(7) {
       white-space: nowrap;
       font-variant-numeric: tabular-nums;
+      text-align: right;
     }
 
-    .sheet-table td:nth-child(3),
     .sheet-table td:nth-child(4),
+    .sheet-table td:nth-child(5),
     .sheet-table td:nth-child(8) {
-      min-width: 130px;
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    .sheet-header-row td {
+      background: #eaf4e2;
+      font-weight: 700;
+      color: #365b2e;
+      white-space: nowrap;
+    }
+
+    .sheet-total-row td,
+    .sheet-total-row th {
+      background: #fff7df;
+    }
+
+    .sheet-total-row td strong {
+      color: #7a4c06;
     }
 
     .bom-actions {
@@ -681,41 +700,39 @@
       </div>
     </section>
 
-     <section class="process-section">
+    <section class="process-section">
       <h2 class="gallery-title">Build Process</h2>
       <p class="bom-intro">
-        Prototype flow from Enclosure Design, 3D Printing Parts, Raw Prototype, PCB DFM, Hardware assembly and final fit-up.
+        Prototype flow from Enclosure Design, 3D Printing Parts, Raw Prototype, PCB DFM, Hardware assembly and final
+        fit-up.
       </p>
 
       <div class="process-card">
-      <img
-        src="icons_images/Controller/Controller_Design_Process.png"
-        alt="Controller Process"
-        class="process-image">
-    </div>
+        <img src="icons_images/Controller/Controller_Design_Process.png" alt="Controller Process" class="process-image">
+      </div>
     </section>
 
     <section class="gallery-section">
-  <h2 class="gallery-title">Controller Gallery</h2>
+      <h2 class="gallery-title">Controller Gallery</h2>
 
-  <div class="carousel-card">
-    <button class="carousel-btn prev-btn" type="button" aria-label="Previous image">
-      &#10094;
-    </button>
+      <div class="carousel-card">
+        <button class="carousel-btn prev-btn" type="button" aria-label="Previous image">
+          &#10094;
+        </button>
 
-    <div class="carousel-image-wrap">
-      <img id="galleryImage" src="icons_images/Controller/Controller1.png" alt="Controller 1">
-    </div>
+        <div class="carousel-image-wrap">
+          <img id="galleryImage" src="icons_images/Controller/Controller1.png" alt="Controller 1">
+        </div>
 
-    <button class="carousel-btn next-btn" type="button" aria-label="Next image">
-      &#10095;
-    </button>
-  </div>
+        <button class="carousel-btn next-btn" type="button" aria-label="Next image">
+          &#10095;
+        </button>
+      </div>
 
-  <div class="carousel-dots" id="carouselDots"></div>
-</section>
+      <div class="carousel-dots" id="carouselDots"></div>
+    </section>
 
-   
+
 
     <section class="bom-section">
       <h2 class="gallery-title">Bill of Materials (BOM)</h2>
@@ -990,59 +1007,60 @@
   </main>
 
   <script>
-  const galleryImages = [
-    "icons_images/Controller/Controller1.png",
-    "icons_images/Controller/Controller2.png",
-    "icons_images/Controller/Controller3.png",
-    "icons_images/Controller/Controller4.png"
-  ];
+    const galleryImages = [
+      "icons_images/Controller/Controller1.png",
+      "icons_images/Controller/Controller2.png",
+      "icons_images/Controller/Controller3.png",
+      "icons_images/Controller/Controller4.png"
+    ];
 
-  const galleryAlts = [
-    "Controller 1",
-    "Controller 2",
-    "Controller 3",
-    "Controller 4"
-  ];
+    const galleryAlts = [
+      "Controller 1",
+      "Controller 2",
+      "Controller 3",
+      "Controller 4"
+    ];
 
-  let currentIndex = 0;
+    let currentIndex = 0;
 
-  const galleryImage = document.getElementById("galleryImage");
-  const prevBtn = document.querySelector(".prev-btn");
-  const nextBtn = document.querySelector(".next-btn");
-  const dotsContainer = document.getElementById("carouselDots");
+    const galleryImage = document.getElementById("galleryImage");
+    const prevBtn = document.querySelector(".prev-btn");
+    const nextBtn = document.querySelector(".next-btn");
+    const dotsContainer = document.getElementById("carouselDots");
 
-  function renderDots() {
-    dotsContainer.innerHTML = "";
-    galleryImages.forEach((_, index) => {
-      const dot = document.createElement("button");
-      dot.className = "carousel-dot" + (index === currentIndex ? " active" : "");
-      dot.type = "button";
-      dot.setAttribute("aria-label", `View image ${index + 1}`);
-      dot.addEventListener("click", () => {
-        currentIndex = index;
-        updateGallery();
+    function renderDots() {
+      dotsContainer.innerHTML = "";
+      galleryImages.forEach((_, index) => {
+        const dot = document.createElement("button");
+        dot.className = "carousel-dot" + (index === currentIndex ? " active" : "");
+        dot.type = "button";
+        dot.setAttribute("aria-label", `View image ${index + 1}`);
+        dot.addEventListener("click", () => {
+          currentIndex = index;
+          updateGallery();
+        });
+        dotsContainer.appendChild(dot);
       });
-      dotsContainer.appendChild(dot);
+    }
+
+    function updateGallery() {
+      galleryImage.src = galleryImages[currentIndex];
+      galleryImage.alt = galleryAlts[currentIndex];
+      renderDots();
+    }
+
+    prevBtn.addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+      updateGallery();
     });
-  }
 
-  function updateGallery() {
-    galleryImage.src = galleryImages[currentIndex];
-    galleryImage.alt = galleryAlts[currentIndex];
-    renderDots();
-  }
+    nextBtn.addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % galleryImages.length;
+      updateGallery();
+    });
 
-  prevBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
     updateGallery();
-  });
-
-  nextBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % galleryImages.length;
-    updateGallery();
-  });
-
-  updateGallery();
-</script>
+  </script>
 </body>
+
 </html>

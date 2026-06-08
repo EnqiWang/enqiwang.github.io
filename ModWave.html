@@ -1,66 +1,75 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Teritoria | Enqi Wang</title>
+  <title>Snakeboy Customized Controller | Enqi Wang</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
   <style>
     :root {
-      --bg: #2f2f2f;
-      --panel: #333333;
-      --panel-2: #383838;
-      --text: #f3f3f3;
-      --muted: #d1d1d1;
-      --accent: #f974a6;
-      --line: rgba(255,255,255,0.45);
-      --soft: rgba(255,255,255,0.08);
-      --shadow: 0 16px 44px rgba(0,0,0,0.34);
+      --pink: #ff6fae;
+      --pink-strong: #ff4f9a;
+      --pink-soft: #ffd6e8;
+      --lavender: #f6efff;
+      --lavender-2: #efe7ff;
+
+      --bg: #faf7ff;
+      --bg-2: #f5efff;
+      --panel: rgba(255, 255, 255, 0.82);
+      --panel-2: rgba(255, 255, 255, 0.92);
+
+      --text: #4a3a52;
+      --muted: #6f5e79;
+
+      --card: #ffffff;
+      --line: rgba(214, 107, 232, 0.16);
+
+      --shadow: 0 18px 44px rgba(167, 97, 207, 0.14);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     html {
       scroll-behavior: smooth;
-      background: var(--bg);
     }
 
     body {
       font-family: "Inter", sans-serif;
       color: var(--text);
-      background:
-        radial-gradient(circle at top, rgba(255,255,255,0.05), transparent 35%),
-        linear-gradient(180deg, #333333 0%, #2b2b2b 100%);
       min-height: 100vh;
+      padding-top: 78px;
+      background:
+        radial-gradient(circle at top left, rgba(255, 111, 174, 0.16), transparent 28%),
+        radial-gradient(circle at top right, rgba(185, 117, 255, 0.16), transparent 24%),
+        radial-gradient(circle at bottom left, rgba(255, 214, 232, 0.65), transparent 30%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
     }
 
-    a { color: inherit; text-decoration: none; }
-
-    main {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 36px 22px 72px;
-    }
-
-    .panel {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: var(--shadow);
-      padding: 34px;
-      margin-bottom: 22px;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
     header {
-      position: sticky;
+      position: fixed;
       top: 0;
+      left: 0;
+      width: 100%;
       z-index: 1000;
-      background: #3b3b3b;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255, 255, 255, 0.74);
+      border-bottom: 1px solid rgba(214, 107, 232, 0.14);
+      box-shadow: 0 8px 26px rgba(167, 97, 207, 0.08);
+      backdrop-filter: blur(14px);
     }
 
     .header-inner {
@@ -68,218 +77,990 @@
       margin: 0 auto;
       padding: 16px 22px;
       display: flex;
+      align-items: center;
       justify-content: space-between;
+      gap: 24px;
     }
 
     .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 0.9rem;
       font-weight: 900;
       letter-spacing: 0.14em;
       text-transform: uppercase;
+      color: #5d476a;
+      white-space: nowrap;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+      flex-wrap: wrap;
     }
 
     nav a {
-      margin-left: 24px;
-      font-weight: 700;
-      color: rgba(255,255,255,0.6);
-    }
-
-    nav a:hover { color: var(--accent); }
-
-    .hero { text-align: center; }
-
-    .title {
-      font-size: 2.6rem;
-      font-weight: 900;
-      margin-bottom: 10px;
-    }
-
-    .subtitle {
-      color: var(--accent);
-      margin-bottom: 18px;
-    }
-
-    .rule {
-      height: 1px;
-      background: var(--line);
-      margin: 20px auto;
-      width: 90%;
-    }
-
-    .video-frame img {
-      width: 100%;
-      aspect-ratio: 16/9;
-      object-fit: cover;
-    }
-
-    .section-row {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 28px;
-      margin-top: 28px;
-    }
-
-    .meta-item, .overview, .shot {
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.08);
-      padding: 16px;
-    }
-
-    .label {
-      font-size: 0.9rem;
+      color: rgba(93, 71, 106, 0.66);
+      font-size: 0.95rem;
       font-weight: 800;
-      color: var(--accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s ease, transform 0.2s ease;
     }
 
-    .value { margin-top: 4px; }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: repeat(2,1fr);
-      gap: 18px;
+    nav a:hover,
+    nav a.active {
+      color: var(--pink-strong);
+      transform: translateY(-1px);
     }
 
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(2,1fr);
-      gap: 18px;
-      margin-top: 14px;
+    main {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 44px 24px 72px;
     }
 
-    .shot img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
+    .section,
+    .process-section,
+    .gallery-section,
+    .bom-section {
+      background: rgba(255, 255, 255, 0.76);
+      border: 1px solid rgba(214, 107, 232, 0.12);
+      padding: 42px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow);
+      border-radius: 26px;
+      backdrop-filter: blur(10px);
     }
 
-    .caption {
-      font-size: 0.9rem;
-      margin-top: 8px;
+    .section-title {
+      text-align: center;
+      font-size: clamp(2rem, 3.8vw, 3.4rem);
+      line-height: 1.05;
+      font-weight: 900;
+      color: #6f3d67;
+      margin-bottom: 10px;
+      letter-spacing: -0.05em;
+    }
+
+    .underline {
+      width: min(420px, 70%);
+      height: 1px;
+      background: rgba(214, 107, 232, 0.25);
+      margin: 0 auto 28px;
+    }
+
+    .lead {
+      text-align: center;
+      max-width: 860px;
+      margin: 0 auto 26px;
       color: var(--muted);
+      line-height: 1.85;
+      font-size: 1.02rem;
+    }
+
+    .viewer-wrap {
+      margin: 28px auto 0;
+      width: 100%;
+      max-width: 900px;
+      aspect-ratio: 16 / 9;
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid rgba(214, 107, 232, 0.12);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      border-radius: 22px;
+    }
+
+    .viewer-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    .gallery-section {
+      margin-top: 60px;
+    }
+
+    .gallery-title {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--pink-strong);
+      margin-bottom: 18px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .carousel-card {
+      max-width: 780px;
+      margin: 0 auto 4px;
+      position: relative;
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid rgba(214, 107, 232, 0.12);
+      box-shadow: var(--shadow);
+      border-radius: 22px;
+      overflow: hidden;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 10px;
+    }
+
+    .carousel-image-wrap {
+      width: 100%;
+      height: 100%;
+      padding: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .carousel-image-wrap img {
+      max-width: 100%;
+      max-height: 390px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      border: none;
+      background: rgba(255, 255, 255, 0.88);
+      color: var(--pink-strong);
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 1.35rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 22px rgba(167, 97, 207, 0.16);
+    }
+
+    .carousel-btn:hover {
+      background: rgba(255, 255, 255, 0.98);
+      color: var(--pink);
+    }
+
+    .prev-btn {
+      left: 14px;
+    }
+
+    .next-btn {
+      right: 14px;
+    }
+
+    .carousel-dots {
+      margin-top: 14px;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+
+    .carousel-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255, 255, 255, 0.28);
+      cursor: pointer;
+    }
+
+    .carousel-dot.active {
+      background: var(--pink);
+    }
+
+    .bom-intro {
+      text-align: center;
+      max-width: 860px;
+      margin: 0 auto 22px;
+      color: var(--muted);
+      line-height: 1.85;
+      font-size: 1rem;
+    }
+
+    .bom-stats {
+      max-width: 860px;
+      margin: 0 auto 20px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .stat {
+      background: rgba(255, 255, 255, 0.84);
+      border: 1px solid rgba(214, 107, 232, 0.12);
+      box-shadow: var(--shadow);
+      border-radius: 18px;
+      padding: 16px 14px;
+      text-align: center;
+    }
+
+    .stat span {
+      display: block;
+      font-size: 1.28rem;
+      font-weight: 900;
+      color: var(--pink-strong);
+      letter-spacing: -0.03em;
+      margin-bottom: 6px;
+    }
+
+    .stat p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    .bom-table-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      overflow-x: auto;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(214, 107, 232, 0.12);
+      box-shadow: var(--shadow);
+      border-radius: 20px;
+    }
+
+    .bom-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 820px;
+      font-size: 0.92rem;
+    }
+
+    .bom-table thead th {
+      background: rgba(255, 111, 174, 0.12);
+      color: var(--pink-strong);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.8rem;
+    }
+
+    .bom-table th,
+    .bom-table td {
+      padding: 11px 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+
+    .bom-table tbody tr:hover {
+      background: rgba(255, 111, 174, 0.03);
+    }
+
+    .bom-table td.cost {
+      text-align: right;
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .bom-table td.level {
+      white-space: nowrap;
+      width: 70px;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .bom-table td.partnum {
+      white-space: nowrap;
+      width: 120px;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .bom-table td.vendor {
+      white-space: nowrap;
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .process-section {
+      margin-top: 0;
+    }
+
+    .process-card {
+      max-width: 900px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.84);
+      border: 1px solid rgba(214, 107, 232, 0.12);
+      box-shadow: var(--shadow);
+      border-radius: 24px;
+      padding: 14px;
+      position: relative;
+    }
+
+    .process-badge {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: rgba(255, 111, 174, 0.14);
+      color: var(--pink-strong);
+      border: 1px solid rgba(255, 111, 174, 0.25);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      z-index: 2;
+    }
+
+    .process-image {
+      width: 100%;
+      display: block;
+      border-radius: 18px;
+      background: #ffffff;
+    }
+
+
+    .sheet-frame {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      color: #202020;
+      border-radius: 12px;
+      border: 1px solid #d7d7d7;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+      overflow: hidden;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .sheet-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 8px 12px;
+      background: linear-gradient(180deg, #ffffff, #f4f4f4);
+      border-bottom: 1px solid #d9d9d9;
+    }
+
+    .sheet-topbar strong {
+      display: block;
+      font-size: 0.95rem;
+      color: #444;
+      font-weight: 700;
+    }
+
+    .sheet-topbar span {
+      display: block;
+      font-size: 0.78rem;
+      color: #777;
+      margin-top: 2px;
+    }
+
+    .sheet-pill {
+      background: #f8f8f8;
+      color: #666;
+      border: 1px solid #d2d2d2;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .sheet-scroll {
+      overflow-x: auto;
+      background: #ffffff;
+    }
+
+    .sheet-table {
+      width: 100%;
+      min-width: 1110px;
+      border-collapse: collapse;
+      font-size: 0.72rem;
+      line-height: 1.15;
+    }
+
+    .sheet-table thead th,
+    .sheet-table tbody th,
+    .sheet-table td {
+      border: 1px solid #e0e0e0;
+      padding: 6px 8px;
+      text-align: left;
+      vertical-align: top;
+      background: #ffffff;
+      color: #222;
+    }
+
+    .sheet-table thead th {
+      background: #f3f3f3;
+      color: #5f5f5f;
+      font-size: 0.73rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      white-space: nowrap;
+    }
+
+    .sheet-table thead .sheet-corner {
+      background: #ededed;
+      width: 42px;
+    }
+
+    .sheet-table tbody th {
+      background: #f7f7f7;
+      width: 42px;
+      text-align: center;
+      color: #666;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .sheet-table td:nth-child(2) { min-width: 72px; }   /* Level */
+    .sheet-table td:nth-child(3) { min-width: 92px; }   /* Part # */
+    .sheet-table td:nth-child(4) { min-width: 220px; }  /* Part Name */
+    .sheet-table td:nth-child(5) { min-width: 360px; }  /* Description */
+    .sheet-table td:nth-child(6) { min-width: 82px; }   /* Material */
+    .sheet-table td:nth-child(7) { min-width: 92px; }   /* Cost */
+    .sheet-table td:nth-child(8) { min-width: 140px; }  /* Vendor */
+
+    .sheet-table td:nth-child(7) {
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+      text-align: right;
+    }
+
+    .sheet-table td:nth-child(4),
+    .sheet-table td:nth-child(5),
+    .sheet-table td:nth-child(8) {
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    .sheet-header-row td {
+      background: #eaf4e2;
+      font-weight: 700;
+      color: #365b2e;
+      white-space: nowrap;
+    }
+
+    .sheet-total-row td,
+    .sheet-total-row th {
+      background: #fff7df;
+    }
+
+    .sheet-total-row td strong {
+      color: #7a4c06;
+    }
+
+    .bom-actions {
+      max-width: 900px;
+      margin: 18px auto 0;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 20px;
+      border: 1px solid var(--pink-strong);
+      color: var(--pink-strong);
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      border-radius: 999px;
+      transition: 0.2s ease;
+      background: rgba(255, 111, 174, 0.06);
+    }
+
+    .download-btn:hover {
+      background: var(--pink-strong);
+      color: white;
     }
 
     .footer-note {
       text-align: center;
-      margin: 20px;
-      color: rgba(255,255,255,0.7);
+      padding: 38px 20px 46px;
+      color: var(--pink-strong);
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+    }
+
+    @media (max-width: 900px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .shot {
+        height: 280px;
+      }
+
+      .bom-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .section,
+      .process-section,
+      .gallery-section,
+      .bom-section {
+        padding: 28px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .header-inner {
+        padding: 14px 18px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        gap: 18px;
+      }
+
+      main {
+        padding: 28px 16px 60px;
+      }
+
+      .section-title {
+        font-size: clamp(2rem, 8vw, 3rem);
+      }
+
+      .lead,
+      .bom-intro {
+        font-size: 1rem;
+      }
+
+      .gallery-title {
+        font-size: 1.35rem;
+      }
+
+      .bom-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .bom-table th,
+      .bom-table td {
+        padding: 12px 12px;
+      }
+
+      .sheet-topbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .process-badge {
+        position: static;
+        display: inline-flex;
+        margin-bottom: 12px;
+      }
     }
   </style>
 </head>
 
 <body>
-
-<header>
-  <div class="header-inner">
-    <div class="brand">Enqi Wang</div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="contact.html">About / Contact</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-
-<!-- HERO -->
-<section class="panel hero">
-  <h1 class="title">Teritoria</h1>
-  <div class="subtitle">Collaborative Roblox Game Project</div>
-  <div class="rule"></div>
-
-  <div class="video-frame">
-    <img src="icons_images/teritoria/game banner.jpg" alt="Teritoria banner">
-  </div>
-
-  <div class="section-row">
-    <div>
-      <div class="meta-item"><span class="label">Platform</span><div class="value">Roblox (PC, Ipad, Mobile)</div></div>
-      <div class="meta-item"><span class="label">Status</span><div class="value">Unreleased</div></div>
-      <div class="meta-item"><span class="label">Team Size</span><div class="value">~25</div></div>
-      <div class="meta-item"><span class="label">Tools</span><div class="value">Roblox Studio<br>Blender<br>Photoshop</div></div>
-      <div class="meta-item"><span class="label">Role</span><div class="value">3D Artist</div></div>
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        Enqi Wang
+        <small>Portfolio</small>
+      </div>
+      <nav aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="contact.html">About / Contact</a>
+      </nav>
     </div>
+  </header>
 
-    <div class="overview">
-      <h3 style="color:var(--accent);">Overview</h3>
-      <p>
-        Teritoria is a collaborative Roblox project developed with a team of over 30 students, featuring multiple stylized biomes and a strong emphasis on environmental storytelling.
+  <main>
+    <section class="section">
+      <h1 class="section-title">Custom Controller</h1>
+      <div class="underline"></div>
+      <p class="lead">
+        A custom Snake camera controller made as a hardware prop for <em>Kapture the Snake of 88'</em>.
+        The enclosure was designed in Fusion 360 and printed with a Bambu Lab P1S using PLA.
       </p>
-      <p style="margin-top:12px;">
-        As a 3D Artist, I focused on creating pixel-styled textures and assets for environments, props, and weapons, helping establish a cohesive visual identity across the game world.
+
+      <div class="viewer-wrap">
+        <iframe src="https://a360.co/3S0kGeT" title="Fusion 360 viewer" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <section class="process-section">
+      <h2 class="gallery-title">Build Process</h2>
+      <p class="bom-intro">
+        Prototype flow from Enclosure Design, 3D Printing Parts, Raw Prototype, PCB DFM, Hardware assembly and final
+        fit-up.
       </p>
-    </div>
-  </div>
-</section>
 
-<!-- ROLE -->
-<section class="panel">
-  <h3 style="color:var(--accent);">Role & Contributions</h3>
+      <div class="process-card">
+        <img src="icons_images/Controller/Controller_Design_Process.png" alt="Controller Process" class="process-image">
+      </div>
+    </section>
 
-  <div class="two-col">
-    <div class="meta-item">
-      <strong>3D Art & Texturing</strong><br>
-      Created pixel-styled textures for biomes, props, and weapons.
-    </div>
+    <section class="gallery-section">
+      <h2 class="gallery-title">Controller Gallery</h2>
 
-    <div class="meta-item">
-      <strong>Asset Creation</strong><br>
-      Modeled and textured assets using Blender and Photoshop.
-    </div>
-  </div>
+      <div class="carousel-card">
+        <button class="carousel-btn prev-btn" type="button" aria-label="Previous image">
+          &#10094;
+        </button>
 
-  <div class="meta-item" style="margin-top:16px;">
-    <strong>Collaboration</strong><br>
-    Worked within a team of ~25 developers and participated in monthly playtests.
-  </div>
+        <div class="carousel-image-wrap">
+          <img id="galleryImage" src="icons_images/Controller/Controller1.png" alt="Controller 1">
+        </div>
 
-  <div class="meta-item" style="margin-top:16px;">
-    <strong>Art Direction Support</strong><br>
-    Maintained consistent visual style across all biomes and assets.
-  </div>
-</section>
+        <button class="carousel-btn next-btn" type="button" aria-label="Next image">
+          &#10095;
+        </button>
+      </div>
 
-<!-- GALLERY -->
-<section class="panel">
-  <h3 style="color:var(--accent);">Art Gallery</h3>
+      <div class="carousel-dots" id="carouselDots"></div>
+    </section>
 
-  <div class="gallery-grid">
-    <div class="shot">
-      <img src="icons_images/teritoria/winter biome.png">
-      <div class="caption">Biome textures</div>
-    </div>
 
-    <div class="shot">
-      <img src="icons_images/teritoria/summer biome.png">
-      <div class="caption">Biome textures</div>
-    </div>
 
-    <div class="shot">
-      <img src="icons_images/teritoria/weapon.png">
-      <div class="caption">Weapon asset</div>
-    </div>
+    <section class="bom-section">
+      <h2 class="gallery-title">Bill of Materials (BOM)</h2>
+      <p class="bom-intro">
+        Total prototype cost: <strong>$378.70</strong>
+      </p>
 
-    <div class="shot">
-      <img src="icons_images/teritoria/lava.png">
-      <div class="caption">lava</div>
-    </div>
+      <div class="bom-stats">
+        <div class="stat">
+          <span>16</span>
+          <p>Total Line Items</p>
+        </div>
+        <div class="stat">
+          <span>$189.35</span>
+          <p>Prototype Cost Per Unit</p>
+        </div>
+        <div class="stat">
+          <span>10</span>
+          <p>3D Printed Parts</p>
+        </div>
+        <div class="stat">
+          <span>2</span>
+          <p>Custom PCB</p>
+        </div>
+      </div>
 
-    <div class="shot">
-      <img src="icons_images/teritoria/world view.png">
-      <div class="caption">World view</div>
-    </div>
-  </div>
-</section>
+      <div class="sheet-frame" aria-label="BOM spreadsheet preview">
+        <div class="sheet-topbar">
+          <div>
+            <strong>BOM.xlsx</strong>
+            <span>Spreadsheet preview</span>
+          </div>
+          <div class="sheet-pill">.xlsx preview</div>
+        </div>
 
-<!-- REFLECTION -->
-<section class="panel">
-  <h3 style="color:var(--accent);">Reflection</h3>
-  <p>
-    This project strengthened my ability to collaborate in large teams and maintain visual consistency across a shared game world. It also improved my efficiency with asset pipelines from Blender to Roblox Studio.
-  </p>
-</section>
+        <div class="sheet-scroll">
+          <table class="sheet-table">
+            <thead>
+              <tr>
+                <th class="sheet-corner"></th>
+                <th>A</th>
+                <th>B</th>
+                <th>C</th>
+                <th>D</th>
+                <th>E</th>
+                <th>F</th>
+                <th>G</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="sheet-header-row">
+                <th>1</th>
+                <td>Level</td>
+                <td>Part #</td>
+                <td>Part Name</td>
+                <td>Description</td>
+                <td>Material</td>
+                <td>Cost (USD)</td>
+                <td>Vendor</td>
+              </tr>
+              <tr>
+                <th>2</th>
+                <td>1</td>
+                <td>N/A</td>
+                <td>SnakeCam Game Controller Model</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <th>3</th>
+                <td>1.1</td>
+                <td>SC-000</td>
+                <td>Joystick Mount</td>
+                <td>3D printed joystick mounting bracket</td>
+                <td>PLA</td>
+                <td>$16.00</td>
+                <td>Bambu Lab P1S</td>
+              </tr>
+              <tr>
+                <th>4</th>
+                <td>1.2</td>
+                <td>SC-001</td>
+                <td>Front Housing</td>
+                <td>Front enclosure housing</td>
+                <td>PLA</td>
+                <td></td>
+                <td>Bambu Lab P1S</td>
+              </tr>
+              <tr>
+                <th>5</th>
+                <td>1.3</td>
+                <td>SC-002</td>
+                <td>Rear Housing</td>
+                <td>Rear enclosure housing</td>
+                <td>PLA</td>
+                <td></td>
+                <td>Bambu Lab P1S</td>
+              </tr>
+              <tr>
+                <th>6</th>
+                <td>1.4</td>
+                <td>SC-003</td>
+                <td>Snake Head</td>
+                <td>Articulated snake head</td>
+                <td>PLA</td>
+                <td></td>
+                <td>Bambu Lab P1S</td>
+              </tr>
+              <tr>
+                <th>7</th>
+                <td>1.4.1</td>
+                <td>SC-004</td>
+                <td>Snake Head Connector</td>
+                <td>Snake head connector</td>
+                <td>PLA</td>
+                <td></td>
+                <td>Bambu Lab P1S</td>
+              </tr>
+              <tr>
+                <th>8</th>
+                <td>1.4.2</td>
+                <td>SC-109</td>
+                <td>LED Light</td>
+                <td>Standard 4-pin 5mm RGB LED</td>
+                <td>N/A</td>
+                <td>$1.00</td>
+                <td>Amazon</td>
+              </tr>
+              <tr>
+                <th>9</th>
+                <td>1.4.3</td>
+                <td>SC-110</td>
+                <td>Wires</td>
+                <td>Black PVC wire harness tubing for wire protection</td>
+                <td>PVC</td>
+                <td>$10.00</td>
+                <td>uxcell</td>
+              </tr>
+              <tr>
+                <th>10</th>
+                <td>1.5</td>
+                <td>SC-005</td>
+                <td>USB-C Connector</td>
+                <td>USB-C interface connector</td>
+                <td>N/A</td>
+                <td>$5.00</td>
+                <td>Amazon</td>
+              </tr>
+              <tr>
+                <th>11</th>
+                <td>1.6</td>
+                <td>SC-101</td>
+                <td>PCB Assembly</td>
+                <td>Custom PCB assembly</td>
+                <td>N/A</td>
+                <td>$70.00</td>
+                <td>PCBWay</td>
+              </tr>
+              <tr>
+                <th>12</th>
+                <td>1.6.1</td>
+                <td>SC-111</td>
+                <td>Resistor Pack</td>
+                <td>3 × 220 Ohm resistors</td>
+                <td>N/A</td>
+                <td>$0.45</td>
+                <td></td>
+              </tr>
+              <tr>
+                <th>13</th>
+                <td>1.7</td>
+                <td>SC-102</td>
+                <td>Potentiometer</td>
+                <td>10k trim potentiometer</td>
+                <td>N/A</td>
+                <td>$1.25</td>
+                <td>SparkFun</td>
+              </tr>
+              <tr>
+                <th>14</th>
+                <td>1.8</td>
+                <td>SC-103</td>
+                <td>Slide Switch</td>
+                <td>SPDT slide switch</td>
+                <td>N/A</td>
+                <td>$1.75</td>
+                <td>SparkFun</td>
+              </tr>
+              <tr>
+                <th>15</th>
+                <td>1.9</td>
+                <td>SC-104</td>
+                <td>Microphone Module</td>
+                <td>Electret microphone module</td>
+                <td>N/A</td>
+                <td>$1.67</td>
+                <td>Weewooday</td>
+              </tr>
+              <tr>
+                <th>16</th>
+                <td>1.10</td>
+                <td>SC-105</td>
+                <td>Joystick Module</td>
+                <td>2-axis thumb joystick module</td>
+                <td>N/A</td>
+                <td>$3.50</td>
+                <td>Amazon</td>
+              </tr>
+              <tr>
+                <th>17</th>
+                <td>1.11</td>
+                <td>SC-106</td>
+                <td>IMU - BNO055</td>
+                <td>Adafruit 9-DOF Absolute Orientation IMU Fusion Breakout - BNO055</td>
+                <td>N/A</td>
+                <td>$37.79</td>
+                <td>Adafruit</td>
+              </tr>
+              <tr>
+                <th>18</th>
+                <td>1.12</td>
+                <td>SC-107</td>
+                <td>OLED Screen</td>
+                <td>HiLetgo 2.42&quot; SSD1309 128x64 OLED display module</td>
+                <td>N/A</td>
+                <td>$16.99</td>
+                <td>HiLetgo</td>
+              </tr>
+              <tr>
+                <th>19</th>
+                <td>1.13</td>
+                <td>SC-108</td>
+                <td>Accelerometer</td>
+                <td>Triple axis accelerometer breakout - ADXL345</td>
+                <td>N/A</td>
+                <td>$23.95</td>
+                <td>SparkFun</td>
+              </tr>
+              <tr class="sheet-total-row">
+                <th>20</th>
+                <td></td>
+                <td></td>
+                <td><strong>Total Cost Per Unit</strong></td>
+                <td></td>
+                <td></td>
+                <td><strong>$189.35</strong></td>
+                <td></td>
+              </tr>
+              <tr class="sheet-total-row">
+                <th>21</th>
+                <td></td>
+                <td></td>
+                <td><strong>Total Cost of All Units</strong></td>
+                <td></td>
+                <td></td>
+                <td><strong>$378.70</strong></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
-</main>
+      <div class="bom-actions">
+        <a class="download-btn" href="icons_images/Controller/BOM.xlsx" download>
+          Download Full BOM (.xlsx)
+        </a>
+      </div>
+    </section>
+  </main>
 
-<div class="footer-note">Enqi Wang © 2026</div>
+  <script>
+    const galleryImages = [
+      "icons_images/Controller/Controller1.png",
+      "icons_images/Controller/Controller2.png",
+      "icons_images/Controller/Controller3.png",
+      "icons_images/Controller/Controller4.png"
+    ];
 
+    const galleryAlts = [
+      "Controller 1",
+      "Controller 2",
+      "Controller 3",
+      "Controller 4"
+    ];
+
+    let currentIndex = 0;
+
+    const galleryImage = document.getElementById("galleryImage");
+    const prevBtn = document.querySelector(".prev-btn");
+    const nextBtn = document.querySelector(".next-btn");
+    const dotsContainer = document.getElementById("carouselDots");
+
+    function renderDots() {
+      dotsContainer.innerHTML = "";
+      galleryImages.forEach((_, index) => {
+        const dot = document.createElement("button");
+        dot.className = "carousel-dot" + (index === currentIndex ? " active" : "");
+        dot.type = "button";
+        dot.setAttribute("aria-label", `View image ${index + 1}`);
+        dot.addEventListener("click", () => {
+          currentIndex = index;
+          updateGallery();
+        });
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    function updateGallery() {
+      galleryImage.src = galleryImages[currentIndex];
+      galleryImage.alt = galleryAlts[currentIndex];
+      renderDots();
+    }
+
+    prevBtn.addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+      updateGallery();
+    });
+
+    nextBtn.addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % galleryImages.length;
+      updateGallery();
+    });
+
+    updateGallery();
+  </script>
 </body>
+
 </html>
