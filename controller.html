@@ -306,6 +306,167 @@
       color: rgba(255,255,255,0.82);
     }
 
+    .process-section {
+      margin-top: 54px;
+    }
+
+    .process-card {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+      border-radius: 24px;
+      padding: 16px;
+      position: relative;
+    }
+
+    .process-badge {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: rgba(249,116,166,0.16);
+      color: var(--pink);
+      border: 1px solid rgba(249,116,166,0.35);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      z-index: 2;
+    }
+
+    .process-image {
+      width: 100%;
+      display: block;
+      border-radius: 18px;
+      background: #232323;
+    }
+
+    .sheet-frame {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #f4f4f4;
+      color: #202020;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .sheet-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 18px;
+      background: linear-gradient(180deg, #ececec, #dfdfdf);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .sheet-topbar strong {
+      display: block;
+      font-size: 1rem;
+      color: #2b2b2b;
+    }
+
+    .sheet-topbar span {
+      display: block;
+      font-size: 0.86rem;
+      color: #5f5f5f;
+      margin-top: 2px;
+    }
+
+    .sheet-pill {
+      background: #ffffff;
+      color: #555;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .sheet-scroll {
+      overflow-x: auto;
+      background: #fafafa;
+    }
+
+    .sheet-table {
+      width: 100%;
+      min-width: 1080px;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .sheet-table thead th,
+    .sheet-table tbody th,
+    .sheet-table td {
+      border: 1px solid #d7d7d7;
+      padding: 11px 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .sheet-table thead th {
+      background: #f0f0f0;
+      color: #525252;
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+
+    .sheet-table thead .sheet-corner {
+      background: linear-gradient(135deg, #dfe9d8, #c8dbbe);
+      width: 58px;
+    }
+
+    .sheet-table tbody th {
+      background: #f7f7f7;
+      width: 58px;
+      text-align: center;
+      color: #666;
+      font-weight: 700;
+    }
+
+    .sheet-table td {
+      background: white;
+      color: #222;
+    }
+
+    .sheet-header-row td {
+      background: #e9f2df;
+      font-weight: 800;
+      color: #315b27;
+    }
+
+    .sheet-total-row td,
+    .sheet-total-row th {
+      background: #fff8ec;
+    }
+
+    .sheet-total-row td strong {
+      color: #7a4c06;
+    }
+
+    .sheet-table td:nth-child(7) {
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .sheet-table td:nth-child(3),
+    .sheet-table td:nth-child(4),
+    .sheet-table td:nth-child(8) {
+      min-width: 150px;
+    }
+
     .bom-actions {
       max-width: 1000px;
       margin: 18px auto 0;
@@ -393,6 +554,17 @@
       .bom-table td {
         padding: 12px 12px;
       }
+
+      .sheet-topbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .process-badge {
+        position: static;
+        display: inline-flex;
+        margin-bottom: 12px;
+      }
     }
   </style>
 </head>
@@ -441,11 +613,26 @@
       </div>
     </section>
 
+    <section class="process-section">
+      <h2 class="gallery-title">Build Process</h2>
+      <p class="bom-intro">
+        A refreshed process view showing the prototype flow from enclosure design to assembly and final fit-up.
+      </p>
+
+      <div class="process-card">
+        <div class="process-badge">Updated process image</div>
+        <img
+          class="process-image"
+          alt="Updated build process diagram for the custom controller"
+          src="process-update.svg"
+        />
+      </div>
+    </section>
+
     <section class="bom-section">
       <h2 class="gallery-title">Bill of Materials (BOM)</h2>
       <p class="bom-intro">
-        This cleaned BOM separates the custom 3D printed parts, PCB assembly, and purchased electronics into a
-        readable manufacturing summary. Total prototype cost: <strong>$189.35</strong>.
+        Total prototype cost: <strong>$189.35</strong>.
       </p>
 
       <div class="bom-stats">
@@ -467,199 +654,239 @@
         </div>
       </div>
 
-      <div class="bom-table-wrap">
-        <table class="bom-table" aria-label="Bill of Materials">
-          <thead>
-            <tr>
-              <th>Level</th>
-              <th>Part #</th>
-              <th>Part Name</th>
-              <th>Description</th>
-              <th>Material</th>
-              <th>Cost (USD)</th>
-              <th>Vendor</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="level">1</td>
-              <td class="partnum">N/A</td>
-              <td>SnakeCam Game Controller Model</td>
-              <td></td>
-              <td></td>
-              <td class="cost"></td>
-              <td class="vendor"></td>
-            </tr>
-            <tr>
-              <td class="level">1.1</td>
-              <td class="partnum">SC-000</td>
-              <td>Joystick Mount</td>
-              <td>3D printed joystick mounting bracket</td>
-              <td>PLA</td>
-              <td class="cost">$16.00</td>
-              <td class="vendor">Bambu Lab P1S</td>
-            </tr>
-            <tr>
-              <td class="level">1.2</td>
-              <td class="partnum">SC-001</td>
-              <td>Front Housing</td>
-              <td>Front enclosure housing</td>
-              <td>PLA</td>
-              <td class="cost"></td>
-              <td class="vendor">Bambu Lab P1S</td>
-            </tr>
-            <tr>
-              <td class="level">1.3</td>
-              <td class="partnum">SC-002</td>
-              <td>Rear Housing</td>
-              <td>Rear enclosure housing</td>
-              <td>PLA</td>
-              <td class="cost"></td>
-              <td class="vendor">Bambu Lab P1S</td>
-            </tr>
-            <tr>
-              <td class="level">1.4</td>
-              <td class="partnum">SC-003</td>
-              <td>Snake Head</td>
-              <td>Articulated snake head</td>
-              <td>PLA</td>
-              <td class="cost"></td>
-              <td class="vendor">Bambu Lab P1S</td>
-            </tr>
-            <tr>
-              <td class="level">1.4.1</td>
-              <td class="partnum">SC-004</td>
-              <td>Snake Head Connector</td>
-              <td>Snake head connector</td>
-              <td>PLA</td>
-              <td class="cost"></td>
-              <td class="vendor">Bambu Lab P1S</td>
-            </tr>
-            <tr>
-              <td class="level">1.4.2</td>
-              <td class="partnum">SC-109</td>
-              <td>LED Light</td>
-              <td>Standard 4-pin 5mm RGB LED</td>
-              <td>N/A</td>
-              <td class="cost">$1.00</td>
-              <td class="vendor">Amazon</td>
-            </tr>
-            <tr>
-              <td class="level">1.4.3</td>
-              <td class="partnum">SC-110</td>
-              <td>Wires</td>
-              <td>Black PVC wire harness tubing for wire protection</td>
-              <td>PVC</td>
-              <td class="cost">$10.00</td>
-              <td class="vendor">uxcell</td>
-            </tr>
-            <tr>
-              <td class="level">1.5</td>
-              <td class="partnum">SC-005</td>
-              <td>USB-C Connector</td>
-              <td>USB-C interface connector</td>
-              <td>N/A</td>
-              <td class="cost">$5.00</td>
-              <td class="vendor">Amazon</td>
-            </tr>
-            <tr>
-              <td class="level">1.6</td>
-              <td class="partnum">SC-101</td>
-              <td>PCB Assembly</td>
-              <td>Custom PCB assembly</td>
-              <td>N/A</td>
-              <td class="cost">$70.00</td>
-              <td class="vendor">PCBWay</td>
-            </tr>
-            <tr>
-              <td class="level">1.6.1</td>
-              <td class="partnum">SC-111</td>
-              <td>Resistor Pack</td>
-              <td>3 × 220 Ohm resistors</td>
-              <td>N/A</td>
-              <td class="cost">$0.45</td>
-              <td class="vendor"></td>
-            </tr>
-            <tr>
-              <td class="level">1.7</td>
-              <td class="partnum">SC-102</td>
-              <td>Potentiometer</td>
-              <td>10k trim potentiometer</td>
-              <td>N/A</td>
-              <td class="cost">$1.25</td>
-              <td class="vendor">SparkFun</td>
-            </tr>
-            <tr>
-              <td class="level">1.8</td>
-              <td class="partnum">SC-103</td>
-              <td>Slide Switch</td>
-              <td>SPDT slide switch</td>
-              <td>N/A</td>
-              <td class="cost">$1.75</td>
-              <td class="vendor">SparkFun</td>
-            </tr>
-            <tr>
-              <td class="level">1.9</td>
-              <td class="partnum">SC-104</td>
-              <td>Microphone Module</td>
-              <td>Electret microphone module</td>
-              <td>N/A</td>
-              <td class="cost">$1.67</td>
-              <td class="vendor">Weewooday</td>
-            </tr>
-            <tr>
-              <td class="level">1.10</td>
-              <td class="partnum">SC-105</td>
-              <td>Joystick Module</td>
-              <td>2-axis thumb joystick module</td>
-              <td>N/A</td>
-              <td class="cost">$3.50</td>
-              <td class="vendor">Amazon</td>
-            </tr>
-            <tr>
-              <td class="level">1.11</td>
-              <td class="partnum">SC-106</td>
-              <td>IMU - BNO055</td>
-              <td>Adafruit 9-DOF Absolute Orientation IMU Fusion Breakout - BNO055</td>
-              <td>N/A</td>
-              <td class="cost">$37.79</td>
-              <td class="vendor">Adafruit</td>
-            </tr>
-            <tr>
-              <td class="level">1.12</td>
-              <td class="partnum">SC-107</td>
-              <td>OLED Screen</td>
-              <td>HiLetgo 2.42&quot; SSD1309 128x64 OLED display module</td>
-              <td>N/A</td>
-              <td class="cost">$16.99</td>
-              <td class="vendor">HiLetgo</td>
-            </tr>
-            <tr>
-              <td class="level">1.13</td>
-              <td class="partnum">SC-108</td>
-              <td>Accelerometer</td>
-              <td>Triple axis accelerometer breakout - ADXL345</td>
-              <td>N/A</td>
-              <td class="cost">$23.95</td>
-              <td class="vendor">SparkFun</td>
-            </tr>
-            <tr>
-              <td class="level"></td>
-              <td class="partnum"></td>
-              <td><strong>Total Cost</strong></td>
-              <td></td>
-              <td></td>
-              <td class="cost"><strong>$189.35</strong></td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="sheet-frame" aria-label="BOM spreadsheet preview">
+        <div class="sheet-topbar">
+          <div>
+            <strong>BOM.xlsx</strong>
+            <span>Spreadsheet preview</span>
+          </div>
+          <div class="sheet-pill">.xlsx preview</div>
+        </div>
+
+        <div class="sheet-scroll">
+          <table class="sheet-table">
+            <thead>
+              <tr>
+                <th class="sheet-corner"></th>
+                <th>A</th>
+                <th>B</th>
+                <th>C</th>
+                <th>D</th>
+                <th>E</th>
+                <th>F</th>
+                <th>G</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="sheet-header-row">
+                <th>1</th>
+                <td>Level</td>
+                <td>Part #</td>
+                <td>Part Name</td>
+                <td>Description</td>
+                <td>Material</td>
+                <td>Cost (USD)</td>
+                <td>Vendor</td>
+              </tr>
+              <tr>
+                <th>2</th>
+                <td>1</td>
+                <td>N/A</td>
+                <td>SnakeCam Game Controller Model</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <th>3</th>
+                <td>1.1</td>
+                <td>SC-000</td>
+                <td>Joystick Mount</td>
+                <td>3D printed joystick mounting bracket</td>
+                <td>PLA</td>
+                <td>$16.00</td>
+                <td>Bambu Lab P1S</td>
+              </tr>
+              <tr>
+                <th>4</th>
+                <td>1.2</td>
+                <td>SC-001</td>
+                <td>Front Housing</td>
+                <td>Front enclosure housing</td>
+                <td>PLA</td>
+                <td></td>
+                <td>Bambu Lab P1S</td>
+              </tr>
+              <tr>
+                <th>5</th>
+                <td>1.3</td>
+                <td>SC-002</td>
+                <td>Rear Housing</td>
+                <td>Rear enclosure housing</td>
+                <td>PLA</td>
+                <td></td>
+                <td>Bambu Lab P1S</td>
+              </tr>
+              <tr>
+                <th>6</th>
+                <td>1.4</td>
+                <td>SC-003</td>
+                <td>Snake Head</td>
+                <td>Articulated snake head</td>
+                <td>PLA</td>
+                <td></td>
+                <td>Bambu Lab P1S</td>
+              </tr>
+              <tr>
+                <th>7</th>
+                <td>1.4.1</td>
+                <td>SC-004</td>
+                <td>Snake Head Connector</td>
+                <td>Snake head connector</td>
+                <td>PLA</td>
+                <td></td>
+                <td>Bambu Lab P1S</td>
+              </tr>
+              <tr>
+                <th>8</th>
+                <td>1.4.2</td>
+                <td>SC-109</td>
+                <td>LED Light</td>
+                <td>Standard 4-pin 5mm RGB LED</td>
+                <td>N/A</td>
+                <td>$1.00</td>
+                <td>Amazon</td>
+              </tr>
+              <tr>
+                <th>9</th>
+                <td>1.4.3</td>
+                <td>SC-110</td>
+                <td>Wires</td>
+                <td>Black PVC wire harness tubing for wire protection</td>
+                <td>PVC</td>
+                <td>$10.00</td>
+                <td>uxcell</td>
+              </tr>
+              <tr>
+                <th>10</th>
+                <td>1.5</td>
+                <td>SC-005</td>
+                <td>USB-C Connector</td>
+                <td>USB-C interface connector</td>
+                <td>N/A</td>
+                <td>$5.00</td>
+                <td>Amazon</td>
+              </tr>
+              <tr>
+                <th>11</th>
+                <td>1.6</td>
+                <td>SC-101</td>
+                <td>PCB Assembly</td>
+                <td>Custom PCB assembly</td>
+                <td>N/A</td>
+                <td>$70.00</td>
+                <td>PCBWay</td>
+              </tr>
+              <tr>
+                <th>12</th>
+                <td>1.6.1</td>
+                <td>SC-111</td>
+                <td>Resistor Pack</td>
+                <td>3 × 220 Ohm resistors</td>
+                <td>N/A</td>
+                <td>$0.45</td>
+                <td></td>
+              </tr>
+              <tr>
+                <th>13</th>
+                <td>1.7</td>
+                <td>SC-102</td>
+                <td>Potentiometer</td>
+                <td>10k trim potentiometer</td>
+                <td>N/A</td>
+                <td>$1.25</td>
+                <td>SparkFun</td>
+              </tr>
+              <tr>
+                <th>14</th>
+                <td>1.8</td>
+                <td>SC-103</td>
+                <td>Slide Switch</td>
+                <td>SPDT slide switch</td>
+                <td>N/A</td>
+                <td>$1.75</td>
+                <td>SparkFun</td>
+              </tr>
+              <tr>
+                <th>15</th>
+                <td>1.9</td>
+                <td>SC-104</td>
+                <td>Microphone Module</td>
+                <td>Electret microphone module</td>
+                <td>N/A</td>
+                <td>$1.67</td>
+                <td>Weewooday</td>
+              </tr>
+              <tr>
+                <th>16</th>
+                <td>1.10</td>
+                <td>SC-105</td>
+                <td>Joystick Module</td>
+                <td>2-axis thumb joystick module</td>
+                <td>N/A</td>
+                <td>$3.50</td>
+                <td>Amazon</td>
+              </tr>
+              <tr>
+                <th>17</th>
+                <td>1.11</td>
+                <td>SC-106</td>
+                <td>IMU - BNO055</td>
+                <td>Adafruit 9-DOF Absolute Orientation IMU Fusion Breakout - BNO055</td>
+                <td>N/A</td>
+                <td>$37.79</td>
+                <td>Adafruit</td>
+              </tr>
+              <tr>
+                <th>18</th>
+                <td>1.12</td>
+                <td>SC-107</td>
+                <td>OLED Screen</td>
+                <td>HiLetgo 2.42&quot; SSD1309 128x64 OLED display module</td>
+                <td>N/A</td>
+                <td>$16.99</td>
+                <td>HiLetgo</td>
+              </tr>
+              <tr>
+                <th>19</th>
+                <td>1.13</td>
+                <td>SC-108</td>
+                <td>Accelerometer</td>
+                <td>Triple axis accelerometer breakout - ADXL345</td>
+                <td>N/A</td>
+                <td>$23.95</td>
+                <td>SparkFun</td>
+              </tr>
+              <tr class="sheet-total-row">
+                <th>20</th>
+                <td></td>
+                <td></td>
+                <td><strong>Total Cost</strong></td>
+                <td></td>
+                <td></td>
+                <td><strong>$189.35</strong></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <div class="bom-actions">
-       <a class="download-btn" href="icons_images/BOM.xlsx" download>
-        Download Full BOM (.xlsx)
-      </a>
+        <a class="download-btn" href="icons_images/BOM.xlsx" download>
+          Download Full BOM (.xlsx)
+        </a>
       </div>
     </section>
   </main>
