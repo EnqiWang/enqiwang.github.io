@@ -194,7 +194,7 @@
       object-fit: cover;
       filter: saturate(1.04) contrast(1.02);
     }
-      .project-overlay {
+          .project-overlay {
       position: absolute;
       inset: 0;
       display: flex;
@@ -202,25 +202,23 @@
       justify-content: flex-start;
       padding: 18px;
 
-      /* Only a slight dark fade normally */
       background: linear-gradient(
         180deg,
-        rgba(0,0,0,0) 5%,
-        rgba(0,0,0,0.35) 50%
+        rgba(0,0,0,0) 60%,
+        rgba(0,0,0,0.15) 100%
       );
 
       color: white;
       transition: background 0.25s ease;
     }
 
-
-    .project-card:hover .project-overlay {
-      background: linear-gradient(
-        180deg,
-        rgba(0,0,0,0.15) 0%,
-        rgba(0,0,0,0.65) 50%
-      );
-    }
+      .project-card:hover .project-overlay {
+        background: linear-gradient(
+          180deg,
+          rgba(0,0,0,0.03) 0%,
+          rgba(0,0,0,0.25) 100%
+        );
+      }
     .project-title {
       font-size: 1.45rem;
       font-weight: 900;
@@ -280,30 +278,30 @@
       background: linear-gradient(180deg, #fff 0%, #fff8fd 100%);
       padding: 14px;
     }
-
     .tile-overlay {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: end;
-      justify-content: flex-start;
-      padding: 16px;
-      background: linear-gradient(
-        180deg,
-        rgba(255, 255, 255, 0) 38%,
-        rgba(255, 111, 174, 0.72) 100%
-      );
-      opacity: 1;
-      transition: background 0.22s ease;
-    }
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: end;
+    justify-content: flex-start;
+    padding: 16px;
 
-    .tile-card:hover .tile-overlay {
-      background: linear-gradient(
-        180deg,
-        rgba(255, 255, 255, 0) 18%,
-        rgba(255, 79, 154, 0.88) 100%
-      );
-    }
+    background: linear-gradient(
+      180deg,
+      rgba(0,0,0,0) 65%,
+      rgba(0,0,0,0.08) 100%
+    );
+
+    transition: background 0.25s ease;
+  }
+
+  .tile-card:hover .tile-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(0,0,0,0.03) 0%,
+      rgba(0,0,0,0.18) 100%
+    );
+  }
 
     .tile-title {
       color: white;
