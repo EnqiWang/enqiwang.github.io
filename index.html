@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,20 +12,24 @@
 
   <style>
     :root {
-      --pink: #f974a6;
-      --light-pink: #ffb8d1;
+      --pink: #ff6fae;
+      --pink-strong: #ff4f9a;
+      --pink-soft: #ffd1e4;
+      --lavender: #f6e8ff;
+      --peach: #ffe7ea;
 
-      --bg: #2f2f2f;
-      --panel: #333333;
-      --panel-2: #383838;
+      --bg: #fff7fb;
+      --bg-2: #fff0f6;
+      --panel: rgba(255, 255, 255, 0.82);
+      --panel-2: rgba(255, 255, 255, 0.92);
 
-      --text: #f3f3f3;
-      --muted: #d1d1d1;
+      --text: #3b2b34;
+      --muted: #6f5a66;
 
-      --card: #3a3a3a;
-      --line: rgba(255, 255, 255, 0.18);
+      --card: #ffffff;
+      --line: rgba(255, 111, 174, 0.18);
 
-      --shadow: 0 16px 44px rgba(0, 0, 0, 0.34);
+      --shadow: 0 18px 44px rgba(255, 111, 174, 0.16);
     }
 
     * {
@@ -40,10 +45,12 @@
     body {
       font-family: "Inter", sans-serif;
       color: var(--text);
-      background:
-        radial-gradient(circle at top, rgba(255, 255, 255, 0.05), transparent 35%),
-        linear-gradient(180deg, #333333 0%, #2b2b2b 100%);
       min-height: 100vh;
+      background:
+        radial-gradient(circle at top left, rgba(255, 111, 174, 0.18), transparent 28%),
+        radial-gradient(circle at top right, rgba(185, 117, 255, 0.14), transparent 24%),
+        radial-gradient(circle at bottom left, rgba(255, 205, 223, 0.55), transparent 26%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
     }
 
     a {
@@ -55,10 +62,10 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: #3b3b3b;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.18);
-      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.72);
+      border-bottom: 1px solid rgba(255, 111, 174, 0.14);
+      box-shadow: 0 8px 26px rgba(255, 111, 174, 0.08);
+      backdrop-filter: blur(14px);
     }
 
     .header-inner {
@@ -79,14 +86,14 @@
       font-weight: 900;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: #f0f0f0;
+      color: #5b3a4b;
       white-space: nowrap;
     }
 
     .brand small {
       font-size: 0.72rem;
       letter-spacing: 0.28em;
-      color: rgba(255, 255, 255, 0.72);
+      color: rgba(91, 58, 75, 0.68);
       font-weight: 700;
     }
 
@@ -98,17 +105,18 @@
     }
 
     nav a {
-      color: rgba(255, 255, 255, 0.52);
+      color: rgba(91, 58, 75, 0.65);
       font-size: 0.95rem;
       font-weight: 800;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      transition: color 0.2s ease;
+      transition: color 0.2s ease, transform 0.2s ease;
     }
 
     nav a:hover,
     nav a.active {
-      color: var(--pink);
+      color: var(--pink-strong);
+      transform: translateY(-1px);
     }
 
     main {
@@ -126,17 +134,19 @@
       font-size: clamp(2rem, 3.8vw, 3.4rem);
       line-height: 1.05;
       font-weight: 900;
-      color: #ffffff;
+      color: #7b355d;
       margin-bottom: 10px;
       letter-spacing: -0.05em;
+      text-shadow: 0 2px 0 rgba(255, 255, 255, 0.65);
     }
 
     .underline {
       width: min(420px, 70%);
-      height: 1px;
-      background: rgba(255, 255, 255, 0.45);
+      height: 2px;
+      background: linear-gradient(90deg, transparent 0%, rgba(255, 111, 174, 0.55) 20%, rgba(255, 111, 174, 0.9) 50%, rgba(185, 117, 255, 0.8) 80%, transparent 100%);
       margin: 0 auto 28px;
-      opacity: 0.75;
+      border-radius: 999px;
+      opacity: 0.95;
     }
 
     .lead {
@@ -163,16 +173,18 @@
       position: relative;
       display: block;
       overflow: hidden;
-      background: #222;
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: var(--card);
+      border: 1px solid rgba(255, 111, 174, 0.12);
       box-shadow: var(--shadow);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
       aspect-ratio: 16 / 9;
+      border-radius: 22px;
     }
 
     .project-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 24px 60px rgba(255, 111, 174, 0.22);
+      border-color: rgba(255, 111, 174, 0.22);
     }
 
     .project-image {
@@ -180,39 +192,41 @@
       height: 100%;
       display: block;
       object-fit: cover;
+      filter: saturate(1.04) contrast(1.02);
     }
-
-    .project-overlay {
+      .project-overlay {
       position: absolute;
       inset: 0;
       display: flex;
       align-items: end;
       justify-content: flex-start;
       padding: 18px;
+
+      /* Only a slight dark fade normally */
       background: linear-gradient(
         180deg,
-        rgba(255, 255, 255, 0) 35%,
-        rgba(0, 0, 0, 0.78) 100%
+        rgba(0,0,0,0) 45%,
+        rgba(0,0,0,0.35) 100%
       );
-      color: #fff;
-      opacity: 1;
-      transition: background 0.22s ease;
+
+      color: white;
+      transition: background 0.25s ease;
     }
+
 
     .project-card:hover .project-overlay {
       background: linear-gradient(
         180deg,
-        rgba(255, 255, 255, 0) 18%,
-        rgba(0, 0, 0, 0.88) 100%
+        rgba(0,0,0,0.15) 0%,
+        rgba(0,0,0,0.65) 100%
       );
     }
-
     .project-title {
       font-size: 1.45rem;
       font-weight: 900;
       line-height: 1.05;
       letter-spacing: 0.02em;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.22);
       text-transform: uppercase;
     }
 
@@ -221,7 +235,7 @@
       margin-top: 8px;
       font-size: 0.92rem;
       font-weight: 600;
-      color: rgba(255, 255, 255, 0.9);
+      color: rgba(255, 255, 255, 0.95);
       line-height: 1.5;
       max-width: 95%;
     }
@@ -237,22 +251,24 @@
     .tile-card {
       display: block;
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: #2b2b2b;
+      border: 1px solid rgba(255, 111, 174, 0.12);
+      background: var(--panel);
       box-shadow: var(--shadow);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      border-radius: 14px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      border-radius: 22px;
+      backdrop-filter: blur(8px);
     }
 
     .tile-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 24px 60px rgba(255, 111, 174, 0.18);
+      border-color: rgba(255, 111, 174, 0.22);
     }
 
     .tile-image-wrap {
       position: relative;
       aspect-ratio: 1 / 1;
-      background: #222;
+      background: linear-gradient(180deg, #fff 0%, #fff7fc 100%);
       overflow: hidden;
     }
 
@@ -261,8 +277,8 @@
       height: 100%;
       display: block;
       object-fit: contain;
-      background: #2a2a2a;
-      padding: 12px;
+      background: linear-gradient(180deg, #fff 0%, #fff8fd 100%);
+      padding: 14px;
     }
 
     .tile-overlay {
@@ -275,7 +291,7 @@
       background: linear-gradient(
         180deg,
         rgba(255, 255, 255, 0) 38%,
-        rgba(0, 0, 0, 0.76) 100%
+        rgba(255, 111, 174, 0.72) 100%
       );
       opacity: 1;
       transition: background 0.22s ease;
@@ -285,7 +301,7 @@
       background: linear-gradient(
         180deg,
         rgba(255, 255, 255, 0) 18%,
-        rgba(0, 0, 0, 0.88) 100%
+        rgba(255, 79, 154, 0.88) 100%
       );
     }
 
@@ -295,19 +311,20 @@
       font-weight: 900;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.22);
       line-height: 1.2;
     }
 
     .tile-body {
       padding: 16px 16px 18px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.95) 100%);
     }
 
     .tile-name {
       font-size: 1.05rem;
       font-weight: 900;
       letter-spacing: 0.02em;
-      color: #fff;
+      color: #7b355d;
       margin-bottom: 8px;
       text-transform: uppercase;
     }
@@ -315,13 +332,13 @@
     .tile-description {
       font-size: 0.94rem;
       line-height: 1.6;
-      color: rgba(255, 255, 255, 0.8);
+      color: rgba(91, 58, 75, 0.82);
     }
 
     .simple-footer {
       text-align: center;
       padding: 38px 20px 46px;
-      color: var(--pink);
+      color: var(--pink-strong);
       font-size: clamp(1.4rem, 3vw, 2.2rem);
       font-weight: 900;
       letter-spacing: -0.04em;
@@ -425,12 +442,13 @@
           <div class="tile-image-wrap">
             <img src="icons_images/Controller/Controller0.png" alt="Customized Controller">
             <div class="tile-overlay">
-              <div class="tile-title"> Snakeboy </div>
+              <div class="tile-title">Snakeboy</div>
             </div>
           </div>
           <div class="tile-body">
+            <div class="tile-name">Snakeboy</div>
             <div class="tile-description">
-              A custom Snake Camera Game Controller designed for Kapture the Snake of 88'. Players use the controller to Kapture & Interview ghosts, Move Around, and Adjust the brightness to view in game scene
+              A custom Snake Camera Game Controller designed for Kapture the Snake of 88'. Players use the controller to kapture and interview ghosts, move around, and adjust the brightness to view in-game scenes.
             </div>
           </div>
         </a>
@@ -443,6 +461,7 @@
             </div>
           </div>
           <div class="tile-body">
+            <div class="tile-name">OWC Prototype</div>
             <div class="tile-description">
               A hardware prototype exploring physical interaction, system design, and engineering development.
             </div>
