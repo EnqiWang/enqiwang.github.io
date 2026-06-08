@@ -11,21 +11,22 @@
 
   <style>
     :root {
-    --pink: #f974a6;
-    --light-pink: #ffb8d1;
+      --pink: #f974a6;
+      --light-pink: #ffb8d1;
 
-    --bg: #2f2f2f;
-    --panel: #333333;
-    --panel-2: #383838;
+      --bg: #2f2f2f;
+      --panel: #333333;
+      --panel-2: #383838;
 
-    --text: #f3f3f3;
-    --muted: #d1d1d1;
+      --text: #f3f3f3;
+      --muted: #d1d1d1;
 
-    --card: #3a3a3a;
-    --line: rgba(255,255,255,0.18);
+      --card: #3a3a3a;
+      --line: rgba(255,255,255,0.18);
 
-    --shadow: 0 16px 44px rgba(0,0,0,0.34);
-  }
+      --shadow: 0 16px 44px rgba(0,0,0,0.34);
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -36,33 +37,29 @@
       scroll-behavior: smooth;
     }
 
-   body {
-    font-family: "Inter", sans-serif;
-    color: var(--text);
-
-    background:
-      radial-gradient(circle at top, rgba(255,255,255,0.05), transparent 35%),
-      linear-gradient(180deg, #333333 0%, #2b2b2b 100%);
-
-    min-height: 100vh;
-  }
+    body {
+      font-family: "Inter", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,0.05), transparent 35%),
+        linear-gradient(180deg, #333333 0%, #2b2b2b 100%);
+      min-height: 100vh;
+    }
 
     a {
       color: inherit;
       text-decoration: none;
     }
 
-   header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-
-    background: #3b3b3b;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-
-    box-shadow: 0 8px 26px rgba(0,0,0,0.18);
-    backdrop-filter: blur(10px);
-  }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #3b3b3b;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 8px 26px rgba(0,0,0,0.18);
+      backdrop-filter: blur(10px);
+    }
 
     .header-inner {
       max-width: 1180px;
@@ -75,18 +72,15 @@
     }
 
     .brand {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-
-    font-size: 0.9rem;
-    font-weight: 900;
-
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-
-    color: #f0f0f0;
-  }
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 0.9rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #f0f0f0;
+    }
 
     nav {
       display: flex;
@@ -96,18 +90,19 @@
     }
 
     nav a {
-    color: rgba(255,255,255,0.52);
-    font-size: 0.95rem;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    transition: color 0.2s ease;
-  }
+      color: rgba(255,255,255,0.52);
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s ease;
+    }
 
-  nav a:hover,
-  nav a.active {
-    color: var(--pink);
-  }
+    nav a:hover,
+    nav a.active {
+      color: var(--pink);
+    }
+
     main {
       max-width: 1180px;
       margin: 0 auto;
@@ -119,20 +114,20 @@
     }
 
     .section-title {
-    text-align: center;
-    font-size: clamp(2rem, 3.8vw, 3.4rem);
-    line-height: 1.05;
-    font-weight: 900;
-    color: white;
-    margin-bottom: 10px;
-  }
+      text-align: center;
+      font-size: clamp(2rem, 3.8vw, 3.4rem);
+      line-height: 1.05;
+      font-weight: 900;
+      color: white;
+      margin-bottom: 10px;
+    }
 
     .underline {
-    width: min(420px, 70%);
-    height: 1px;
-    background: rgba(255,255,255,0.45);
-    margin: 0 auto 28px;
-  }
+      width: min(420px, 70%);
+      height: 1px;
+      background: rgba(255,255,255,0.45);
+      margin: 0 auto 28px;
+    }
 
     .lead {
       text-align: center;
@@ -143,18 +138,16 @@
       font-size: 1.05rem;
     }
 
-   .viewer-wrap {
-    margin: 28px auto 0;
-    width: 100%;
-    max-width: 980px;
-    aspect-ratio: 16 / 9;
-
-    background: #222;
-    border: 1px solid rgba(255,255,255,0.08);
-
-    box-shadow: var(--shadow);
-    overflow: hidden;
-  }
+    .viewer-wrap {
+      margin: 28px auto 0;
+      width: 100%;
+      max-width: 980px;
+      aspect-ratio: 16 / 9;
+      background: #222;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
 
     .viewer-wrap iframe {
       width: 100%;
@@ -186,20 +179,17 @@
     }
 
     .shot {
-    background: #222;
-    border: 1px solid rgba(255,255,255,0.08);
+      background: #222;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+      padding: 12px;
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
 
-    box-shadow: var(--shadow);
-
-    padding: 12px;
-    height: 320px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    overflow: hidden;
-  }
     .shot img {
       max-width: 100%;
       max-height: 100%;
@@ -207,6 +197,141 @@
       height: auto;
       object-fit: contain;
       display: block;
+    }
+
+    .bom-section {
+      margin-top: 54px;
+    }
+
+    .bom-intro {
+      text-align: center;
+      max-width: 860px;
+      margin: 0 auto 22px;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 1.02rem;
+    }
+
+    .bom-stats {
+      max-width: 1000px;
+      margin: 0 auto 20px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .stat {
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+      border-radius: 18px;
+      padding: 18px 16px;
+      text-align: center;
+    }
+
+    .stat span {
+      display: block;
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: var(--pink);
+      letter-spacing: -0.03em;
+      margin-bottom: 6px;
+    }
+
+    .stat p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    .bom-table-wrap {
+      max-width: 1000px;
+      margin: 0 auto;
+      overflow-x: auto;
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+      border-radius: 20px;
+    }
+
+    .bom-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 860px;
+    }
+
+    .bom-table thead th {
+      background: rgba(249,116,166,0.14);
+      color: var(--pink);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.85rem;
+    }
+
+    .bom-table th,
+    .bom-table td {
+      padding: 14px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+
+    .bom-table tbody tr:hover {
+      background: rgba(255,255,255,0.03);
+    }
+
+    .bom-table td.cost {
+      text-align: right;
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .bom-table td.level {
+      white-space: nowrap;
+      width: 70px;
+      color: rgba(255,255,255,0.78);
+    }
+
+    .bom-table td.partnum {
+      white-space: nowrap;
+      width: 120px;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .bom-table td.vendor {
+      white-space: nowrap;
+      color: rgba(255,255,255,0.82);
+    }
+
+    .bom-actions {
+      max-width: 1000px;
+      margin: 18px auto 0;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 20px;
+      border: 1px solid var(--pink);
+      color: var(--pink);
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      border-radius: 999px;
+      transition: 0.2s ease;
+      background: rgba(249,116,166,0.04);
+    }
+
+    .download-btn:hover {
+      background: var(--pink);
+      color: white;
     }
 
     .footer-note {
@@ -225,6 +350,10 @@
 
       .shot {
         height: 280px;
+      }
+
+      .bom-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
@@ -247,19 +376,23 @@
         font-size: clamp(2rem, 8vw, 3rem);
       }
 
-      .lead {
+      .lead,
+      .bom-intro {
         font-size: 1rem;
       }
 
       .gallery-title {
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: 900;
-    color: var(--pink);
-    margin-bottom: 18px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-  }
+        font-size: 1.35rem;
+      }
+
+      .bom-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .bom-table th,
+      .bom-table td {
+        padding: 12px 12px;
+      }
     }
   </style>
 </head>
@@ -305,6 +438,228 @@
         <div class="shot">
           <img src="icons_images/controller3.jpg" alt="Controller 4">
         </div>
+      </div>
+    </section>
+
+    <section class="bom-section">
+      <h2 class="gallery-title">Bill of Materials (BOM)</h2>
+      <p class="bom-intro">
+        This cleaned BOM separates the custom 3D printed parts, PCB assembly, and purchased electronics into a
+        readable manufacturing summary. Total prototype cost: <strong>$189.35</strong>.
+      </p>
+
+      <div class="bom-stats">
+        <div class="stat">
+          <span>16</span>
+          <p>Total Line Items</p>
+        </div>
+        <div class="stat">
+          <span>$189.35</span>
+          <p>Prototype Cost</p>
+        </div>
+        <div class="stat">
+          <span>5</span>
+          <p>3D Printed Parts</p>
+        </div>
+        <div class="stat">
+          <span>1</span>
+          <p>Custom PCB</p>
+        </div>
+      </div>
+
+      <div class="bom-table-wrap">
+        <table class="bom-table" aria-label="Bill of Materials">
+          <thead>
+            <tr>
+              <th>Level</th>
+              <th>Part #</th>
+              <th>Part Name</th>
+              <th>Description</th>
+              <th>Material</th>
+              <th>Cost (USD)</th>
+              <th>Vendor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="level">1</td>
+              <td class="partnum">N/A</td>
+              <td>SnakeCam Game Controller Model</td>
+              <td></td>
+              <td></td>
+              <td class="cost"></td>
+              <td class="vendor"></td>
+            </tr>
+            <tr>
+              <td class="level">1.1</td>
+              <td class="partnum">SC-000</td>
+              <td>Joystick Mount</td>
+              <td>3D printed joystick mounting bracket</td>
+              <td>PLA</td>
+              <td class="cost">$16.00</td>
+              <td class="vendor">Bambu Lab P1S</td>
+            </tr>
+            <tr>
+              <td class="level">1.2</td>
+              <td class="partnum">SC-001</td>
+              <td>Front Housing</td>
+              <td>Front enclosure housing</td>
+              <td>PLA</td>
+              <td class="cost"></td>
+              <td class="vendor">Bambu Lab P1S</td>
+            </tr>
+            <tr>
+              <td class="level">1.3</td>
+              <td class="partnum">SC-002</td>
+              <td>Rear Housing</td>
+              <td>Rear enclosure housing</td>
+              <td>PLA</td>
+              <td class="cost"></td>
+              <td class="vendor">Bambu Lab P1S</td>
+            </tr>
+            <tr>
+              <td class="level">1.4</td>
+              <td class="partnum">SC-003</td>
+              <td>Snake Head</td>
+              <td>Articulated snake head</td>
+              <td>PLA</td>
+              <td class="cost"></td>
+              <td class="vendor">Bambu Lab P1S</td>
+            </tr>
+            <tr>
+              <td class="level">1.4.1</td>
+              <td class="partnum">SC-004</td>
+              <td>Snake Head Connector</td>
+              <td>Snake head connector</td>
+              <td>PLA</td>
+              <td class="cost"></td>
+              <td class="vendor">Bambu Lab P1S</td>
+            </tr>
+            <tr>
+              <td class="level">1.4.2</td>
+              <td class="partnum">SC-109</td>
+              <td>LED Light</td>
+              <td>Standard 4-pin 5mm RGB LED</td>
+              <td>N/A</td>
+              <td class="cost">$1.00</td>
+              <td class="vendor">Amazon</td>
+            </tr>
+            <tr>
+              <td class="level">1.4.3</td>
+              <td class="partnum">SC-110</td>
+              <td>Wires</td>
+              <td>Black PVC wire harness tubing for wire protection</td>
+              <td>PVC</td>
+              <td class="cost">$10.00</td>
+              <td class="vendor">uxcell</td>
+            </tr>
+            <tr>
+              <td class="level">1.5</td>
+              <td class="partnum">SC-005</td>
+              <td>USB-C Connector</td>
+              <td>USB-C interface connector</td>
+              <td>N/A</td>
+              <td class="cost">$5.00</td>
+              <td class="vendor">Amazon</td>
+            </tr>
+            <tr>
+              <td class="level">1.6</td>
+              <td class="partnum">SC-101</td>
+              <td>PCB Assembly</td>
+              <td>Custom PCB assembly</td>
+              <td>N/A</td>
+              <td class="cost">$70.00</td>
+              <td class="vendor">PCBWay</td>
+            </tr>
+            <tr>
+              <td class="level">1.6.1</td>
+              <td class="partnum">SC-111</td>
+              <td>Resistor Pack</td>
+              <td>3 × 220 Ohm resistors</td>
+              <td>N/A</td>
+              <td class="cost">$0.45</td>
+              <td class="vendor"></td>
+            </tr>
+            <tr>
+              <td class="level">1.7</td>
+              <td class="partnum">SC-102</td>
+              <td>Potentiometer</td>
+              <td>10k trim potentiometer</td>
+              <td>N/A</td>
+              <td class="cost">$1.25</td>
+              <td class="vendor">SparkFun</td>
+            </tr>
+            <tr>
+              <td class="level">1.8</td>
+              <td class="partnum">SC-103</td>
+              <td>Slide Switch</td>
+              <td>SPDT slide switch</td>
+              <td>N/A</td>
+              <td class="cost">$1.75</td>
+              <td class="vendor">SparkFun</td>
+            </tr>
+            <tr>
+              <td class="level">1.9</td>
+              <td class="partnum">SC-104</td>
+              <td>Microphone Module</td>
+              <td>Electret microphone module</td>
+              <td>N/A</td>
+              <td class="cost">$1.67</td>
+              <td class="vendor">Weewooday</td>
+            </tr>
+            <tr>
+              <td class="level">1.10</td>
+              <td class="partnum">SC-105</td>
+              <td>Joystick Module</td>
+              <td>2-axis thumb joystick module</td>
+              <td>N/A</td>
+              <td class="cost">$3.50</td>
+              <td class="vendor">Amazon</td>
+            </tr>
+            <tr>
+              <td class="level">1.11</td>
+              <td class="partnum">SC-106</td>
+              <td>IMU - BNO055</td>
+              <td>Adafruit 9-DOF Absolute Orientation IMU Fusion Breakout - BNO055</td>
+              <td>N/A</td>
+              <td class="cost">$37.79</td>
+              <td class="vendor">Adafruit</td>
+            </tr>
+            <tr>
+              <td class="level">1.12</td>
+              <td class="partnum">SC-107</td>
+              <td>OLED Screen</td>
+              <td>HiLetgo 2.42&quot; SSD1309 128x64 OLED display module</td>
+              <td>N/A</td>
+              <td class="cost">$16.99</td>
+              <td class="vendor">HiLetgo</td>
+            </tr>
+            <tr>
+              <td class="level">1.13</td>
+              <td class="partnum">SC-108</td>
+              <td>Accelerometer</td>
+              <td>Triple axis accelerometer breakout - ADXL345</td>
+              <td>N/A</td>
+              <td class="cost">$23.95</td>
+              <td class="vendor">SparkFun</td>
+            </tr>
+            <tr>
+              <td class="level"></td>
+              <td class="partnum"></td>
+              <td><strong>Total Cost</strong></td>
+              <td></td>
+              <td></td>
+              <td class="cost"><strong>$189.35</strong></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="bom-actions">
+       <a class="download-btn" href="icons_images/BOM.xlsx" download>
+        Download Full BOM (.xlsx)
+      </a>
       </div>
     </section>
   </main>
