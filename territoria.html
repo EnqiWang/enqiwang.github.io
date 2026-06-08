@@ -1,0 +1,285 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teritoria | Enqi Wang</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+  <style>
+    :root {
+      --bg: #2f2f2f;
+      --panel: #333333;
+      --panel-2: #383838;
+      --text: #f3f3f3;
+      --muted: #d1d1d1;
+      --accent: #f974a6;
+      --line: rgba(255,255,255,0.45);
+      --soft: rgba(255,255,255,0.08);
+      --shadow: 0 16px 44px rgba(0,0,0,0.34);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,0.05), transparent 35%),
+        linear-gradient(180deg, #333333 0%, #2b2b2b 100%);
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 36px 22px 72px;
+    }
+
+    .panel {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+      padding: 34px;
+      margin-bottom: 22px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #3b3b3b;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .header-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 16px 22px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    nav a {
+      margin-left: 24px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.6);
+    }
+
+    nav a:hover { color: var(--accent); }
+
+    .hero { text-align: center; }
+
+    .title {
+      font-size: 2.6rem;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      color: var(--accent);
+      margin-bottom: 18px;
+    }
+
+    .rule {
+      height: 1px;
+      background: var(--line);
+      margin: 20px auto;
+      width: 90%;
+    }
+
+    .video-frame img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+    }
+
+    .section-row {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 28px;
+      margin-top: 28px;
+    }
+
+    .meta-item, .overview, .shot {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 16px;
+    }
+
+    .label {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .value { margin-top: 4px; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 18px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 18px;
+      margin-top: 14px;
+    }
+
+    .shot img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .caption {
+      font-size: 0.9rem;
+      margin-top: 8px;
+      color: var(--muted);
+    }
+
+    .footer-note {
+      text-align: center;
+      margin: 20px;
+      color: rgba(255,255,255,0.7);
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="brand">Enqi Wang</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="contact.html">About / Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="panel hero">
+  <h1 class="title">Teritoria</h1>
+  <div class="subtitle">Collaborative Roblox Game Project</div>
+  <div class="rule"></div>
+
+  <div class="video-frame">
+    <img src="icons_images/teritoria/game banner.jpg" alt="Teritoria banner">
+  </div>
+
+  <div class="section-row">
+    <div>
+      <div class="meta-item"><span class="label">Platform</span><div class="value">Roblox (PC, Ipad, Mobile)</div></div>
+      <div class="meta-item"><span class="label">Status</span><div class="value">Unreleased</div></div>
+      <div class="meta-item"><span class="label">Team Size</span><div class="value">~25</div></div>
+      <div class="meta-item"><span class="label">Tools</span><div class="value">Roblox Studio<br>Blender<br>Photoshop</div></div>
+      <div class="meta-item"><span class="label">Role</span><div class="value">3D Artist</div></div>
+    </div>
+
+    <div class="overview">
+      <h3 style="color:var(--accent);">Overview</h3>
+      <p>
+        Teritoria is a collaborative Roblox project developed with a team of over 30 students, featuring multiple stylized biomes and a strong emphasis on environmental storytelling.
+      </p>
+      <p style="margin-top:12px;">
+        As a 3D Artist, I focused on creating pixel-styled textures and assets for environments, props, and weapons, helping establish a cohesive visual identity across the game world.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ROLE -->
+<section class="panel">
+  <h3 style="color:var(--accent);">Role & Contributions</h3>
+
+  <div class="two-col">
+    <div class="meta-item">
+      <strong>3D Art & Texturing</strong><br>
+      Created pixel-styled textures for biomes, props, and weapons.
+    </div>
+
+    <div class="meta-item">
+      <strong>Asset Creation</strong><br>
+      Modeled and textured assets using Blender and Photoshop.
+    </div>
+  </div>
+
+  <div class="meta-item" style="margin-top:16px;">
+    <strong>Collaboration</strong><br>
+    Worked within a team of ~25 developers and participated in monthly playtests.
+  </div>
+
+  <div class="meta-item" style="margin-top:16px;">
+    <strong>Art Direction Support</strong><br>
+    Maintained consistent visual style across all biomes and assets.
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="panel">
+  <h3 style="color:var(--accent);">Art Gallery</h3>
+
+  <div class="gallery-grid">
+    <div class="shot">
+      <img src="icons_images/teritoria/winter biome.png">
+      <div class="caption">Biome textures</div>
+    </div>
+
+    <div class="shot">
+      <img src="icons_images/teritoria/summer biome.png">
+      <div class="caption">Biome textures</div>
+    </div>
+
+    <div class="shot">
+      <img src="icons_images/teritoria/weapon.png">
+      <div class="caption">Weapon asset</div>
+    </div>
+
+    <div class="shot">
+      <img src="icons_images/teritoria/lava.png">
+      <div class="caption">lava</div>
+    </div>
+
+    <div class="shot">
+      <img src="icons_images/teritoria/world view.png">
+      <div class="caption">World view</div>
+    </div>
+  </div>
+</section>
+
+<!-- REFLECTION -->
+<section class="panel">
+  <h3 style="color:var(--accent);">Reflection</h3>
+  <p>
+    This project strengthened my ability to collaborate in large teams and maintain visual consistency across a shared game world. It also improved my efficiency with asset pipelines from Blender to Roblox Studio.
+  </p>
+</section>
+
+</main>
+
+<div class="footer-note">Enqi Wang © 2026</div>
+
+</body>
+</html>
