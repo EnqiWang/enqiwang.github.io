@@ -189,14 +189,10 @@
     }
 
     .hero-media {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 18px;
-      align-items: stretch;
-      margin-top: 18px;
+      display: block;
     }
 
-    .hero-banner,
+
     .hero-side-card {
       background: rgba(255, 255, 255, 0.88);
       border: 1px solid rgba(214, 107, 232, 0.12);
@@ -205,24 +201,7 @@
       overflow: hidden;
     }
 
-    .hero-banner img {
-      width: 100%;
-      height: 100%;
-      min-height: 420px;
-      display: block;
-      object-fit: cover;
-    }
 
-    .presentation-frame {
-      aspect-ratio: 16 / 9;
-      overflow: hidden;
-    }
-
-    .presentation-frame iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
 
     .hero-side-card {
       padding: 22px;
@@ -599,6 +578,29 @@
         min-height: auto;
       }
     }
+
+    .canva-frame {
+      width: 100%;
+      height: 100%;
+      min-height: 720px;
+
+      border-radius: 22px;
+      overflow: hidden;
+
+      background: white;
+
+      border: 1px solid rgba(214, 107, 232, 0.12);
+      box-shadow: var(--shadow);
+    }
+
+    .canva-frame iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 720px;
+
+      border: none;
+      display: block;
+    }
   </style>
 </head>
 
@@ -629,32 +631,34 @@
         This page is set up to highlight the character work, environment work, and project materials first.
       </p>
 
-      <div class="hero-media">
-        <div class="hero-banner presentation-frame">
-          <iframe src="https://canva.link/ep6rpiz8vre2xi0" allowfullscreen loading="lazy">
-          </iframe>
-        </div>
 
-        <div class="hero-side-card">
-          <div class="info-grid">
-            <div class="info-card">
-              <span class="label">Team</span>
-              <div class="value">Designed and developed by Magen Mozeh and Enqi Wang</div>
-            </div>
 
-            <div class="info-card">
-              <span class="label">Focus</span>
-              <div class="value">Character art, environment art, game systems, and hardware controller design</div>
-            </div>
+      <div class="canva-frame">
+        <iframe loading="lazy" src="https://www.canva.com/design/DAHLS8D9d1E/QuzWJ8frw16-DtN7Bal5zg/view?embed"
+          allowfullscreen="allowfullscreen" allow="fullscreen">
+        </iframe>
+      </div>
 
-            <div class="info-card">
-              <span class="label">Tools Used</span>
-              <div class="value">
-                Unity, C#, Blender, Fusion 360, Substance Painter, Photoshop,
-                VRoid Studio, Bambu Studio, and LLM / voice integration
-              </div>
+      <div class="hero-side-card">
+        <div class="info-grid">
+          <div class="info-card">
+            <span class="label">Team</span>
+            <div class="value">Designed and developed by Magen Mozeh and Enqi Wang</div>
+          </div>
+
+          <div class="info-card">
+            <span class="label">Focus</span>
+            <div class="value">Character art, environment art, game systems, and hardware controller design</div>
+          </div>
+
+          <div class="info-card">
+            <span class="label">Tools Used</span>
+            <div class="value">
+              Unity, C#, Blender, Fusion 360, Substance Painter, Photoshop,
+              VRoid Studio, Bambu Studio, and LLM / voice integration
             </div>
           </div>
+
 
           <div>
             <div class="label">Quick Links</div>
@@ -731,6 +735,7 @@
         <article class="box resource-card">
           <h3>Pitch Deck</h3>
           <p>Original concept deck, project goals, gameplay pitch, and visual direction.</p>
+          
           <a class="resource-btn" href="pdfs/pitch_deck.pdf" target="_blank" rel="noopener noreferrer">
             View Deck
           </a>
@@ -836,4 +841,3 @@
 </body>
 
 </html>
-```
