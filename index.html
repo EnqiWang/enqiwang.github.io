@@ -85,7 +85,6 @@
       font-size: 0.9rem;
       font-weight: 900;
       letter-spacing: 0.14em;
-      text-transform: uppercase;
       color: #5d476a;
       white-space: nowrap;
     }
@@ -122,7 +121,8 @@
     main {
       max-width: 1180px;
       margin: 0 auto;
-      padding: 60px 22px 72px;
+      padding: 60px 22px 72px; 
+      min-height: calc(100vh - 78px);
     }
 
     .panel {
@@ -510,7 +510,33 @@
       font-weight: 900;
       letter-spacing: -0.04em;
     }
+    .about-panel {
+    margin-top: 80px;
+    min-height: 520px;
+    }
+    @media (max-width: 768px) {
 
+      .about-grid {
+          grid-template-columns: 1fr;
+          gap: 24px;
+          text-align: center;
+      }
+
+      .photo {
+          width: 220px;
+          margin: 0 auto;
+      }
+
+      .panel {
+          padding: 24px;
+      }
+
+      .resume-button {
+          width: 100%;
+          justify-content: center;
+      }
+
+    }
     @media (max-width: 900px) {
       .project-card {
         aspect-ratio: 16 / 10;
@@ -609,7 +635,7 @@
 </section>
 
     <section class="section" id="college-projects">
-      <h2 class="section-title" style="font-size: clamp(1.8rem, 3vw, 2.6rem);">College Projects</h2>
+      <h2 class="section-title">College Projects</h2>
       <div class="underline"></div>
       <p class="lead">Hardware and engineering projects I’m building out next.</p>
 
@@ -650,7 +676,7 @@
       </div>
     </section>
 
-    <section class="panel">
+    <section class="panel about-panel">
       <div class="about-grid">
         <img src="icons_images/Enqi Wang.jpg" alt="Enqi Wang" class="photo"
         loading="lazy"
@@ -682,7 +708,7 @@
       </div>
     </section>
 
-    <section class="panel">
+    <section class="panel about-panel">
       <h1>Contact</h1>
       <p>
         Let’s collaborate!
