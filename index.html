@@ -533,8 +533,18 @@
 
     }
     @media (max-width: 900px) {
+      .project-grid.featured {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+      }
+
       .project-card {
-        aspect-ratio: 16 / 10;
+        aspect-ratio: auto;
+        width: 100%;
+      }
+
+      .project-body {
+        padding: 16px;
       }
     }
 
