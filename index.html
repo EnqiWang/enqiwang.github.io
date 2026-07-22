@@ -37,7 +37,11 @@
       margin: 0;
       padding: 0;
     }
-
+    #about,
+    #contact,
+    #home {
+        scroll-margin-top: 100px;
+    }
     html {
       scroll-behavior: smooth;
     }
@@ -83,6 +87,7 @@
       flex-direction: column;
       gap: 4px;
       font-size: 0.9rem;
+     text-transform: uppercase;
       font-weight: 900;
       letter-spacing: 0.14em;
       color: #5d476a;
@@ -589,14 +594,15 @@
 <body>
   <header>
     <div class="header-inner">
-      <div class="brand">
+      <div class="brand" >
         Enqi Wang
         <small>Portfolio</small>
       </div>
 
       <nav aria-label="Primary">
-        <a href="#home" class="active">Home</a>
-        <a href="#contact">About / Contact</a>
+        <a href="#home" class="active">HOME</a>
+        <a href="#about">ABOUT</a>
+        <a href="#contact">CONTACT</a>
       </nav>
     </div>
   </header>
@@ -680,13 +686,14 @@
         </a>
       </div>
     </section>
- <section class="panel about-panel">
+
+ <section section id="about" class="panel about-panel">
       <div class="about-grid">
         <img src="icons_images/Enqi Wang.jpg" alt="Enqi Wang" class="photo"
         loading="lazy"
         decoding="async">
 
-        <div>
+        <div >
           <h1>Hi, I'm Enqi!</h1>
           <h2>Electrical &amp; Computer Engineering · Game Art · USC</h2>
 
@@ -713,7 +720,7 @@
     </section>
 
 
-    <section class="panel about-panel">
+    <section id="contact" section class="panel about-panel">
       <h1>Contact</h1>
       <p>
         Let’s collaborate!
