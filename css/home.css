@@ -468,10 +468,9 @@ p {
     font-size: 0.88rem;
   }
 
-  .project-subtitle strong {
+  .project-body .project-subtitle strong {
     color: var(--pink-strong);
-    font-weight: 900;
-  }
+}
 
   
 }
