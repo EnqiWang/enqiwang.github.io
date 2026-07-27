@@ -141,9 +141,18 @@
 
     .underline {
       width: min(420px, 70%);
-      height: 1px;
-      background: rgba(214, 107, 232, 0.25);
+      height: 2px;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 111, 174, 0.52) 18%,
+        rgba(255, 111, 174, 0.92) 50%,
+        rgba(185, 117, 255, 0.82) 82%,
+        transparent 100%
+      );
       margin: 0 auto 28px;
+      border-radius: 999px;
+      opacity: 0.95;
     }
 
     .lead {
