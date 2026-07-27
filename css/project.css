@@ -32,7 +32,7 @@
     }
 
     body {
-      font-family: "Inter", sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;      color: var(--text);
       color: var(--text);
       min-height: 100vh;
       padding-top: 78px;
@@ -75,11 +75,18 @@
       flex-direction: column;
       gap: 4px;
       font-size: 0.9rem;
+     text-transform: uppercase;
       font-weight: 900;
       letter-spacing: 0.14em;
-      text-transform: uppercase;
       color: #5d476a;
       white-space: nowrap;
+    }
+
+    .brand small {
+      font-size: 0.72rem;
+      letter-spacing: 0.28em;
+      color: rgba(93, 71, 106, 0.68);
+      font-weight: 700;
     }
     
     nav {
