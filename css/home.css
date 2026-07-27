@@ -424,30 +424,6 @@
       transform: scale(1.03);
     }
 
-    .tile-overlay {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: end;
-      justify-content: flex-start;
-      padding: 16px;
-      background: linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0) 60%,
-        rgba(0, 0, 0, 0.10) 100%
-      );
-      opacity: 1;
-      transition: background 0.25s ease;
-    }
-
-    .tile-card:hover .tile-overlay {
-      background: linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0.04) 0%,
-        rgba(0, 0, 0, 0.18) 100%
-      );
-    }
-
     .tile-title {
       color: white;
       font-size: 1.1rem;
