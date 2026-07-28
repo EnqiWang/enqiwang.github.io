@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EE 202 Final Project | Enqi Wang</title>
+  <title>Snakeboy Customized Controller | Enqi Wang</title>
   <link rel="stylesheet" href="css/project.css">
 </head>
+
 <body>
   <header>
     <div class="header-inner">
@@ -21,72 +23,94 @@
     </div>
   </header>
 
-  <main>
-    <section class="section">
-      <h1 class="section-title">EE 202 Final Project</h1>
-      <div class="underline"></div>
-      <p class="lead">
-        In this project, we built a <span class="highlight">cigar-box electric guitar</span> and designed a
-        <strong>notch (band-stop) filter</strong> to suppress the fundamental frequency of the G string
-        (<strong>196 Hz</strong>) without affecting nearby notes. The circuit was built to achieve strong rejection at the target frequency,
-        use a <strong>dual power supply</strong>, and preserve clean audio output for the rest of the instrument.
-      </p>
 
-      <div class="process-card">
-        <img src="icons_images/Guitar/Guitar1.jpg" alt="Cigar-box guitar overview" class="process-image">
-      </div>
-      <div class="process-card">
-        <img src="icons_images/Guitar/Guitar2.jpg" alt="Cigar-box guitar close-up" class="process-image">
-      </div>
-    </section>
 
-    <section class="process-section">
-      <h2 class="gallery-title">Process</h2>
+<main> 
+<section class="section">
+  <h1 class="section-title">EE 202 Final Project</h1>
+  <div class="underline"></div>
 
-      <div class="process-card">
-        <img src="icons_images/Guitar/Wood_Fabrication.jpg" alt="Wood design and fabrication" class="process-image">
-      </div>
-      <h3 class="gallery-title">Wood Design and Fabrication</h3>
-      <p class="lead">
-        We marked cuts on raw wood in class and then had the pieces manufactured. After the parts were returned, we prepared the cigar box body
-        for the pickup, bridge placement, and final instrument assembly.
-      </p>
+  <p class="lead">
+     A <span class="highlight">cigar-box electric guitar</span> is a simple stringed instrument built using a wooden cigar box as the body, a wooden neck, magnetic pickups, and basic electronic circuitry. 
+     Despite its minimalist construction, it operates on the same principles as a conventional electric guitar by converting string vibrations into electrical signals that can be amplified. 
+     As part of this project, I also practiced designing a <strong>Twin-T notch (band-stop) filter</strong> to suppress the fundamental frequency of the G string (196 Hz) while preserving the surrounding notes, 
+     demonstrating the application of analog circuit design to real-world audio systems.
+     I built this project with Stephanie Shi.
+  </p>
 
-      <div class="process-card">
-        <img src="icons_images/Guitar/Filter_Design.jpg" alt="Notch filter design and test" class="process-image">
-      </div>
-      <h3 class="gallery-title">Filter Design and Test</h3>
-      <p class="lead">
-        The main goal of this design was to create a notch filter that blocks the fundamental frequency of an unfretted guitar string. The filter
-        needed to reduce this frequency by at least 20 dB without attenuating adjacent notes, which required a high Q-factor. The circuit also
-        needed a dual power supply (V+ and V-) to power the op-amps. To meet these requirements, we used a Twin-T notch filter design.
-      </p>
+  <div class="process-card">
+    <img src="icons_images/Guitar/Guitar1.jpg" alt="Electric Guitar" class="process-image">
+  </div>
 
-      <div class="process-card">
-        <img src="icons_images/Guitar/PCB_Layout.png" alt="PCB layout" class="process-image">
-      </div>
-      <h3 class="gallery-title">Printed-Circuit-Board (PCB) Layout</h3>
-      <p class="lead">
-        For the PCB layout, we designed it based on the provided reference layout.
-      </p>
+  <div class="process-card">
+    <img src="icons_images/Guitar/Guitar2.jpg" alt="Completed Guitar" class="process-image">
+  </div>
+</section>
 
-      <div class="process-card">
-        <img src="icons_images/Guitar/Assembly.jpg" alt="Guitar and electrical component assembly" class="process-image">
-      </div>
-      <h3 class="gallery-title">Guitar and Electrical Component Assembly</h3>
-      <p class="lead">
-        We began by hand-soldering all PCB components, including the aviation plug, switch, and LED connections. Simultaneously, we fabricated
-        the guitar by cutting the cigar box for the pickup, installing the bridges, and tuning the strings. Before putting everything together,
-        we spent some time testing and debugging the PCB. Once an accurate output was confirmed, we completed assembly by soldering the final
-        connections between the aviation plug, output jack, pickup, and the PCB.
-      </p>
+<section class="process-section">
 
-      <div class="process-card">
-        <img src="icons_images/Guitar/Testing.jpg" alt="Final electrical testing" class="process-image">
-      </div>
-      <h3 class="gallery-title">Final Electrical Testing</h3>
-      <p class="lead">
-        We encountered significant issues during the final testing phase that required extensive debugging. Initially, the LED failed to light up,
+  <h2 class="gallery-title">Wood Design and Fabrication</h2>
+
+  <div class="process-card">
+    <img src="icons_images/Guitar/Wood_Fabrication.jpg" alt="Wood Fabrication" class="process-image">
+  </div>
+
+  <p class="lead">
+    During the fabrication stage, I marked the required cuts on the raw wood before
+    the parts were manufactured. After fabrication, I prepared the cigar box body
+    for the pickup, bridge, and string installation to ensure all mechanical
+    components aligned correctly for the final assembly.
+  </p>
+
+  <h2 class="gallery-title">Filter Design and Test</h2>
+
+  <div class="process-card">
+    <img src="icons_images/Guitar/Filter_Design.jpg" alt="Filter Design" class="process-image">
+  </div>
+
+  <p class="lead">
+    I designed and analyzed a Twin-T notch filter to attenuate the fundamental
+    frequency of the G string (196 Hz) while minimizing the effect on adjacent
+    notes. The circuit uses a dual power supply for the operational amplifiers and
+    was designed to achieve a notch depth greater than 20 dB with a high quality
+    factor (Q), allowing the desired frequency to be rejected without noticeably
+    affecting the remaining guitar signal.
+  </p>
+
+  <h2 class="gallery-title">Printed-Circuit-Board (PCB) Layout</h2>
+
+  <div class="process-card">
+    <img src="icons_images/Guitar/PCB_Layout.png" alt="PCB Layout" class="process-image">
+  </div>
+
+  <p class="lead">
+    I assembled the PCB using the provided reference layout and carefully soldered
+    each component before verifying power distribution and signal continuity. The
+    board was inspected and tested before integrating it with the guitar.
+  </p>
+
+  <h2 class="gallery-title">Guitar and Electrical Component Assembly</h2>
+
+  <div class="process-card">
+    <img src="icons_images/Guitar/Assembly.jpg" alt="Assembly" class="process-image">
+  </div>
+
+  <p class="lead">
+    I hand-soldered the PCB components, aviation connector, switch, LED, and audio
+    connections before assembling the complete system. After installing the pickup,
+    bridges, and strings, I tested the electronics independently to verify the
+    output signal before completing the final wiring between the pickup, output
+    jack, and PCB.
+  </p>
+
+  <h2 class="gallery-title">Final Electrical Testing</h2>
+
+  <div class="process-card">
+    <img src="icons_images/Guitar/Testing.jpg" alt="Electrical Testing" class="process-image">
+  </div>
+
+  <p class="lead">
+    We encountered significant issues during the final testing phase that required extensive debugging. Initially, the LED failed to light up,
         so we used a multimeter to troubleshoot voltages and connections. We discovered that the LED resistor was not connected to the V+ plane,
         so we soldered a jumper wire from the battery source to the resistor to fix it. Afterwards, we found that the first gain stage output was
         non-functional and noisy due to an imbalance between the voltage rails. The negative rail measured only -3.4V compared to +8.6V on the
@@ -94,12 +118,7 @@
         stage. The problem was the feedback resistors and capacitors, so we resoldered all of them to ensure better connectivity. This resolved the
         power difference issue. Once the output signal was clean, we measured the notch filter frequency. It turned out to be about 191 Hz instead
         of the target 196 Hz. This slight deviation is likely caused by standard component tolerances in the capacitors or other poor connections.
-      </p>
-    </section>
+  </p>
 
-    <p class="bom-intro">
-      © 2026 Enqi Wang. All rights reserved.
-    </p>
-  </main>
-</body>
-</html>
+</section>
+</main>
