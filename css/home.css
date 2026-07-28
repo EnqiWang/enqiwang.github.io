@@ -527,3 +527,29 @@ p {
 
 
 }
+.hero-media{
+    display:grid;
+    grid-template-columns: 420px 1fr;
+    gap:32px;
+    align-items:center;
+
+    margin-top:32px;
+}
+
+
+.hero-media iframe{
+    width:100%;
+    aspect-ratio:16/9;
+
+    border:none;
+    border-radius:18px;
+
+    box-shadow:var(--shadow);
+}
+@media (max-width:900px){
+
+.hero-media{
+    grid-template-columns:1fr;
+}
+
+}
