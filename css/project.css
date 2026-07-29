@@ -69,6 +69,7 @@ header {
   justify-content: space-between;
   gap: 24px;
 }
+/* nav bar content */
 
 .brand {
   display: flex;
@@ -110,6 +111,8 @@ nav a.active {
   transform: translateY(-1px);
 }
 
+/*main*/
+
 main {
   max-width: 980px;
   margin: 0 auto;
@@ -122,7 +125,7 @@ main {
 .bom-section {
   background: rgba(255, 255, 255, 0.76);
   border: 1px solid rgba(214, 107, 232, 0.12);
-  padding: 42px;
+  padding: 28px;
   margin-bottom: 24px;
   box-shadow: var(--shadow);
   border-radius: 26px;
@@ -725,35 +728,14 @@ main {
 
 /* CSS for territoria.html */
 
-.project-grid {
+
+.section-row {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
   gap: 28px;
   margin-top: 28px;
 }
 
-.info-card,
-.gallery-item {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 16px;
-}
-
-.info-card {
-  border-radius: 18px;
-}
-
-.gallery-item {
-  border-radius: 22px;
-}
-
-.gallery-item img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  display: block;
-  border-radius: 18px;
-}
 
 .caption {
   font-size: 0.9rem;
@@ -761,15 +743,6 @@ main {
   color: var(--muted);
 }
 
-@media (max-width: 900px) {
-  .project-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .gallery-grid {
-    grid-template-columns: 1fr;
-  }
-}
 
 .info-card,
 .gallery-item {
@@ -778,21 +751,6 @@ main {
   box-shadow: var(--shadow);
   border-radius: 18px;
   padding: 16px;
-}
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
-  margin-top: 14px;
-}
-
-.gallery-item img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  display: block;
-  border-radius: 18px;
 }
 
 .viewer-wrap img {
@@ -802,25 +760,10 @@ main {
   display: block;
 }
 
-.section-row {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 28px;
-  margin-top: 28px;
-}
 
 .info-stack {
   display: grid;
   gap: 14px;
-}
-
-.info-card,
-.gallery-item {
-  background: rgba(255, 255, 255, 0.84);
-  border: 1px solid rgba(214, 107, 232, 0.12);
-  box-shadow: var(--shadow);
-  border-radius: 18px;
-  padding: 16px;
 }
 
 .gallery-grid {
@@ -838,19 +781,6 @@ main {
   border-radius: 18px;
 }
 
-.caption {
-  font-size: 0.9rem;
-  margin-top: 8px;
-  color: var(--muted);
-}
-
-
-.section,
-.process-section,
-.gallery-section,
-.bom-section {
-  padding: 28px;
-}
 
 /* End of territoria.html CSS */
 /* CSS for guitar.html */
