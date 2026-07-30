@@ -844,3 +844,25 @@ main {
       text-transform: uppercase;
       width: fit-content;
     }
+
+
+    #imageZoomIn {
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,.9);
+    z-index: 99999;
+    cursor: zoom-out;
+}
+
+#imageZoomIn.active {
+    display: flex;
+}
+
+#imageZoomIn img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+}
