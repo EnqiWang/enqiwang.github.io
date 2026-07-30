@@ -69,6 +69,7 @@ header {
   justify-content: space-between;
   gap: 24px;
 }
+
 /* nav bar content */
 
 .brand {
@@ -141,6 +142,14 @@ main {
   margin-bottom: 10px;
   letter-spacing: -0.05em;
 }
+
+.subtitle {
+      font-size: clamp(1.02rem, 1.7vw, 1.35rem);
+      font-weight: 700;
+      color: var(--pink-strong);
+      text-align: center;
+      margin-bottom: 18px;
+    }
 
 .underline {
   width: min(420px, 70%);
@@ -675,7 +684,7 @@ main {
   main {
     padding: 28px 16px 60px;
   }
-
+  .title
   .section-title {
     font-size: clamp(2rem, 8vw, 3rem);
   }
@@ -753,6 +762,7 @@ main {
   padding: 16px;
 }
 
+
 .viewer-wrap img {
   width: 100%;
   height: 100%;
@@ -810,3 +820,21 @@ main {
   border: none;
   display: block;
 }
+
+ .project-tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin: 0 auto 18px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 111, 174, 0.12);
+      border: 1px solid rgba(255, 111, 174, 0.18);
+      color: var(--pink-strong);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      width: fit-content;
+    }
