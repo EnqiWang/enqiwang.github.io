@@ -117,15 +117,6 @@ main {
   min-height: calc(100vh - 78px);
 }
 
-.panel {
-  background: None;
-  border: 1px solid rgba(214, 107, 232, 0.12);
-  padding: 42px;
-  margin-bottom: 24px;
-  box-shadow: var(--shadow);
-  border-radius: 26px;
-}
-
 .about-grid {
   display: grid;
   grid-template-columns: 320px 1fr;
@@ -463,9 +454,7 @@ p {
     margin: 0 auto;
   }
 
-  .panel {
-    padding: 24px;
-  }
+  
 
   .resume-button {
     width: 100%;
