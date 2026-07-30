@@ -6,14 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Snakeboy Customized Controller | Enqi Wang</title>
   <link rel="stylesheet" href="css/project.css">
+  <link rel="stylesheet" href="header/header.css">
 </head>
 
 <body>
-  <header>
+   <header>
     <div class="header-inner">
       <div class="brand">
         Enqi Wang
-        <small>Portfolio</small>
+        <small>PORTFOLIO</small>
       </div>
       <nav aria-label="Primary">
         <a href="index.html#home">HOME</a>
@@ -22,96 +23,113 @@
       </nav>
     </div>
   </header>
-<main> 
-<section class="section">
-  <h1 class="section-title">Electric Guitar</h1>
-  <div class="underline"></div>
+  <main>
+    <section class="section">
+      <h1 class="section-title">Electric Guitar</h1>
+      <div class="underline"></div>
 
-  <p class="lead">
-     A <span class="highlight">cigar-box electric guitar</span> is a simple guitar built using a wooden cigar box as the body, a wooden neck, magnetic pickups, and basic electronic circuitry. 
-     It operates on the same principles as a common electric guitar by converting string vibrations into electrical signals that can be amplified. 
-     As part of this project, I also practiced designing a <strong>Twin-T notch (band-stop) filter</strong> to suppress the fundamental frequency of the G string (196 Hz) while preserving the surrounding notes.
-     I built this project with Stephanie Shi during EE 202.
+      <p class="lead">
+        A <span class="highlight">cigar-box electric guitar</span> is a simple guitar built using a wooden cigar box as
+        the body, a wooden neck, magnetic pickups, and basic electronic circuitry.
+        It operates on the same principles as a common electric guitar by converting string vibrations into electrical
+        signals that can be amplified.
+        As part of this project, I also practiced designing a <strong>Twin-T notch (band-stop) filter</strong> to
+        suppress the fundamental frequency of the G string (196 Hz) while preserving the surrounding notes.
+        I built this project with Stephanie Shi during EE 202.
+      </p>
+
+      <div class="image-row">
+        <img src="icons_images/Guitar/Guitar1.png" alt="Front View" class="guitar-image">
+        <img src="icons_images/Guitar/Guitar2.png" alt="Perspective View" class="guitar-image">
+      </div>
+    </section>
+
+    <section class="process-section">
+
+      <h2 class="gallery-title">Wood Design and Fabrication</h2>
+
+      <div class="process-card">
+        <img src="icons_images/Guitar/Wood_Fabrication.jpg" alt="Wood Fabrication" class="process-image">
+      </div>
+
+      <p class="lead">
+        The objective of this project is to build a cigar-box electric guitar and a notch (bandstop)
+        filter that suppresses the fundamental frequency of the G string (196 Hz) without affecting other notes.
+        The raw wood was manufactured by EE 202 staff.
+      </p>
+
+      <h2 class="gallery-title">Filter Design and Test</h2>
+
+      <div class="process-card">
+        <img src="icons_images/Guitar/Filter_Design.jpg" alt="Filter Design" class="process-image">
+      </div>
+
+      <p class="lead">
+        I designed and analyzed a Twin-T notch filter to attenuate the fundamental
+        frequency of the G string (196 Hz) while minimizing the effect on adjacent
+        notes. The circuit uses a dual power supply for the operational amplifiers and
+        was designed to achieve a notch depth greater than 20 dB with a high quality
+        factor (Q), allowing the desired frequency to be rejected without noticeably
+        affecting the remaining guitar signal.
+      </p>
+
+      <h2 class="gallery-title">Printed-Circuit-Board (PCB) Layout</h2>
+
+      <div class="process-card">
+        <img src="icons_images/Guitar/PCB_Layout.png" alt="PCB Layout" class="process-image">
+      </div>
+
+      <p class="lead">
+        I assembled the PCB using the provided reference layout and carefully soldered
+        each component before verifying power distribution and signal continuity. The
+        board was inspected and tested before integrating it with the guitar.
+      </p>
+
+      <h2 class="gallery-title">Guitar and Electrical Component Assembly</h2>
+
+      <div class="process-card">
+        <img src="icons_images/Guitar/Assembly.jpg" alt="Assembly" class="process-image">
+      </div>
+
+      <p class="lead">
+        I hand-soldered the PCB components, aviation connector, switch, LED, and audio
+        connections before assembling the complete system. After installing the pickup,
+        bridges, and strings, I tested the electronics independently to verify the
+        output signal before completing the final wiring between the pickup, output
+        jack, and PCB.
+      </p>
+    </section>
+    <section class="process-section">
+      <h2 class="gallery-title">Final Electrical Testing</h2>
+
+      <div class="process-card">
+        <img src="icons_images/Guitar/Testing.jpg" alt="Electrical Testing" class="process-image">
+      </div>
+
+      <p class="lead">
+        We encountered significant issues during the final testing phase that required extensive debugging. Initially,
+        the LED failed to light up,
+        so we used a multimeter to troubleshoot voltages and connections. We discovered that the LED resistor was not
+        connected to the V+ plane,
+        so we soldered a jumper wire from the battery source to the resistor to fix it. Afterwards, we found that the
+        first gain stage output was
+        non-functional and noisy due to an imbalance between the voltage rails. The negative rail measured only -3.4V
+        compared to +8.6V on the
+        positive rail. Replacing the charge pump did not help, so we spent more time debugging the circuit by checking
+        the output at each gain/filter
+        stage. The problem was the feedback resistors and capacitors, so we resoldered all of them to ensure better
+        connectivity. This resolved the
+        power difference issue. Once the output signal was clean, we measured the notch filter frequency. It turned out
+        to be about 191 Hz instead
+        of the target 196 Hz. This slight deviation is likely caused by standard component tolerances in the capacitors
+        or other poor connections.
+      </p>
+
+    </section>
+  </main>
+  <p class="footer-note">
+    Enqi Wang © 2026. All rights reserved.
   </p>
+  </body>
 
-  <div class="image-row">
-    <img src="icons_images/Guitar/Guitar1.png" alt="Front View" class="guitar-image">
-    <img src="icons_images/Guitar/Guitar2.png" alt="Perspective View" class="guitar-image">
-</div>
-</section>
-
-<section class="process-section">
-
-  <h2 class="gallery-title">Wood Design and Fabrication</h2>
-
-  <div class="process-card">
-    <img src="icons_images/Guitar/Wood_Fabrication.jpg" alt="Wood Fabrication" class="process-image">
-  </div>
-
-  <p class="lead">
-    The objective of this project is to build a cigar-box electric guitar and a notch (bandstop) 
-    filter that suppresses the fundamental frequency of the G string (196 Hz) without affecting other notes.
-    The raw wood was manufactured by EE 202 staff.
-
-  </p>
-
-  <h2 class="gallery-title">Filter Design and Test</h2>
-
-  <div class="process-card">
-    <img src="icons_images/Guitar/Filter_Design.jpg" alt="Filter Design" class="process-image">
-  </div>
-
-  <p class="lead">
-    I designed and analyzed a Twin-T notch filter to attenuate the fundamental
-    frequency of the G string (196 Hz) while minimizing the effect on adjacent
-    notes. The circuit uses a dual power supply for the operational amplifiers and
-    was designed to achieve a notch depth greater than 20 dB with a high quality
-    factor (Q), allowing the desired frequency to be rejected without noticeably
-    affecting the remaining guitar signal.
-  </p>
-
-  <h2 class="gallery-title">Printed-Circuit-Board (PCB) Layout</h2>
-
-  <div class="process-card">
-    <img src="icons_images/Guitar/PCB_Layout.png" alt="PCB Layout" class="process-image">
-  </div>
-
-  <p class="lead">
-    I assembled the PCB using the provided reference layout and carefully soldered
-    each component before verifying power distribution and signal continuity. The
-    board was inspected and tested before integrating it with the guitar.
-  </p>
-
-  <h2 class="gallery-title">Guitar and Electrical Component Assembly</h2>
-
-  <div class="process-card">
-    <img src="icons_images/Guitar/Assembly.jpg" alt="Assembly" class="process-image">
-  </div>
-
-  <p class="lead">
-    I hand-soldered the PCB components, aviation connector, switch, LED, and audio
-    connections before assembling the complete system. After installing the pickup,
-    bridges, and strings, I tested the electronics independently to verify the
-    output signal before completing the final wiring between the pickup, output
-    jack, and PCB.
-  </p>
-
-  <h2 class="gallery-title">Final Electrical Testing</h2>
-
-  <div class="process-card">
-    <img src="icons_images/Guitar/Testing.jpg" alt="Electrical Testing" class="process-image">
-  </div>
-
-  <p class="lead">
-    We encountered significant issues during the final testing phase that required extensive debugging. Initially, the LED failed to light up,
-        so we used a multimeter to troubleshoot voltages and connections. We discovered that the LED resistor was not connected to the V+ plane,
-        so we soldered a jumper wire from the battery source to the resistor to fix it. Afterwards, we found that the first gain stage output was
-        non-functional and noisy due to an imbalance between the voltage rails. The negative rail measured only -3.4V compared to +8.6V on the
-        positive rail. Replacing the charge pump did not help, so we spent more time debugging the circuit by checking the output at each gain/filter
-        stage. The problem was the feedback resistors and capacitors, so we resoldered all of them to ensure better connectivity. This resolved the
-        power difference issue. Once the output signal was clean, we measured the notch filter frequency. It turned out to be about 191 Hz instead
-        of the target 196 Hz. This slight deviation is likely caused by standard component tolerances in the capacitors or other poor connections.
-  </p>
-
-</section>
-</main>
+</html>
