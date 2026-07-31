@@ -5,18 +5,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/project.css">
-  <link rel="stylesheet" href="header/header.css">
+
   <style>
-    .section {
-      background: rgba(255, 255, 255, 0.76);
-      border: 1px solid rgba(214, 107, 232, 0.12);
-      padding: 42px;
-      margin-bottom: 24px;
-      box-shadow: var(--shadow);
-      border-radius: 26px;
-
-    }
-
+  
     .hero {
       padding-top: 34px;
     }
@@ -116,15 +107,7 @@
     }
 
 
-    .section-lead {
-      text-align: center;
-      max-width: 840px;
-      margin: 0 auto 22px;
-      color: var(--muted);
-      line-height: 1.8;
-      font-size: 1rem;
-    }
-
+    
     .feature-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -278,32 +261,6 @@
       margin-bottom: 8px;
     }
 
-
-
-    .shot {
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid rgba(214, 107, 232, 0.12);
-      border-radius: 22px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-    }
-
-    .shot img {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-      display: block;
-      background: #fff;
-    }
-
-    .shot .caption {
-      padding: 12px 14px;
-      color: #6f5e79;
-      font-size: 0.94rem;
-      border-top: 1px solid rgba(214, 107, 232, 0.10);
-      background: rgba(255, 255, 255, 0.92);
-    }
-
     .full-width-card {
       background: rgba(255, 255, 255, 0.86);
       border: 1px solid rgba(214, 107, 232, 0.12);
@@ -334,18 +291,12 @@
         min-height: 320px;
       }
 
-      .shot img {
-        height: 240px;
-      }
+      
     }
 
     @media (max-width: 640px) {
-      .section {
-        padding: 22px;
-      }
-
-      .hero-text,
-      .section-lead {
+      .hero-text
+       {
         font-size: 0.98rem;
       }
 
@@ -354,28 +305,6 @@
       }
     }
 
-    .canva-frame {
-      width: 100%;
-      height: 100%;
-      min-height: 720px;
-
-      border-radius: 22px;
-      overflow: hidden;
-
-      background: white;
-
-      border: 1px solid rgba(214, 107, 232, 0.12);
-      box-shadow: var(--shadow);
-    }
-
-    .canva-frame iframe {
-      width: 100%;
-      height: 100%;
-      min-height: 720px;
-
-      border: none;
-      display: block;
-    }
   </style>
 </head>
 
@@ -450,10 +379,10 @@
 
     <section class="section" id="featured-art">
       <h2 class="gallery-title">Featured Art</h2>
-      <p class="section-lead">
+      <p class="lead">
        Haha placeholder, Still updating
       </p>
-      <div class="canva-frame">
+      <div class="video-container">
         <iframe src="https://www.canva.com/design/DAHLS8D9d1E/QuzWJ8frw16-DtN7Bal5zg/view?embed"
           allowfullscreen="allowfullscreen" allow="fullscreen">
         </iframe>
@@ -492,7 +421,7 @@
 
     <section class="section" id="resources">
       <h2 class="gallery-title">Project Resources</h2>
-      <p class="section-lead">
+      <p class="lead">
         Keep these as simple cards so the page stays clean. You can later swap each button to a PDF, a video link, or a
         full page.
       </p>
@@ -535,18 +464,18 @@
 
     <section class="section">
       <h2 class="gallery-title">Gallery</h2>
-      <p class="section-lead">
+      <p class="lead">
         Use this area for extra screenshots, sketches, world-building images, and development stills.
         It works well for environment passes, character iterations, and any polish shots.
       </p>
 
       <div class="gallery-grid">
-        <figure class="shot">
+        <figure class="gallery-item">
           <img src="icons_images/game.PNG" alt="Environment screenshot or concept">
           <figcaption class="caption">Environment / scene shot</figcaption>
         </figure>
 
-        <figure class="shot">
+        <figure class="gallery-item">
           <img src="icons_images/frieren.png" alt="Character screenshot or concept">
           <figcaption class="caption">Character / design shot</figcaption>
         </figure>
