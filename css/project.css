@@ -564,6 +564,7 @@ main {
   margin-top: 0;
 }
 
+.full-width-card,
 .process-card {
   max-width: 900px;
   margin: 0 auto;
