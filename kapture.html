@@ -7,11 +7,6 @@
   <link rel="stylesheet" href="css/project.css">
 
   <style>
-    .hero-media {
-      display: block;
-    }
-
-
     .hero-side-card {
       background: rgba(255, 255, 255, 0.88);
       border: 1px solid rgba(214, 107, 232, 0.12);
@@ -29,8 +24,6 @@
       display: grid;
       gap: 14px;
     }
-
-
 
     .label {
       display: block;
@@ -247,13 +240,8 @@
       margin-bottom: 8px;
     }
 
-
-
-
-
     @media (max-width: 980px) {
 
-      .hero-media,
       .feature-grid,
       .resource-grid,
       .two-col {
@@ -268,13 +256,11 @@
     }
 
     @media (max-width: 640px) {
-      .lead {
-        font-size: 0.98rem;
-      }
 
       .resource-card {
         min-height: auto;
       }
+
     }
   </style>
 </head>
@@ -302,23 +288,24 @@
       <h1 class="section-title">Kapture the Snake of 88'</h1>
       <div class="underline"></div>
       <p class="lead">
-        In 1988, seven USC students disappeared after a party at Kappa House. Days later, police found all seven
-        dead inside the abandoned frat house. The case was never solved.
-        Hired by an anonymous client, players return to the abandoned site as independent investigators armed with a
-        Snake Camera that connects the living to the spirit world.
-        players must gather evidence, interview ghosts, and uncover the truth behind the
-        case.
+        In 1988, a Kappa House party ended in tragedy when seven USC students were found dead. The case
+        went unresolved and the property was abandoned. Years later, an anonymous client hires your team as an
+        independent
+        investigators. Equipped with a unique Snake Camera, a device that allows you to see and speak with the spirit
+        world, you
+        must collect evidence, interrogate ghosts, and piece together exactly what happened that night.
+        Who had killed everyone...?
       </p>
-      
+
       <div class="video-container">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/zi7P7Dct2Qg?si=0zG7CU_fKBsefjIh"
           title="YouTube video player" frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          
+
       </div>
       <p class="lead"> Game Trailer
-        </p>
+      </p>
 
       <div class="hero-side-card">
         <div class="info-grid">
@@ -339,15 +326,13 @@
               VRoid Studio, Bambu Studio, and LLM / voice integration
             </div>
           </div>
-
-
           <div>
             <div class="label">Quick Links</div>
 
             <div class="button-row" style="margin-top: 16px;">
               <a class="primary-btn" href="#featured-art">Character Artwork</a>
-              <a class="secondary-btn">Gameplay Video</a>
-              <a class="secondary-btn">Pitch Deck</a>
+              <a class="secondary-btn" href="#gameplay-video">Gameplay Video</a>
+              <a class="secondary-btn" href="#pitch-deck">Pitch Deck</a>
               <a class="secondary-btn">Development Log PDF</a>
               <a class="secondary-btn">Controller Showcase</a>
               <a class="secondary-btn" href="#resources">Project Files</a>
@@ -356,9 +341,84 @@
         </div>
       </div>
     </section>
-    <!-- Featured Art Section -->
+
+    <section class="section" id="gameplay-video">
+      <h2 class="gallery-title">Gameplay Video</h2>
+      <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/vpfd0HTc_ak?si=khTxdRoas_vX7HNM"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+      </div>
+      <p class="lead">
+        Full Gameplay Video. It's 22 minutes long, so idk if you want to watch it all.
+      </p>
+    </section>
+
     <section class="section">
-      <h2 class="gallery-title" style="margin-bottom: 12px;">The story</h2>
+      <h2 class="gallery-title">In-Game Characters</h2>
+
+      <p class="lead">
+        Designed and customized all playable and NPC characters using VRoid Studio.
+        Exported each character as a <code>.vrm</code> model with UniVRM, optimized geometry,
+        and created custom blood, dirt, and grime textures in Photoshop for the final in-game appearance.
+      </p>
+
+      <div class="process-card">
+        <iframe src="pdfs/Character_Design_Document.pdf" width="100%" height="700" style="border:none;"
+          title="Character Design Document">
+        </iframe>
+      </div>
+
+      <p class="process-list">
+        If the embedded document does not load,
+        <a href="pdfs/Character_Design_Document.pdf" target="_blank">
+          view the Character Design Document here.
+        </a>
+      </p>
+
+      <div class="character-gallery">
+
+        <h3>Raven Hollow (Gothic Ghost)</h3>
+        <div class="image-row">
+          <img src="icons_images/Characters/Raven1.png" class="guitar-image">
+          <img src="icons_images/Characters/Raven2.png" class="guitar-image">
+        </div>
+
+        <h3>Emily Millers (Naive Ghost)</h3>
+        <div class="image-row">
+          <img src="icons_images/Characters/Emily1.png" class="guitar-image">
+          <img src="icons_images/Characters/Emily2.png" class="guitar-image">
+        </div>
+
+        <h3>Troy Carter (Football Athlete Ghost)</h3>
+        <div class="image-row">
+          <img src="icons_images/Characters/Troy1.png" class="guitar-image">
+          <img src="icons_images/Characters/Troy2.png" class="guitar-image">
+        </div>
+
+        <h3>Brad Callahan (Frat Guy Ghost)</h3>
+        <div class="image-row">
+          <img src="icons_images/Characters/Brad1.png" class="guitar-image">
+          <img src="icons_images/Characters/Brad2.png" class="guitar-image">
+        </div>
+
+        <!-- Continue Jason, Marty, Brittany, Detectives -->
+
+      </div>
+
+    </section>
+
+    <section class="section">
+      <h2 class="gallery-title" style="margin-bottom: 12px;">Cooperative Deduction Gameplay</h2>
+      <p class="lead">
+        After gathering evidence, players enter a final voting phase to identify the true killer.
+        The team must discuss their findings, compare ghost testimonies, and vote correctly to complete the
+        investigation.
+      </p>
+      <img src="icons_images/Kapture/" alt="voting" class="process-image">
+      </img>
       <p class="lead">
 
       </p>
@@ -372,9 +432,8 @@
         The team must discuss their findings, compare ghost testimonies, and vote correctly to complete the
         investigation.
       </p>
-      <div class="process-card">
-        <img src="icons_images/Kapture/voting.jpg" alt="voting" class="process-image">
-      </div>
+      <img src="icons_images/Kapture/voting.jpg" alt="voting" class="process-image">
+      </img>
     </section>
 
     <section class="section">
@@ -402,52 +461,7 @@
       </div>
     </section>
 
-
-    <section class="section" id="pitch-deck">
-      <h2 class="gallery-title">Pitch Deck</h2>
-      <div class="video-container">
-        <iframe src="https://www.canva.com/design/DAHLS8D9d1E/QuzWJ8frw16-DtN7Bal5zg/view?embed"
-          allowfullscreen="allowfullscreen" allow="fullscreen">
-        </iframe>
-        <p class="lead">
-          We used this pitch deck to present our game concept, gameplay mechanics, and visual direction to judges from
-          San
-          Diego Studio, Insomniac Games, Bend Studio, Naughty Dog, Santa Monica Studio, and other industry professionals
-          attending the game jam presentations.
-        </p>
-      </div>
-      <!-- Feature Grid 
-      <div class="feature-grid">
-        <article class="feature-card large">
-          <div class="feature-image">
-            <img src="icons_images/game.PNG" alt="Environment showcase">
-            <div class="overlay">Environment Art</div>
-          </div>
-          <div class="feature-body">
-            <div class="feature-title">Environment Showcase</div>
-            <div class="feature-text">
-              Replace this with your strongest scene renders, layout views, or lighting passes.
-              This card should be the main visual hook for the project.
-            </div>
-          </div>
-        </article>
-
-        <article class="feature-card large">
-          <div class="feature-image">
-            <img src="icons_images/frieren.png" alt="Character showcase">
-            <div class="overlay">Character Design</div>
-          </div>
-          <div class="feature-body">
-            <div class="feature-title">Character Showcase</div>
-            <div class="feature-text">
-              Use this space for character concepts, model sheets, facial expressions, or in-game character captures.
-              If you have turnarounds, put them here.
-            </div>
-          </div>
-        </article>
-      </div>-->
-    </section>
-
+    <!--
 
     <section class="section">
       <div class="two-col">
@@ -472,7 +486,7 @@
             This page is a good place to separate your role from the team's work. It keeps the focus on what you made.
           </p>
           <ul class="list">
-            <li>Character art and character design</li>
+            <li></li>
             <li>Environment art and scene dressing</li>
             <li>Hardware controller design support</li>
             <li>Game systems and implementation support</li>
@@ -480,12 +494,64 @@
         </div>
       </div>
     </section>
+  -->
+
+
+    <section class="section" id="pitch-deck">
+      <h2 class="gallery-title">Pitch Deck</h2>
+      <p class="lead">
+        We used this pitch deck to present our game concept, gameplay mechanics, and visual direction to judges from
+        San Diego Studio, Insomniac Games, Bend Studio, Naughty Dog, Santa Monica Studio, and other industry
+        professionals
+        attending the game jam presentations.
+      </p>
+      <div class="video-container">
+        <iframe src="https://www.canva.com/design/DAHLS8D9d1E/QuzWJ8frw16-DtN7Bal5zg/view?embed"
+          allowfullscreen="allowfullscreen" allow="fullscreen">
+        </iframe>
+
+      </div>
+      <p class="lead">
+        Game Presentation Pitch Deck
+      </p>
+
+      <div class="feature-grid">
+        <article class="feature-card large">
+          <div class="feature-image">
+            <img src="icons_images/Kapture/trifold.jpg" alt="Trifold pitch deck">
+          </div>
+          <div class="feature-body">
+            <div class="feature-title">Game Brochure</div>
+            <div class="feature-text">
+              A trifold brochure was created to summarize the game concept, gameplay mechanics, and visual direction for
+              the game jam presentation. When we demo'd our game at Sony Interactive Entertainment HQ, it was
+              distributed to attendees to provide a quick overview of the
+              project.
+            </div>
+          </div>
+        </article>
+
+        <article class="feature-card large">
+          <div class="feature-image">
+            <img src="icons_images/frieren.png" alt="Character showcase">
+            <div class="overlay">placeholder haha</div>
+          </div>
+          <div class="feature-body">
+            <div class="feature-title">Character Showcase</div>
+            <div class="feature-text">
+             something blah
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
 
 
     <section class="section">
 
       <h2 class="gallery-title" style="margin-bottom: 12px;">Reflection</h2>
-      <p>
+      <p class="lead">
         This game jam has been genuinely life-changing for me. Coming into it, I had basically zero experience with
         Unity before, and over the course of the project I've developed a solid foundation in the engine while learning
         how to build and optimize a complete game environment. As a result I regrouped, retextured, setdressed, and
