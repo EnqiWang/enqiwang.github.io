@@ -7,19 +7,6 @@
   <link rel="stylesheet" href="css/project.css">
 
   <style>
-    .hero-side-card {
-      background: rgba(255, 255, 255, 0.88);
-      border: 1px solid rgba(214, 107, 232, 0.12);
-      border-radius: 22px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      padding: 22px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 18px;
-    }
-
     .info-grid {
       display: grid;
       gap: 14px;
@@ -307,7 +294,7 @@
       <p class="lead"> Game Trailer
       </p>
 
-      <div class="hero-side-card">
+      <div class="section">
         <div class="info-grid">
           <div class="info-card">
             <span class="label">Team</span>
@@ -330,7 +317,7 @@
             <div class="label">Quick Links</div>
 
             <div class="button-row" style="margin-top: 16px;">
-              <a class="primary-btn" href="#featured-art">Character Artwork</a>
+              <a class="primary-btn" href="#character-art">Character Artwork</a>
               <a class="secondary-btn" href="#gameplay-video">Gameplay Video</a>
               <a class="secondary-btn" href="#pitch-deck">Pitch Deck</a>
               <a class="secondary-btn">Development Log PDF</a>
@@ -356,54 +343,97 @@
       </p>
     </section>
 
-    <section class="section">
-      <h2 class="gallery-title">In-Game Characters</h2>
+    <section class="section" id="character-art">
+      <h2 class="gallery-title">Characters Concept Design</h2>
 
       <p class="lead">
         Designed and customized all playable and NPC characters using VRoid Studio, Photoshop, and Unity 3D.
         Exported each character as a <code>.vrm</code> model with UniVRM, optimized geometry,
         and created custom blood, dirt, and grime textures in Photoshop for the final in-game appearance.
+        Yeah I made all the characters in 1 week lol.
+      </p>
+      <img src="icons_images/Kapture/characters.png" alt="Character Concept Designs" class="process-image">
+      <p class="lead">
+        All characters showcase
+      </p>
+      <p class="lead">
+        The following are the main characters in the game, including the seven ghosts and the player characters
+        (private investigators). In this game, you are the interviewer who asks questions to the ghosts and
+        see if their testimonies are consistent. The goal is to identify the true killer among the seven ghosts.
+        Each time that you start the game, the killer is randomized.
       </p>
       <div class="character-gallery">
 
         <h3>Raven Hollow (Gothic Ghost)</h3>
+        <p>
+          A withdrawn post-punk gothic girl who spends most her nights alone.
+        </p>
         <div class="image-row">
           <img src="icons_images/Kapture/Raven1.png" class="guitar-image">
           <img src="icons_images/Kapture/Raven2.png" class="guitar-image">
         </div>
 
         <h3>Emily Millers (Naive Ghost)</h3>
+        <p>
+          An optimistic freshman who believes everyone has good intentions.
+        </p>
         <div class="image-row">
           <img src="icons_images/Kapture/Emily1.png" class="guitar-image">
           <img src="icons_images/Kapture/Emily2.png" class="guitar-image">
         </div>
 
         <h3>Troy Carter (Football Athlete Ghost)</h3>
+        <p>
+          A confident varsity football player who hides insecurity behind bravado.
+        </p>
         <div class="image-row">
           <img src="icons_images/Kapture/Troy1.png" class="guitar-image">
           <img src="icons_images/Kapture/Troy2.png" class="guitar-image">
         </div>
 
         <h3>Brad Callahan (Frat Guy Ghost)</h3>
+        <p>
+          The charismatic host of the Kappa House party.
+        </p>
         <div class="image-row">
           <img src="icons_images/Kapture/Brad1.png" class="guitar-image">
           <img src="icons_images/Kapture/Brad2.png" class="guitar-image">
         </div>
 
+
         <!-- Continue Jason, Marty, Brittany, Detectives -->
-           <h3>Players (Private Investigators)</h3>
+        <h3>Jason Lim (Transfer Ghost)</h3>
+        <p>
+          An international transfer student who observes campus culture from an outsider's perspective.
+        </p>
+        <div class="image-row">
+          <img src="icons_images/Kapture/Jason1.png" class="guitar-image">
+          <img src="icons_images/Kapture/Jason2.png" class="guitar-image">
+        </div>
+
+        <h3>Marty Feldman (Nerd Ghost)</h3>
+        <p>
+          A socially awkward nerd who is obsessed with video games, technology, and comic books.
+        <div class="image-row">
+          <img src="icons_images/Kapture/Marty1.png" alt="Marty1" class="guitar-image">
+          <img src="icons_images/Kapture/Marty2.png" alt="Marty2" class="guitar-image">
+        </div>
+
+        <h3>Players (Private Investigators)</h3>
+        <p>
+          The players are private amateur investigators who are recruited to solve the mystery of the Kappa House
+          tragedy.
         <div class="image-row">
           <img src="icons_images/Kapture/Player1.png" class="guitar-image">
           <img src="icons_images/Kapture/Player2.png" class="guitar-image">
         </div>
- 
 
-      <div class="process-card">
-        <iframe src="icons_images/Kapture/Design_Concepts.pdf" width="100%" height="700" style="border:none;"
-          title="Character Design Document">
-        </iframe>
-      </div>
-      </p>
+        <div class="bom-actions">
+          <a class="download-btn" href="icons_images/Kapture/Design_Concepts.pdf" download>
+            Download Full Concept Design Document (.pdf)
+          </a>
+        </div>
+        </p>
 
       </div>
 
@@ -499,10 +529,9 @@
     <section class="section" id="pitch-deck">
       <h2 class="gallery-title">Pitch Deck</h2>
       <p class="lead">
-        We used this pitch deck to present our game concept, gameplay mechanics, and visual direction to judges from
+        We used this pitch deck to present our game concept & mechanics to judges from
         San Diego Studio, Insomniac Games, Bend Studio, Naughty Dog, Santa Monica Studio, and other industry
-        professionals
-        attending the game jam presentations.
+        professionals attending the game jam presentations.
       </p>
       <div class="video-container">
         <iframe src="https://www.canva.com/design/DAHLS8D9d1E/QuzWJ8frw16-DtN7Bal5zg/view?embed"
@@ -514,34 +543,21 @@
         Game Presentation Pitch Deck
       </p>
 
-      <div class="feature-grid">
-        <article class="feature-card large">
-          <div class="feature-image">
-            <img src="icons_images/Kapture/trifold.jpg" alt="Trifold pitch deck">
-          </div>
-          <div class="feature-body">
-            <div class="feature-title">Game Brochure</div>
-            <div class="feature-text">
-             When we demo'd our game at Sony Interactive Entertainment HQ, this gameplay brochure was
-              distributed to attendees to provide a quick overview of the
-              project.
-            </div>
-          </div>
-        </article>
-
-        <article class="feature-card large">
-          <div class="feature-image">
-            <img src="icons_images/frieren.png" alt="Character showcase">
-            <div class="overlay">placeholder haha</div>
-          </div>
-          <div class="feature-body">
-            <div class="feature-title">Character Showcase</div>
-            <div class="feature-text">
-             something blah
-            </div>
-          </div>
-        </article>
+      <h2 class="gallery-title">Trifold</h2>
+      <p>
+        I made this gameplay brochure and
+        distributed to industry professionals at Sony Interactive Entertainment HQ during the networking demo session to
+        provide a quick overview of the
+        project.
+      </p>
+      <div class="image-row">
+        <img src="icons_images/Kapture/Trifold.jpg" alt=" pitch deck" class="guitar-image"> </img>
+        <img src="icons_images/Kapture/Trifold1.jpg" alt=" pitch deck" class="guitar-image"> </img>
       </div>
+      <p class="lead">
+        Game Trifold Brochure
+      </p>
+
     </section>
 
 
