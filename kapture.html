@@ -17,12 +17,6 @@
       margin-bottom: 6px;
     }
 
-    .section-row {
-      display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 18px;
-    }
-
     .value {
       color: var(--text);
       line-height: 1.6;
@@ -73,7 +67,6 @@
       transform: translateY(-2px);
     }
 
-
     .box {
       background: rgba(255, 255, 255, 0.86);
       border: 1px solid rgba(214, 107, 232, 0.12);
@@ -95,46 +88,14 @@
       font-size: 0.98rem;
     }
 
-    /* Tablet */
     @media (max-width: 980px) {
+
       .hero-banner img {
         min-height: 320px;
       }
 
-      .box {
-        padding: 18px;
-        border-radius: 20px;
-      }
 
-      .box h3 {
-        font-size: 1rem;
-      }
-
-      .box p {
-        font-size: 0.95rem;
-        line-height: 1.7;
-      }
     }
-
-    /* Phone */
-    @media (max-width: 600px) {
-      .box {
-        padding: 16px;
-        border-radius: 16px;
-      }
-
-      .box h3 {
-        font-size: 0.95rem;
-        margin-bottom: 8px;
-      }
-
-      .box p {
-        font-size: 0.9rem;
-        line-height: 1.6;
-      }
-    }
-
-
   </style>
 </head>
 
@@ -202,19 +163,17 @@
             Who had killed everyone...?
           </div>
 
-          <span class="label" style="margin-top: 16px;">My Contribution</span>
-          <div class="button-row">
-            <a class="primary-btn" href="#character-art">Character Artwork</a>
-            <a class="secondary-btn" href="controller.html">Controller Hardware Design</a>
-          </div>
-
-          <span class="label" style="margin-top: 16px;">Quick Links</span>
-          <div class="button-row">
-            <a class="secondary-btn" href="#gameplay-video">Gameplay Video</a>
-            <a class="secondary-btn" href="#resources">Features</a>
-            <a class="secondary-btn" href="#pitch-deck">Pitch Deck</a>
-          </div>
         </div>
+      </div>
+      <span class="label" style="margin-top:16px;">Quick Links</span>
+
+      <div class="button-row">
+        <a class="primary-btn" href="#character-art">Character Artwork</a>
+        <a class="secondary-btn" href="controller.html">View Controller</a>
+        <a class="secondary-btn" href="#gameplay-video">Gameplay Video</a>
+        <a class="secondary-btn" href="#resources">Features</a>
+        <a class="secondary-btn" href="#pitch-deck">Pitch Deck</a>
+      </div>
       </div>
     </section>
 

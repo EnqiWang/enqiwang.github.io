@@ -655,7 +655,7 @@ main {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
-  align-items: start;
+  align-items: stretch;
   margin-top: 28px;
 }
 
@@ -677,6 +677,7 @@ main {
 
 
 .info-card,
+.box,
 .gallery-item {
   background: rgba(255, 255, 255, 0.84);
   border: 1px solid rgba(214, 107, 232, 0.12);
@@ -684,7 +685,6 @@ main {
   border-radius: 18px;
   padding: 16px;
 }
-
 
 .info-stack {
   display: grid;
