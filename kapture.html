@@ -7,43 +7,6 @@
   <link rel="stylesheet" href="css/project.css">
 
   <style>
-  
-    .hero {
-      padding-top: 34px;
-    }
-
-    .hero-text {
-      max-width: 860px;
-      margin: 0 auto 26px;
-      text-align: center;
-      color: var(--muted);
-      line-height: 1.85;
-      font-size: 1.02rem;
-    }
-
-    .hero-media {
-      display: block;
-    }
-
-
-    .hero-side-card {
-      background: rgba(255, 255, 255, 0.88);
-      border: 1px solid rgba(214, 107, 232, 0.12);
-      border-radius: 22px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      padding: 22px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 18px;
-    }
-
-    .info-grid {
-      display: grid;
-      gap: 14px;
-    }
-
     .label {
       display: block;
       font-size: 0.82rem;
@@ -105,7 +68,7 @@
     }
 
 
-    
+
     .feature-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -259,26 +222,8 @@
       margin-bottom: 8px;
     }
 
-    .full-width-card {
-      background: rgba(255, 255, 255, 0.86);
-      border: 1px solid rgba(214, 107, 232, 0.12);
-      border-radius: 24px;
-      box-shadow: var(--shadow);
-      padding: 24px;
-    }
-
-    .full-width-card p {
-      color: var(--muted);
-      line-height: 1.8;
-      font-size: 0.98rem;
-      max-width: 920px;
-    }
-
-
-
     @media (max-width: 980px) {
 
-      .hero-media,
       .feature-grid,
       .resource-grid,
       .two-col {
@@ -289,20 +234,16 @@
         min-height: 320px;
       }
 
-      
+
     }
 
     @media (max-width: 640px) {
-      .hero-text
-       {
-        font-size: 0.98rem;
-      }
 
       .resource-card {
         min-height: auto;
       }
-    }
 
+    }
   </style>
 </head>
 
@@ -322,163 +263,227 @@
     </div>
   </header>
   <main>
-    <section class="section hero">
-      <div class="project-tag">Game / Art / Hardware</div>
+    <section class="process-section">
+      <div class="project-tag">Game Development</div>
+      <div class="project-tag">Game Art</div>
+      <div class="project-tag">Hardware Design</div>
       <h1 class="section-title">Kapture the Snake of 88'</h1>
-      <div class="subtitle">A Co-op Horror Investigation Game</div>
-
-      <p class="hero-text">
-        A co-op horror mystery set in 1988 where players investigate the abandoned Kappa House,
-        gather evidence, question spirits, and uncover the truth behind the case.
+      <div class="underline"></div>
+      <p class="lead">
+        In 1988, a Kappa House party ended in tragedy when seven USC students were found dead. The case
+        went unresolved and the property was abandoned. Years later, an anonymous client hires your team as an
+        independent
+        investigators. Equipped with a unique Snake Camera, a device that allows you to see and speak with the spirit
+        world, you
+        must collect evidence, interrogate ghosts, and piece together exactly what happened that night.
+        Who had killed everyone...?
       </p>
+
       <div class="video-container">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/zi7P7Dct2Qg?si=0zG7CU_fKBsefjIh"
-        title="YouTube video player" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
       </div>
-    
-      <div class="hero-side-card">
-        <div class="info-grid">
-          <div class="info-card">
-            <span class="label">Team</span>
-            <div class="value">Designed and developed by Magen Mozeh and Enqi Wang</div>
-          </div>
+      <p class="lead"> Game Trailer
+      </p>
 
-          <div class="info-card">
-            <span class="label">Focus</span>
-            <div class="value">Character art, environment art, game systems, and hardware controller design</div>
-          </div>
+      <div class="section">
+        <span class="label">Team</span>
+        <div class="value">Designed and developed by Magen Mozeh and Enqi Wang</div>
+      </div>
 
-          <div class="info-card">
-            <span class="label">Tools Used</span>
-            <div class="value">
-              Unity, C#, Blender, Fusion 360, Substance Painter, Photoshop,
-              VRoid Studio, Bambu Studio, and LLM / voice integration
-            </div>
-          </div>
+      <div class="section">
+        <span class="label">Focus</span>
+        <div class="value">Character art, environment art, game systems, and hardware controller design</div>
+      </div>
 
+      <div class="section">
+        <span class="label">Tools Used</span>
+        <div class="value">
+          Unity, C#, Blender, Fusion 360, Substance Painter, Photoshop,
+          VRoid Studio, Bambu Studio, and LLM / voice integration
+        </div>
+        <div>
+          <div class="label">Quick Links</div>
 
-          <div>
-            <div class="label">Quick Links</div>
-  
-            <div class="button-row" style="margin-top: 16px;">
-              <a class="primary-btn" href="#featured-art">View Artwork</a>
-               <a class="secondary-btn">Trailer / Video</a>
-              <a class="secondary-btn">Pitch Deck PDF</a>
-              <a class="secondary-btn">Development Log PDF</a>
-              <a class="secondary-btn">Controller Showcase</a>
-              <a class="secondary-btn" href="#resources">Project Files</a>
-            </div>
+          <div class="button-row" style="margin-top: 16px;">
+            <a class="primary-btn" href="#character-art">Character Artwork</a>
+            <a class="secondary-btn" href="#gameplay-video">Gameplay Video</a>
+            <a class="secondary-btn" href="#pitch-deck">Pitch Deck</a>
+            <a class="secondary-btn">Development Log PDF</a>
+            <a class="secondary-btn">Controller Showcase</a>
+            <a class="secondary-btn" href="#resources">Project Files</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="featured-art">
-      <h2 class="gallery-title">Featured Art</h2>
-      <p class="lead">
-       Haha placeholder, Still updating
-      </p>
+    <section class="section" id="gameplay-video">
+      <h2 class="gallery-title">Gameplay Video</h2>
       <div class="video-container">
-        <iframe src="https://www.canva.com/design/DAHLS8D9d1E/QuzWJ8frw16-DtN7Bal5zg/view?embed"
-          allowfullscreen="allowfullscreen" allow="fullscreen">
-        </iframe>
-      </div>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/vpfd0HTc_ak?si=khTxdRoas_vX7HNM"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-      <div class="feature-grid">
-        <article class="feature-card large">
-          <div class="feature-image">
-            <img src="icons_images/game.PNG" alt="Environment showcase">
-            <div class="overlay">Environment Art</div>
-          </div>
-          <div class="feature-body">
-            <div class="feature-title">Environment Showcase</div>
-            <div class="feature-text">
-              Replace this with your strongest scene renders, layout views, or lighting passes.
-              This card should be the main visual hook for the project.
-            </div>
-          </div>
-        </article>
-
-        <article class="feature-card large">
-          <div class="feature-image">
-            <img src="icons_images/frieren.png" alt="Character showcase">
-            <div class="overlay">Character Design</div>
-          </div>
-          <div class="feature-body">
-            <div class="feature-title">Character Showcase</div>
-            <div class="feature-text">
-              Use this space for character concepts, model sheets, facial expressions, or in-game character captures.
-              If you have turnarounds, put them here.
-            </div>
-          </div>
-        </article>
       </div>
+      <p class="lead">
+        Full Gameplay Video. It's 22 minutes long, so idk if you want to watch it all.
+      </p>
     </section>
 
-    <section class="section" id="resources">
-      <h2 class="gallery-title">Project Resources</h2>
+    <section class="section" id="character-art">
+      <h2 class="gallery-title">Characters Concept Design</h2>
+
       <p class="lead">
-        Keep these as simple cards so the page stays clean. You can later swap each button to a PDF, a video link, or a
-        full page.
+        Designed and customized all playable and NPC characters using VRoid Studio, Photoshop, and Unity 3D.
+        Exported each character as a <code>.vrm</code> model with UniVRM, optimized geometry,
+        and created custom blood, dirt, and grime textures in Photoshop for the final in-game appearance.
+        Yeah I made all the characters in 1 week lol.
       </p>
+      <img src="icons_images/Kapture/characters.png" alt="Character Concept Designs" class="process-image">
+      <p class="lead">
+        All characters showcase
+      </p>
+      <p class="lead">
+        The following are the main characters in the game, including the seven ghosts and the player characters
+        (private investigators). In this game, you are the interviewer who asks questions to the ghosts and
+        see if their testimonies are consistent. The goal is to identify the true killer among the seven ghosts.
+        Each time that you start the game, the killer is randomized.
+      </p>
+      <div class="character-gallery">
 
-      <div class="resource-grid">
-        <article class="box resource-card">
-          <h3>Development Log</h3>
-          <p>Weekly notes, process images, iteration history, and production updates.</p>
-          <a class="resource-btn" href="pdfs/development_log.pdf" target="_blank" rel="noopener noreferrer">
-            Open PDF
+        <h3>Raven Hollow (Gothic Ghost)</h3>
+        <p class="project-subtitle">
+          A withdrawn post-punk gothic girl who spends most her nights alone.
+        </p>
+        <div class="image-row">
+          <img src="icons_images/Kapture/Raven1.png" class="guitar-image">
+          <img src="icons_images/Kapture/Raven2.png" class="guitar-image">
+        </div>
+
+        <h3>Emily Millers (Naive Ghost)</h3>
+        <p class="project-subtitle">
+          An optimistic freshman who believes everyone has good intentions.
+        </p>
+        <div class="image-row">
+          <img src="icons_images/Kapture/Emily1.png" class="guitar-image">
+          <img src="icons_images/Kapture/Emily2.png" class="guitar-image">
+        </div>
+
+        <h3>Troy Carter (Football Athlete Ghost)</h3>
+        <p class="project-subtitle">
+          A confident varsity football player who hides insecurity behind bravado.
+        </p>
+        <div class="image-row">
+          <img src="icons_images/Kapture/Troy1.png" class="guitar-image">
+          <img src="icons_images/Kapture/Troy2.png" class="guitar-image">
+        </div>
+
+        <h3>Brad Callahan (Frat Guy Ghost)</h3>
+        <p class="project-subtitle">
+          The charismatic host of the Kappa House party.
+        </p>
+        <div class="image-row">
+          <img src="icons_images/Kapture/Brad1.png" class="guitar-image">
+          <img src="icons_images/Kapture/Brad2.png" class="guitar-image">
+        </div>
+
+
+        <!-- Continue Jason, Marty, Brittany, Detectives -->
+        <h3>Jason Lim (Transfer Ghost)</h3>
+        <p class="project-subtitle">
+          An international transfer student who observes campus culture from an outsider's perspective.
+        </p>
+        <div class="image-row">
+          <img src="icons_images/Kapture/Jason1.png" class="guitar-image">
+          <img src="icons_images/Kapture/Jason2.png" class="guitar-image">
+        </div>
+
+        <h3>Marty Feldman (Nerd Ghost)</h3>
+        <p class="project-subtitle">
+          A socially awkward nerd who is obsessed with video games, technology, and comic books.
+        </p>
+        <div class="image-row">
+          <img src="icons_images/Kapture/Marty1.png" alt="Marty1" class="guitar-image">
+          <img src="icons_images/Kapture/Marty2.png" alt="Marty2" class="guitar-image">
+        </div>
+
+        <h3>Players (Private Investigators)</h3>
+        <p class="project-subtitle">
+          The players are private amateur investigators who are recruited to solve the mystery of the Kappa House
+          tragedy.
+        </p>
+        <div class="image-row">
+          <img src="icons_images/Kapture/Player1.png" class="guitar-image">
+          <img src="icons_images/Kapture/Player2.png" class="guitar-image">
+        </div>
+
+        <div class="bom-actions">
+          <a class="download-btn" href="icons_images/Kapture/Design_Concepts.pdf" download>
+            Download Full Concept Design Document (.pdf)
           </a>
-        </article>
+        </div>
+        </p>
 
-        <article class="box resource-card">
-          <h3>Pitch Deck</h3>
-          <p>Original concept deck, project goals, gameplay pitch, and visual direction.</p>
-
-          <a class="resource-btn" href="pdfs/pitch_deck.pdf" target="_blank" rel="noopener noreferrer">
-            View Deck
-          </a>
-        </article>
-
-        <article class="box resource-card">
-          <h3>Project Video</h3>
-          <p>Trailer or gameplay video. This can link to YouTube, Vimeo, or an embedded page.</p>
-          <a class="resource-btn" href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
-            Watch Video
-          </a>
-        </article>
-
-        <article class="box resource-card">
-          <h3>Hardware Controller</h3>
-          <p>Custom SnakeBoy controller project with enclosure design, PCB work, and assembly.</p>
-          <a class="resource-btn" href="controller.html">
-            View Controller
-          </a>
-        </article>
       </div>
+
     </section>
 
     <section class="section">
-      <h2 class="gallery-title">Gallery</h2>
+      <h2 class="gallery-title" style="margin-bottom: 12px;">Cooperative Deduction Gameplay</h2>
       <p class="lead">
-        Use this area for extra screenshots, sketches, world-building images, and development stills.
-        It works well for environment passes, character iterations, and any polish shots.
+        After gathering evidence, players enter a final voting phase to identify the true killer.
+        The team must discuss their findings, compare ghost testimonies, and vote correctly to complete the
+        investigation.
       </p>
+      <img src="icons_images/Kapture/" alt="voting" class="process-image">
+      </img>
+      <p class="lead">
 
-      <div class="gallery-grid">
-        <figure class="gallery-item">
-          <img src="icons_images/game.PNG" alt="Environment screenshot or concept">
-          <figcaption class="caption">Environment / scene shot</figcaption>
-        </figure>
+      </p>
+    </section>
 
-        <figure class="gallery-item">
-          <img src="icons_images/frieren.png" alt="Character screenshot or concept">
-          <figcaption class="caption">Character / design shot</figcaption>
-        </figure>
+
+    <section class="process-section">
+      <h2 class="gallery-title">Final Voting Phase</h2>
+      <p class="lead">
+        After gathering evidence, players enter a final voting phase to identify the true killer.
+        The team must discuss their findings, compare ghost testimonies, and vote correctly to complete the
+        investigation.
+      </p>
+      <img src="icons_images/Kapture/voting.jpg" alt="voting" class="process-image">
+      </img>
+    </section>
+
+    <section class="section">
+      <h2 class="gallery-title">Features</h2>
+
+      <div class="two-col">
+        <div class="box">
+          <ul class="list">
+            <li>Cooperative deduction gameplay</li>
+            <li>Voice-based ghost LLM interactions</li>
+            <li>Custom-built game controller</li>
+          </ul>
+        </div>
+
+
+        <div class="box">
+          <ul class="list">
+            <li>Evidence bulletin board system</li>
+            <li>Randomized killer system</li>
+            <li>Environmental storytelling and interactive dialogue</li>
+          </ul>
+        </div>
+
+
       </div>
     </section>
+
+    <!--
 
     <section class="section">
       <div class="two-col">
@@ -503,7 +508,7 @@
             This page is a good place to separate your role from the team's work. It keeps the focus on what you made.
           </p>
           <ul class="list">
-            <li>Character art and character design</li>
+            <li></li>
             <li>Environment art and scene dressing</li>
             <li>Hardware controller design support</li>
             <li>Game systems and implementation support</li>
@@ -511,28 +516,58 @@
         </div>
       </div>
     </section>
+  -->
 
-    <section class="section">
-      <div class="full-width-card">
-        <h2 class="gallery-title" style="margin-bottom: 12px;">Project Overview</h2>
-        <p>
-          In 1988, seven USC students were found dead inside Kappa House after a college party, and the case remained
-          unsolved for over forty years.
-          Hired by an anonymous client, players return to the abandoned site as independent investigators armed with a
-          Snake Camera that connects the living to the spirit world.
-          The project combines horror, deduction, environmental storytelling, and interactive dialogue systems.
-        </p>
+
+    <section class="section" id="pitch-deck">
+      <h2 class="gallery-title">Pitch Deck</h2>
+      <p class="lead">
+        We used this pitch deck to present our game concept & mechanics to judges from
+        San Diego Studio, Insomniac Games, Bend Studio, Naughty Dog, Santa Monica Studio, and other industry
+        professionals attending the game jam presentations.
+      </p>
+      <div class="video-container">
+        <iframe src="https://www.canva.com/design/DAHLS8D9d1E/QuzWJ8frw16-DtN7Bal5zg/view?embed"
+          allowfullscreen="allowfullscreen" allow="fullscreen">
+        </iframe>
+
       </div>
+      <p class="lead">
+        Game Presentation Pitch Deck
+      </p>
+
+      <h2 class="gallery-title">Trifold</h2>
+      <p>
+        I made this gameplay brochure and
+        distributed to industry professionals at Sony Interactive Entertainment HQ during the networking demo session to
+        provide a quick overview of the
+        project.
+      </p>
+      <div class="image-row">
+        <img src="icons_images/Kapture/Trifold.jpg" alt=" pitch deck" class="guitar-image"> </img>
+        <img src="icons_images/Kapture/Trifold1.jpg" alt=" pitch deck" class="guitar-image"> </img>
+      </div>
+      <p class="lead">
+        Game Trifold Brochure
+      </p>
+
     </section>
+
+
 
     <section class="section">
 
       <h2 class="gallery-title" style="margin-bottom: 12px;">Reflection</h2>
-      <p>
-        This project strengthened my game art workflow and helped me practice creating a consistent visual identity
-        across character design, environment design, and presentation materials.
-        It also gave me experience working across the full process, from concept work and visual development to
-        hardware and gameplay support.
+      <p class="lead">
+        This game jam has been genuinely life-changing for me. Coming into it, I had basically zero experience with
+        Unity before, and over the course of the project I've developed a solid foundation in the engine while learning
+        how to build and optimize a complete game environment. As a result I regrouped, retextured, setdressed, and
+        finalized approximately 100 scene objects in Unity for the abandoned dorm scene in the last few weeks, and
+        gained valuable experience optimizing assets and resources for performance.
+        I also became proficient in Substance Painter, improved both my environment art, character art, and set dressing
+        skills. Besides that I learned how to create character models in VRoid, a tool used for VTuber assets, and
+        adapted it to fit our project's needs in less than a week.
+
       </p>
 
     </section>
