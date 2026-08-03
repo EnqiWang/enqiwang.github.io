@@ -486,6 +486,9 @@ p {
 }
 
 @media (max-width: 640px) {
+   #home {
+    padding-top: 100px;
+  }
   main {
     padding: 20px 14px 56px;
   }
