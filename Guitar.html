@@ -64,16 +64,16 @@
       <h2 class="gallery-title">Filter Design and Test</h2>
 
       <div class="image-row">
-        <img src="icons_images/Guitar/Filter_Design.jpg" alt="Filter Design" class="process-image">
+        <img src="icons_images/Guitar/schematic.jpg" alt="Filter Design" class="process-image">
       </div>
 
       <p class="lead">
-        I designed and analyzed a Twin-T notch filter to attenuate the fundamental
-        frequency of the G string (196 Hz) while minimizing the effect on adjacent
-        notes. The circuit uses a dual power supply for the operational amplifiers and
-        was designed to achieve a notch depth greater than 20 dB with a high quality
-        factor (Q), allowing the desired frequency to be rejected without noticeably
-        affecting the remaining guitar signal.
+        The main goal of this design is to create a notch filter that blocks the fundamental frequency of an unfretted
+        guitar string. The filter must reduce this frequency by at least 20dB without attenuating adjacent notes, which
+        requires a high Q-factor. The circuit also needs to use a dual power supply (V+ and V-) to power the op-amps. To
+        meet these requirements, we used a Twin-T notch filter design. The following section analyzes this circuit to
+        show how it meets the requirements for gain (K), center frequency (𝜔0), and quality factor (Q).
+
       </p>
 
       <h2 class="gallery-title">Printed-Circuit-Board (PCB) Layout</h2>
@@ -83,9 +83,12 @@
       </div>
 
       <p class="lead">
-        I assembled the PCB using the provided reference layout and carefully soldered
-        each component before verifying power distribution and signal continuity. The
-        board was inspected and tested before integrating it with the guitar.
+        Hand-soldering all PCB components, including the aviation plug, switch, and LED connections. Simultaneously, we
+        fabricated the guitar by cutting the cigar box for the pickup, installing the bridges, and tuning the strings.
+        Before putting everything together, we spent some time on testing and debugging our PCB. Once an accurate output
+        was confirmed, we completed assembly by soldering the final connections between the aviation plug, output jack,
+        pickup, and the PCB.
+
       </p>
 
       <h2 class="gallery-title">Guitar and Electrical Component Assembly</h2>
