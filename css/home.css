@@ -10,7 +10,7 @@
   --panel: rgba(255, 255, 255, 0.82);
   --panel-2: rgba(255, 255, 255, 0.92);
 
-  --text: #4a3a52;
+  --text: #000000;
   --muted: #6f5e79;
 
   --card: #ffffff;
@@ -161,6 +161,7 @@ p {
   font-size: 1.02rem;
   margin-bottom: 16px;
 }
+
 
 .resume-button {
   display: inline-flex;
