@@ -273,7 +273,7 @@ p {
 
 .section-title {
   text-align: center;
-  font-size: clamp(2rem, 3.8vw, 3.4rem);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
   line-height: 1.05;
   font-weight: 900;
   color: #6f3d67;
@@ -485,7 +485,7 @@ p {
 
 .experience-card {
   flex: 0 0 310px;
-  min-height: 290px;
+  min-height: 250px;
   padding: 20px;
 
   background: #fff9fc;
@@ -597,9 +597,10 @@ p {
 }
 
 @media (max-width: 640px) {
-   #home {
+  #home {
     padding-top: 100px;
   }
+
   main {
     padding: 20px 14px 56px;
   }
@@ -636,4 +637,3 @@ p {
 
 
 }
-
