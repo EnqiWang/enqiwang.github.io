@@ -307,6 +307,8 @@ p {
 
 .project-grid {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 438px));
+  justify-content: center;
   gap: 24px;
 }
 
