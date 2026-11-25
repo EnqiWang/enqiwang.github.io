@@ -99,7 +99,7 @@
   });
 
   document.querySelectorAll('img').forEach(img => {
-    if (dialog.contains(img)) return;
+    if (dialog.contains(img) || img.closest('.component-gallery')) return;
     img.classList.add('zoomable-image');
     img.tabIndex = 0;
     img.setAttribute('role', 'button');

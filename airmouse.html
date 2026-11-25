@@ -42,6 +42,49 @@
     .step-copy { max-width: 850px; margin: 0 auto; }
     .step-copy p { margin: 0 0 16px; line-height: 1.8; }
 
+    .component-gallery {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 20px 14px;
+      margin: 24px 0 30px;
+    }
+    .component-gallery figure { margin: 0; min-width: 0; text-align: center; }
+    .component-gallery figcaption {
+      min-height: 44px;
+      margin-bottom: 12px;
+      color: #6f3d67;
+      font-size: .88rem;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+    .component-image {
+      width: 100px;
+      height: 90px;
+      margin-inline: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .component-image img { width: 100%; height: 100%; object-fit: contain; }
+    .component-image.switch-image img {
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      max-width: none;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -54%);
+    }
+    .ecad-board-copy { margin-top: 24px; }
+    @media (max-width: 760px) {
+      .component-gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    @media (max-width: 480px) {
+      .component-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
     .project-figure { margin: 24px 0 0; }
     .project-figure img {
       display: block;
@@ -173,12 +216,36 @@
       <h2 class="gallery-title">Electronics prototyping &amp; ECAD</h2>
       <div class="step-copy">
         <p>I wired the ESP32, joystick, buttons, BNO080 IMU, buzzer, and enable switch on a breadboard and tested their functions. The prototype uses USB power and communicates over Bluetooth.</p>
-        <p>I completed the schematic in KiCad, verified the footprints, and routed the PCB. After reviewing the layout, I sent it to JLCPCB for manufacturing in November 2026. Next are board testing and desoldering the KY-023 joystick module for assembly.</p>
+      </div>
+      <div class="component-gallery" aria-label="AirMouse electronic components">
+        <figure>
+          <figcaption>ESP32 Microcontroller</figcaption>
+          <div class="component-image"><img src="icons_images/Electronics%20Component/MCU-30pin%20ESP32.png" alt="30-pin ESP32 development board" loading="lazy" decoding="async"></div>
+        </figure>
+        <figure>
+          <figcaption>KY-023 Joystick</figcaption>
+          <div class="component-image"><img src="icons_images/Electronics%20Component/joystick.png" alt="KY-023 dual-axis joystick module" loading="lazy" decoding="async"></div>
+        </figure>
+        <figure>
+          <figcaption>B3F-4055 Buttons</figcaption>
+          <div class="component-image"><img src="icons_images/Electronics%20Component/B3F-4055Button.png" alt="B3F-4055 tactile push-button switch" loading="lazy" decoding="async"></div>
+        </figure>
+        <figure>
+          <figcaption>Passive Buzzer</figcaption>
+          <div class="component-image"><img src="icons_images/Electronics%20Component/buzzer.png" alt="Passive buzzer" loading="lazy" decoding="async"></div>
+        </figure>
+        <figure>
+          <figcaption>SPDT Slide Switch</figcaption>
+          <div class="component-image switch-image"><img src="icons_images/Electronics%20Component/SPDT%20Switch.png" alt="SPDT slide switch" loading="lazy" decoding="async"></div>
+        </figure>
       </div>
       <figure class="project-figure">
         <img src="icons_images/Airmouse/Breadboard.jpg" alt="AirMouse breadboard prototype with wired buttons, joystick, and ESP32 connected over USB" loading="lazy" decoding="async">
         <figcaption>Breadboard functionality testing</figcaption>
       </figure>
+      <div class="step-copy ecad-board-copy">
+        <p>I completed the schematic in KiCad, verified the footprints, and routed the PCB. After reviewing the layout, I sent it to JLCPCB for manufacturing in November 2026. Next are board testing and desoldering the KY-023 joystick module for assembly.</p>
+      </div>
       <figure class="project-figure">
         <a href="icons_images/Airmouse/Schematics.jpg" target="_blank" rel="noopener noreferrer" aria-label="Open AirMouse circuit schematic at full size">
           <img src="icons_images/Airmouse/Schematics.jpg" alt="AirMouse KiCad schematic showing ESP32 connections, 15 buttons, joystick and IMU headers, buzzer, and enable switch" loading="lazy" decoding="async">
