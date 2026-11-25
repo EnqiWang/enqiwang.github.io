@@ -10,11 +10,11 @@
   max-height: none;
   padding: 0;
   border: 0;
-  background: rgba(18, 14, 23, .97);
+  background: transparent;
   color: #fff;
   overflow: hidden;
 }
-.image-viewer::backdrop { background: #120e17; }
+.image-viewer::backdrop { background: rgba(0, 0, 0, .7); }
 .image-viewer[open] { display: flex; flex-direction: column; }
 .image-viewer-toolbar {
   display: flex;
