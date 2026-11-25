@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AirMouse | Enqi Wang</title>
+  <link rel="stylesheet" href="css/project.css">
+  <link rel="stylesheet" href="css/bom.css">
+  <style>
+    .airmouse-hero {
+      max-width: 850px;
+      margin: 26px auto 0;
+    }
+
+    .airmouse-copy h3,
+    .airmouse-section h2 { color: #6f3d67; }
+
+    .airmouse-copy h3 { font-size: 1.4rem; margin-bottom: 12px; }
+
+    .airmouse-copy p { margin-bottom: 16px; }
+
+    .step-meta {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .step-number, .step-status {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      background: rgba(255, 111, 174, .12);
+      color: #6f3d67;
+    }
+
+    .step-status.planned { background: rgba(111, 94, 121, .12); }
+
+    .step-copy { max-width: 850px; margin: 0 auto; }
+    .step-copy p { margin: 0 0 16px; line-height: 1.8; }
+
+    .project-figure { margin: 24px 0 0; }
+    .project-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 640px;
+      object-fit: contain;
+      border-radius: 14px;
+    }
+    .project-figure .dimensions-image {
+      max-width: 218px;
+      margin-inline: auto;
+    }
+    .project-figure figcaption {
+      margin-top: 10px;
+      text-align: center;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+    .figure-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+      align-items: start;
+    }
+    @media (max-width: 640px) {
+      .figure-grid { grid-template-columns: 1fr; }
+    }
+
+    .media-placeholder {
+      min-height: 220px;
+      margin: 20px auto 0;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      text-align: center;
+      border: 2px dashed rgba(111, 61, 103, .28);
+      border-radius: 20px;
+      background: rgba(246, 239, 255, .65);
+      color: var(--muted);
+    }
+
+    .media-placeholder strong { color: #6f3d67; font-size: 1.05rem; }
+    .media-placeholder span { font-size: .9rem; }
+
+    .process-nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .process-nav a {
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(255, 111, 174, .1);
+      color: #6f3d67;
+      font-size: .85rem;
+      font-weight: 700;
+    }
+
+    .process-nav a:hover, .process-nav a:focus-visible { background: rgba(255, 111, 174, .23); }
+
+    .airmouse-section { scroll-margin-top: 100px; }
+    #bom a { text-decoration: underline; text-underline-offset: 3px; }
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="index.html#home" class="brand">ENQI WANG<small>PORTFOLIO</small></a>
+      <nav aria-label="Primary">
+        <a href="index.html#home">HOME</a>
+        <a href="index.html#about">ABOUT</a>
+        <a href="index.html#contact">CONTACT</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section airmouse-section">
+      <div class="project-tag">Hardware &middot; Accessible Design</div>
+      <h1 class="section-title">AirMouse</h1>
+      <h2 class="subtitle">One-handed adaptive gaming remote</h2>
+      <div class="underline"></div>
+      <div class="airmouse-hero">
+        <div class="airmouse-copy">
+          <p>A one-handed adaptive controller with a joystick, motion input, and Bluetooth connectivity. I designed the electronics, firmware, PCB, and enclosure for my PlayStation Career Pathways Prompt 3 project.</p>
+          <p><strong>Role:</strong> Hardware Designer &amp; Firmware Developer<br><strong>Tools:</strong> ESP32, BNO080 IMU, KiCad, Fusion 360 &amp; Bambu Slicer</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contributions" class="process-section airmouse-section">
+      <h2 class="gallery-title">My Ownerships</h2>
+      <div class="step-copy">
+        <p>This is a solo-project for PlayStation Fall 2026 Game Jam.I developed the controller from the initial sketches through breadboard testing, PCB design, and enclosure CAD.</p>
+        <ul class="process-list">
+          <li><strong>Electronics:</strong> Built and tested the breadboard prototype, including the ESP32, joystick, buttons, IMU, buzzer, and switch.</li>
+          <li><strong>Firmware:</strong> Wrote and debugged Bluetooth gamepad and air-mouse modes with Home-button mode switching.</li>
+          <li><strong>ECAD:</strong> Designed the KiCad schematic, verified footprints, routed the PCB.</li>
+          <li><strong>MCAD:</strong> Designed the Fusion 360 enclosure around the PCB STEP model and prepared it for 3D printing.</li>
+          <li><strong>Documentation:</strong> Measured components, prepared BOM, and shared regular progress updates.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="concept" class="process-section airmouse-section">
+      <div class="step-meta"><span class="step-number">01</span><span class="step-status">Initial conception</span></div>
+      <h2 class="gallery-title">The one-handed control concept</h2>
+      <div class="step-copy">
+        <p>I wanted to build an adaptive controller for players who use one hand. I sketched a few TV-remote-style layouts with a joystick, directional controls, and game buttons within reach.</p>
+        <p>The joystick controls movement, while rotating the remote could control the camera or aiming. This reduces dependence on a second analog stick and leaves more room for buttons.</p>
+      </div>
+      <div class="figure-grid">
+        <figure class="project-figure">
+          <img src="icons_images/Airmouse/Sketch.png" alt="Hand-drawn AirMouse front and back layouts with button, joystick, ESP32, and IMU positions" loading="lazy" decoding="async">
+          <figcaption>Initial layout sketch</figcaption>
+        </figure>
+        <figure class="project-figure">
+          <img src="icons_images/Airmouse/Sketch_LooksBetter.jpg" alt="Annotated AirMouse layout with control labels and overall dimensions" loading="lazy" decoding="async">
+          <figcaption>Control layout and dimensions</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="ecad" class="process-section airmouse-section">
+      <div class="step-meta"><span class="step-number">02</span><span class="step-status">ECAD &amp; electronics testing</span></div>
+      <h2 class="gallery-title">Electronics prototyping &amp; ECAD</h2>
+      <div class="step-copy">
+        <p>I wired the ESP32, joystick, buttons, BNO080 IMU, buzzer, and enable switch on a breadboard and tested their functions. The prototype uses USB power and communicates over Bluetooth.</p>
+        <p>I completed the schematic in KiCad, verified the footprints, and routed the PCB. After reviewing the layout, I sent it to JLCPCB for manufacturing in November 2026. Next are board testing and desoldering the KY-023 joystick module for assembly.</p>
+      </div>
+      <figure class="project-figure">
+        <img src="icons_images/Airmouse/Breadboard.jpg" alt="AirMouse breadboard prototype with wired buttons, joystick, and ESP32 connected over USB" loading="lazy" decoding="async">
+        <figcaption>Breadboard functionality testing</figcaption>
+      </figure>
+      <figure class="project-figure">
+        <a href="icons_images/Airmouse/Schematics.jpg" target="_blank" rel="noopener noreferrer" aria-label="Open AirMouse circuit schematic at full size">
+          <img src="icons_images/Airmouse/Schematics.jpg" alt="AirMouse KiCad schematic showing ESP32 connections, 15 buttons, joystick and IMU headers, buzzer, and enable switch" loading="lazy" decoding="async">
+        </a>
+        <figcaption>KiCad circuit schematic · Click to view full size</figcaption>
+      </figure>
+      <div class="figure-grid">
+        <figure class="project-figure">
+          <img src="icons_images/Airmouse/PCB_Routing.png" alt="AirMouse PCB routing in KiCad showing traces, button footprints, and component connections" loading="lazy" decoding="async">
+          <figcaption>KiCad PCB routing</figcaption>
+        </figure>
+        <figure class="project-figure">
+          <img src="icons_images/Airmouse/PCB3D.png" alt="3D preview of the AirMouse PCB with buttons, joystick, switch, and microcontroller" loading="lazy" decoding="async">
+          <figcaption>PCB 3D preview</figcaption>
+        </figure>
+      </div>
+      <div class="media-placeholder" role="img" aria-label="Placeholder for AirMouse manufactured board"><strong>Manufactured PCB / testing placeholder</strong><span>Add board photos and electrical test results when available.</span></div>
+    </section>
+
+    <section id="mcad" class="process-section airmouse-section">
+      <div class="step-meta"><span class="step-number">03</span><span class="step-status">MCAD &amp; fabrication</span></div>
+      <h2 class="gallery-title">Mechanical design &amp; 3D printing</h2>
+      <div class="step-copy">
+        <p>I measured the components and designed the enclosure in Fusion 360 using the PCB's ECAD STEP file. I then imported the model into Bambu Slicer and selected the print colors. The enclosure is ready for printing and fit testing.</p>
+      </div>
+      <div class="figure-grid">
+        <figure class="project-figure">
+          <img class="dimensions-image" src="icons_images/Airmouse/Components_Dimensions.png" alt="Handwritten measurements of the joystick, breadboard, ESP32, IMU, button cap, and switch" loading="lazy" decoding="async">
+          <figcaption>Component measurements</figcaption>
+        </figure>
+        <figure class="project-figure">
+          <img src="icons_images/Airmouse/MCADEnclosure.png" alt="Fusion 360 enclosure model with control openings and the PCB visible inside" loading="lazy" decoding="async">
+          <figcaption>Fusion 360 enclosure</figcaption>
+        </figure>
+      </div>
+      <figure class="project-figure">
+        <img src="icons_images/Airmouse/3d_print.png" alt="Bambu Slicer preview of pink AirMouse front and rear housings and a control cap on the print plate" loading="lazy" decoding="async">
+        <figcaption>Bambu Slicer print preparation</figcaption>
+      </figure>
+      <div class="media-placeholder" role="img" aria-label="Placeholder for AirMouse enclosure print"><strong>3D print / fit-test placeholder</strong><span>Add enclosure print and fit-check photos when available.</span></div>
+    </section>
+
+    <section id="software" class="process-section airmouse-section">
+      <div class="step-meta"><span class="step-number">04</span><span class="step-status">Software</span></div>
+      <h2 class="gallery-title">Firmware &amp; control modes</h2>
+      <div class="step-copy">
+        <p>I wrote and debugged two control modes. Air-mouse mode uses the IMU gyroscope to move the PC cursor, with the plus and minus buttons as left and right click. Gamepad mode sends joystick and button inputs over Bluetooth. Long-pressing Home switches modes.</p>
+      </div>
+      <div class="media-placeholder" role="img" aria-label="Placeholder for AirMouse firmware or mode diagram"><strong>Firmware / mode diagram placeholder</strong><span>Add a control map, code screenshot, or air-mouse demo here.</span></div>
+    </section>
+
+    <section id="next-steps" class="process-section airmouse-section">
+      <div class="step-meta"><span class="step-number">05</span><span class="step-status planned">Upcoming work</span></div>
+      <h2 class="gallery-title">Assembly &amp; final testing</h2>
+      <div class="step-copy">
+        <p>Next, I will solder and assemble the controller, debug the firmware on the final hardware, and test it with a PC game. Testing will cover the inputs, mode switching, Bluetooth connection, and whether the buttons are comfortable to reach during one-handed play.</p>
+        <p>This prototype is for PC. A PS5 version would need a supported controller interface and authentication.</p>
+      </div>
+      <div class="media-placeholder" role="img" aria-label="Placeholder for AirMouse assembly and final testing"><strong>Assembly &amp; testing placeholder</strong><span>Add finished-controller photos, PC gameplay, and usability findings here.</span></div>
+    </section>
+
+    <section id="bom" class="bom-section airmouse-section">
+      <h2 class="gallery-title">Bill of Materials (BOM)</h2>
+      <p class="bom-intro">Component subtotal: <strong>$35.25</strong></p>
+      <div class="sheet-frame" aria-label="AirMouse bill of materials preview">
+        <div class="sheet-topbar">
+          <div><strong>AirMouse BOM</strong><span> parts list</span></div>
+        </div>
+        <div class="sheet-scroll" tabindex="0" role="region" aria-label="Scrollable bill of materials">
+          <table class="sheet-table" aria-label="AirMouse bill of materials">
+            <thead>
+              <tr><th class="sheet-corner" aria-label="Row"></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th></tr>
+            </thead>
+            <tbody>
+              <tr class="sheet-header-row"><th scope="row">1</th><td>Level</td><td>Part #</td><td>Part Name</td><td>Description</td><td>Material</td><td>Cost (USD)</td><td>External Component Vendor</td></tr>
+              <tr><th scope="row">2</th><td>1</td><td></td><td>AirMouse</td><td>One-handed adaptive controller prototype</td><td></td><td></td><td></td></tr>
+              <tr><th scope="row">3</th><td>1.1</td><td>ESP32</td><td>Microcontroller</td><td>Bluetooth input communication and firmware</td><td>N/A</td><td></td><td></td></tr>
+              <tr><th scope="row">4</th><td>1.2</td><td>KY-023</td><td>Joystick Module</td><td>Dual-axis joystick with push-button input</td><td>N/A</td><td>$3.50</td><td></td></tr>
+              <tr><th scope="row">5</th><td>1.3</td><td>BNO080</td><td>IMU</td><td>9-DOF motion-sensor breakout</td><td>N/A</td><td>$20.00</td><td></td></tr>
+              <tr><th scope="row">6</th><td>1.4</td><td>B3F-4055</td><td>15 Buttons</td><td>15 tactile switches × $0.452 (10+ price tier)</td><td>N/A</td><td>$6.78</td><td><a href="https://www.digikey.com/en/products/detail/aratas-formerly-omron-components/B3F-4055/31799" target="_blank" rel="noopener noreferrer">DigiKey</a></td></tr>
+              <tr><th scope="row">7</th><td>1.5</td><td></td><td>Buzzer</td><td>Passive buzzer</td><td>N/A</td><td>$2.40</td><td></td></tr>
+              <tr><th scope="row">8</th><td>1.6</td><td>SS12D10G5</td><td>Slide Switch</td><td>SHOU HAN slide switch</td><td>N/A</td><td>$0.17</td><td><a href="https://www.lcsc.com/product-detail/C7431054.html" target="_blank" rel="noopener noreferrer">LCSC</a></td></tr>
+              <tr><th scope="row">9</th><td>1.7</td><td></td><td>Miscellaneous Parts</td><td>Wiring, headers, and mounting hardware</td><td>N/A</td><td></td><td></td></tr>
+              <tr><th scope="row">10</th><td>1.8</td><td></td><td>PCB</td><td>Custom PCB; $12 for 5 boards</td><td>N/A</td><td>$2.40</td><td>JLCPCB</td></tr>
+              <tr><th scope="row">11</th><td>1.9</td><td></td><td>Joystick Mount</td><td>3D-printed joystick mounting bracket</td><td>PLA</td><td></td><td><a href="https://bambulab-us.myshopify.com/products/pla-basic-filament" target="_blank" rel="noopener noreferrer">Bambu Lab PLA Basic</a></td></tr>
+              <tr><th scope="row">12</th><td>1.10</td><td></td><td>Front Housing</td><td>Front enclosure housing</td><td>PLA</td><td></td><td>Bambu Lab PLA Basic</td></tr>
+              <tr><th scope="row">13</th><td>1.11</td><td></td><td>Rear Housing</td><td>Rear enclosure housing</td><td>PLA</td><td></td><td>Bambu Lab PLA Basic</td></tr>
+              <tr class="sheet-total-row"><th scope="row">14</th><td></td><td></td><td><strong>Component Subtotal</strong></td><td></td><td></td><td><strong>$35.25</strong></td><td></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <p class="bom-intro">© 2026 Enqi Wang. All rights reserved.</p>
+  </main>
+</body>
+
+</html>
