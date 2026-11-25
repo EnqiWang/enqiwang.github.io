@@ -6,17 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AirMouse | Enqi Wang</title>
   <link rel="stylesheet" href="css/project.css">
-  <link rel="stylesheet" href="css/bom.css">
   <style>
     .airmouse-hero {
       max-width: 850px;
       margin: 26px auto 0;
     }
 
-    .airmouse-copy h3,
     .airmouse-section h2 { color: #6f3d67; }
-
-    .airmouse-copy h3 { font-size: 1.4rem; margin-bottom: 12px; }
 
     .airmouse-copy p { margin-bottom: 16px; }
 
@@ -94,27 +90,21 @@
     .media-placeholder strong { color: #6f3d67; font-size: 1.05rem; }
     .media-placeholder span { font-size: .9rem; }
 
-    .process-nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 20px;
-    }
-
-    .process-nav a {
-      padding: 9px 14px;
-      border-radius: 999px;
-      background: rgba(255, 111, 174, .1);
-      color: #6f3d67;
-      font-size: .85rem;
-      font-weight: 700;
-    }
-
-    .process-nav a:hover, .process-nav a:focus-visible { background: rgba(255, 111, 174, .23); }
-
     .airmouse-section { scroll-margin-top: 100px; }
     #bom a { text-decoration: underline; text-underline-offset: 3px; }
+    #software .step-copy a { color: #0066cc; text-decoration: underline; text-underline-offset: 3px; }
+    .firmware-preview {
+      max-height: 350px;
+      overflow: auto;
+      padding: 20px;
+      border: 1px solid #ddd2e6;
+      border-radius: 14px;
+      background: #fff;
+      color: #302638;
+      font: 13px/1.65 Consolas, "Courier New", monospace;
+      white-space: pre;
+      tab-size: 2;
+    }
 
   </style>
 </head>
@@ -150,7 +140,7 @@
       <div class="step-copy">
         <p>This is a solo-project for PlayStation Fall 2026 Game Jam.I developed the controller from the initial sketches through breadboard testing, PCB design, and enclosure CAD.</p>
         <ul class="process-list">
-          <li><strong>Electronics:</strong> Built and tested the breadboard prototype, including the ESP32, joystick, buttons, IMU, buzzer, and switch.</li>
+          <li><strong>Electronics:</strong> Built and tested the breadboard prototype, including the ESP32, KY-023 joystick, B3F-4055 buttons, BNO080IMU, passive buzzer, and SPDT switch.</li>
           <li><strong>Firmware:</strong> Wrote and debugged Bluetooth gamepad and air-mouse modes with Home-button mode switching.</li>
           <li><strong>ECAD:</strong> Designed the KiCad schematic, verified footprints, routed the PCB.</li>
           <li><strong>MCAD:</strong> Designed the Fusion 360 enclosure around the PCB STEP model and prepared it for 3D printing.</li>
@@ -228,6 +218,12 @@
         <img src="icons_images/Airmouse/3d_print.png" alt="Bambu Slicer preview of pink AirMouse front and rear housings and a control cap on the print plate" loading="lazy" decoding="async">
         <figcaption>Bambu Slicer print preparation</figcaption>
       </figure>
+      <figure class="project-figure">
+        <div class="video-container">
+          <iframe src="https://myusc3318.autodesk360.com/g/shares/SH3a9e9QT2649a137be201c00d963e7737e7/embed?mode=embed" title="AirMouse interactive Fusion 360 model" loading="lazy" allowfullscreen></iframe>
+        </div>
+        <figcaption><a href="https://a360.co/4lc6U5n" target="_blank" rel="noopener noreferrer">Open the Fusion 360 model in a new tab</a></figcaption>
+      </figure>
       <div class="media-placeholder" role="img" aria-label="Placeholder for AirMouse enclosure print"><strong>3D print / fit-test placeholder</strong><span>Add enclosure print and fit-check photos when available.</span></div>
     </section>
 
@@ -235,9 +231,325 @@
       <div class="step-meta"><span class="step-number">04</span><span class="step-status">Software</span></div>
       <h2 class="gallery-title">Firmware &amp; control modes</h2>
       <div class="step-copy">
-        <p>I wrote and debugged two control modes. Air-mouse mode uses the IMU gyroscope to move the PC cursor, with the plus and minus buttons as left and right click. Gamepad mode sends joystick and button inputs over Bluetooth. Long-pressing Home switches modes.</p>
+        <p>I wrote and debugged two control modes. Air-mouse mode uses the IMU gyroscope to move the PC cursor, with the plus and minus buttons as left and right click. Gamepad mode sends joystick and button inputs over Bluetooth. Long-pressing Home switches modes. <a href="https://github.com/EnqiWang/AccessibleAdaptiveController" target="_blank" rel="noopener noreferrer">GitHub repo</a></p>
+        <pre class="firmware-preview" tabindex="0" aria-label="Scrollable firmware_AAC.ino source code"><code>// ESP32 DevKit + BNO080: Xbox-style controller / desktop mouse.
+// Starts in controller mode. Hold HOME to switch modes.
+// Controller: joystick = left stick; gyro = right stick.
+// Desktop: gyro = cursor; START = right-click; BACK = left-click.
+#include &lt;Arduino.h&gt;
+#include &lt;Wire.h&gt;
+#include &lt;BleCompositeHID.h&gt;
+#include &lt;XboxGamepadDevice.h&gt;
+#include &lt;MouseDevice.h&gt;
+#include &lt;SparkFun_BNO080_Arduino_Library.h&gt;
+
+const int JOY_X=34, JOY_Y=35, JOY_SW=16;
+const int BUZZER_PIN=2, SDA_PIN=21, SCL_PIN=22;
+const int buttonPins[]={13,14,25,26,27,32,33,17,18,19,23,4,12,15,5};
+const char* buttonNames[]={"A","B","X","Y","L","ZL","R","ZR",
+  "UP","DOWN","LEFT","RIGHT","HOME","START","BACK"};
+const int N=sizeof(buttonPins)/sizeof(buttonPins[0]);
+const int HOME_INDEX=12, START_INDEX=13, BACK_INDEX=14;
+
+// Axis direction settings.
+const bool INVERT_STICK_X=false, INVERT_STICK_Y=true;
+const bool INVERT_AIM_X=true, INVERT_AIM_Y=false;
+const float STICK_DEADZONE=0.10f;
+const float GYRO_DEADZONE_DPS=3.0f;
+// Controller aim: faster rotation reaches full right-stick deflection.
+// Lower values increase aiming sensitivity.
+const float FULL_STICK_DPS=100.0f;
+const float AIM_FILTER=0.20f;
+const float MOUSE_SENSITIVITY=60.0f;
+const int MOUSE_MAX_STEP=20;
+const bool START_IN_MOUSE_MODE=false;
+const unsigned long REPORT_MS=10, HOME_HOLD_MS=500;
+const unsigned long SETTLE_MS=150, RAMP_MS=200, GYRO_STALE_MS=150;
+
+BleCompositeHID hid("OneHand EDF5", "Enqi Wang", 100);
+XboxGamepadDevice* pad=nullptr;
+MouseDevice* mouse=nullptr;
+BNO080 imu;
+bool imuOk=false, mouseMode=START_IN_MOUSE_MODE, wasConnected=false;
+bool raw[N]={}, pressed[N]={};
+unsigned long changed[N]={};
+bool swRaw=false, swPressed=false;
+unsigned long swChanged=0;
+int centerX=2048, centerY=2048;
+float yawDps=0, pitchDps=0;
+unsigned long lastGyroMs=0;
+float aimX=0, aimY=0, remainderX=0, remainderY=0;
+unsigned long modeStartMs=0, lastReportMs=0;
+bool leftDown=false, rightDown=false;
+bool homeTracking=false, homeHandled=false;
+unsigned long homeStartMs=0, homePulseUntilMs=0;
+
+void beep(int frequency, int durationMs) {
+#if ESP_ARDUINO_VERSION_MAJOR &gt;= 3
+  tone(BUZZER_PIN,frequency);
+  delay(durationMs);
+  noTone(BUZZER_PIN);
+#else
+  ledcAttachPin(BUZZER_PIN,0);
+  ledcWriteTone(0,frequency);
+  delay(durationMs);
+  ledcWriteTone(0,0);
+  ledcDetachPin(BUZZER_PIN);
+#endif
+  digitalWrite(BUZZER_PIN,LOW);
+}
+
+void calibrateJoystick() {
+  long sx=0, sy=0;
+  for(int i=0;i&lt;64;i++) {
+    sx+=analogRead(JOY_X);
+    sy+=analogRead(JOY_Y);
+    delay(3);
+  }
+  centerX=sx/64; centerY=sy/64;
+  Serial.printf("Joystick center X=%d Y=%d\n",centerX,centerY);
+}
+
+float stickAxis(int value,int center,bool invert) {
+  float delta=value-center;
+  float range=delta&gt;=0 ? 4095-center : center;
+  if(range&lt;1) range=1;
+  float v=constrain(delta/range,-1.0f,1.0f);
+  float a=fabsf(v);
+  if(a&lt;=STICK_DEADZONE) return 0;
+  v=(v&gt;0?1.0f:-1.0f)*(a-STICK_DEADZONE)/(1.0f-STICK_DEADZONE);
+  return invert ? -v : v;
+}
+
+void updateImu() {
+  if(!imuOk) return;
+  for(int n=0;n&lt;8 &amp;&amp; imu.dataAvailable();n++) {
+    float y=imu.getGyroZ()*RAD_TO_DEG;
+    float p=imu.getGyroX()*RAD_TO_DEG;
+    if(isfinite(y) &amp;&amp; isfinite(p)) {
+      yawDps=y; pitchDps=p;
+      lastGyroMs=millis();
+    }
+  }
+}
+
+float gyroDeadzone(float v) {
+  float a=fabsf(v);
+  if(a&lt;=GYRO_DEADZONE_DPS) return 0;
+  return (v&gt;0?1.0f:-1.0f)*(a-GYRO_DEADZONE_DPS);
+}
+
+void resetMotion() {
+  aimX=aimY=remainderX=remainderY=0;
+}
+
+void neutralPad() {
+  pad-&gt;resetInputs();
+  pad-&gt;setLeftThumb(0,0);
+  pad-&gt;setRightThumb(0,0);
+  pad-&gt;setTriggers(0,0);
+  pad-&gt;releaseDPad();
+  if(hid.isConnected()) pad-&gt;sendGamepadReport();
+}
+
+void neutralMouse() {
+  mouse-&gt;mouseRelease(1);
+  mouse-&gt;mouseRelease(2);
+  mouse-&gt;mouseMove(0,0);
+  leftDown=rightDown=false;
+  if(hid.isConnected()) mouse-&gt;sendMouseReport();
+}
+
+void setMouseMode(bool enabled) {
+  neutralPad();
+  neutralMouse();
+  resetMotion();
+  homePulseUntilMs=0;
+  mouseMode=enabled;
+  beep(mouseMode?1800:900,60);
+  modeStartMs=millis();
+  lastReportMs=modeStartMs;
+  Serial.println(mouseMode ? "MODE: DESKTOP MOUSE" : "MODE: CONTROLLER");
+}
+
+void updateButtons(unsigned long now) {
+  for(int i=0;i&lt;N;i++) {
+    bool p=digitalRead(buttonPins[i])==LOW;
+    if(p!=raw[i]) { raw[i]=p; changed[i]=now; }
+    if(raw[i]!=pressed[i] &amp;&amp; now-changed[i]&gt;=12) {
+      pressed[i]=raw[i];
+      Serial.printf("%s %s\n",buttonNames[i],pressed[i]?"PRESSED":"released");
+    }
+  }
+  bool s=digitalRead(JOY_SW)==LOW;
+  if(s!=swRaw) { swRaw=s; swChanged=now; }
+  if(swRaw!=swPressed &amp;&amp; now-swChanged&gt;=12) swPressed=swRaw;
+}
+
+void updateHome(unsigned long now) {
+  if(pressed[HOME_INDEX]) {
+    if(!homeTracking) {
+      homeTracking=true;
+      homeHandled=false;
+      homeStartMs=now;
+    }
+    if(!homeHandled &amp;&amp; now-homeStartMs&gt;=HOME_HOLD_MS) {
+      homeHandled=true;
+      setMouseMode(!mouseMode);
+    }
+  } else if(homeTracking) {
+    if(!homeHandled &amp;&amp; !mouseMode) {
+      homePulseUntilMs=millis()+80;
+    }
+    homeTracking=false;
+    resetMotion();
+    modeStartMs=millis();
+    lastReportMs=modeStartMs;
+  }
+}
+
+void updateAim(unsigned long now) {
+  bool fresh=(now-lastGyroMs)&lt;GYRO_STALE_MS;
+  unsigned long elapsed=now-modeStartMs;
+  if(!imuOk || !fresh || elapsed&lt;SETTLE_MS) {
+    aimX=aimY=0;
+    return;
+  }
+  float ramp=constrain((float)(elapsed-SETTLE_MS)/RAMP_MS,0.0f,1.0f);
+  float x=gyroDeadzone(yawDps)*ramp;
+  float y=gyroDeadzone(pitchDps)*ramp;
+  if(INVERT_AIM_X) x=-x;
+  if(INVERT_AIM_Y) y=-y;
+  aimX+=AIM_FILTER*(x-aimX);
+  aimY+=AIM_FILTER*(y-aimY);
+}
+
+void sendController(unsigned long now) {
+  // Build one complete report; no intermediate reports.
+  pad-&gt;resetInputs();
+  float x=stickAxis(analogRead(JOY_X),centerX,INVERT_STICK_X);
+  float y=stickAxis(analogRead(JOY_Y),centerY,INVERT_STICK_Y);
+  pad-&gt;setLeftThumb((int16_t)(x*32767.0f),(int16_t)(y*32767.0f));
+
+  float rx=constrain(aimX/FULL_STICK_DPS,-1.0f,1.0f);
+  float ry=constrain(aimY/FULL_STICK_DPS,-1.0f,1.0f);
+  pad-&gt;setRightThumb((int16_t)(rx*32767.0f),(int16_t)(ry*32767.0f));
+
+  if(pressed[0]) pad-&gt;press(XBOX_BUTTON_A);
+  if(pressed[1]) pad-&gt;press(XBOX_BUTTON_B);
+  if(pressed[2]) pad-&gt;press(XBOX_BUTTON_X);
+  if(pressed[3]) pad-&gt;press(XBOX_BUTTON_Y);
+  if(pressed[4]) pad-&gt;press(XBOX_BUTTON_LB);
+  if(pressed[6]) pad-&gt;press(XBOX_BUTTON_RB);
+  pad-&gt;setTriggers(pressed[5]?1023:0,pressed[7]?1023:0);
+  if(pressed[START_INDEX]) pad-&gt;press(XBOX_BUTTON_START);
+  if(pressed[BACK_INDEX]) pad-&gt;press(XBOX_BUTTON_SELECT);
+  if(swPressed) pad-&gt;press(XBOX_BUTTON_LS);
+  if(homePulseUntilMs!=0 &amp;&amp; (long)(homePulseUntilMs-now)&gt;0) {
+    pad-&gt;press(XBOX_BUTTON_HOME);
+  } else { homePulseUntilMs=0; }
+
+  uint8_t directions=0;
+  if(pressed[8]) directions|=XboxDpadFlags::NORTH;
+  if(pressed[9]) directions|=XboxDpadFlags::SOUTH;
+  if(pressed[10]) directions|=XboxDpadFlags::WEST;
+  if(pressed[11]) directions|=XboxDpadFlags::EAST;
+  pad-&gt;pressDPadDirectionFlag((XboxDpadFlags)directions);
+  pad-&gt;sendGamepadReport();
+}
+
+void sendDesktopMouse(float dt) {
+  bool wantLeft=pressed[BACK_INDEX];
+  bool wantRight=pressed[START_INDEX];
+  bool dirty=wantLeft!=leftDown || wantRight!=rightDown;
+  if(wantLeft!=leftDown) {
+    if(wantLeft) mouse-&gt;mousePress(1); else mouse-&gt;mouseRelease(1);
+    leftDown=wantLeft;
+  }
+  if(wantRight!=rightDown) {
+    if(wantRight) mouse-&gt;mousePress(2); else mouse-&gt;mouseRelease(2);
+    rightDown=wantRight;
+  }
+  remainderX+=aimX*dt*MOUSE_SENSITIVITY*2.0f;
+  remainderY+=aimY*dt*MOUSE_SENSITIVITY*2.0f;
+  int wholeX=(int)remainderX, wholeY=(int)remainderY;
+  remainderX-=wholeX; remainderY-=wholeY;
+  int mx=constrain(wholeX,-MOUSE_MAX_STEP,MOUSE_MAX_STEP);
+  int my=constrain(wholeY,-MOUSE_MAX_STEP,MOUSE_MAX_STEP);
+  if(mx || my || dirty) {
+    mouse-&gt;mouseMove((int8_t)mx,(int8_t)my);
+    mouse-&gt;sendMouseReport();
+  }
+}
+
+void setup() {
+  Serial.begin(115200);
+  delay(300);
+  for(int i=0;i&lt;N;i++) {
+    pinMode(buttonPins[i],INPUT_PULLUP);
+    raw[i]=pressed[i]=digitalRead(buttonPins[i])==LOW;
+    changed[i]=millis();
+  }
+  pinMode(JOY_SW,INPUT_PULLUP);
+  pinMode(BUZZER_PIN,OUTPUT);
+  digitalWrite(BUZZER_PIN,LOW);
+  analogReadResolution(12);
+  analogSetAttenuation(ADC_11db);
+  Wire.begin(SDA_PIN,SCL_PIN);
+  Wire.setClock(400000);
+  imuOk=imu.begin(0x4B,Wire);
+  if(!imuOk) imuOk=imu.begin(0x4A,Wire);
+  if(imuOk) { imu.enableGyro(10); delay(200); updateImu(); }
+  Serial.println(imuOk?"BNO080 OK":"BNO080 NOT FOUND - joystick still works");
+  calibrateJoystick();
+
+  // Xbox-compatible descriptor, signed stick range and host identity.
+  auto* xboxConfig=new XboxOneSControllerDeviceConfiguration();
+  xboxConfig-&gt;setAutoReport(false);
+  BLEHostConfiguration hostConfig=xboxConfig-&gt;getIdealHostConfiguration();
+  pad=new XboxGamepadDevice(xboxConfig);
+  pad-&gt;resetInputs();
+  pad-&gt;setLeftThumb(0,0);
+  pad-&gt;setRightThumb(0,0);
+
+  MouseConfiguration mouseConfig;
+  mouseConfig.setAutoReport(false);
+  mouse=new MouseDevice(mouseConfig);
+  hid.addDevice(mouse);
+  hid.addDevice(pad);
+  hid.begin(hostConfig);
+  Serial.println("Pair OneHand EDF5. Hold HOME 0.5 seconds to switch modes.");
+}
+
+void loop() {
+  updateImu();
+  unsigned long now=millis();
+  updateButtons(now);
+  bool connected=hid.isConnected();
+  if(connected &amp;&amp; !wasConnected) {
+    setMouseMode(START_IN_MOUSE_MODE);
+    homeTracking=false;
+    homeHandled=false;
+  }
+  if(!connected &amp;&amp; wasConnected) {
+    neutralPad(); neutralMouse(); resetMotion();
+    homePulseUntilMs=0;
+    homeTracking=false;
+    Serial.println("Bluetooth disconnected");
+  }
+  wasConnected=connected;
+  if(!connected) return;
+  updateHome(millis());
+  now=millis();
+  if(now-lastReportMs&lt;REPORT_MS) return;
+  float dt=(now-lastReportMs)/1000.0f;
+  lastReportMs=now;
+  if(dt&gt;0.1f) dt=REPORT_MS/1000.0f;
+  updateAim(now);
+  if(mouseMode) sendDesktopMouse(dt);
+  else sendController(now);
+}</code></pre>
       </div>
-      <div class="media-placeholder" role="img" aria-label="Placeholder for AirMouse firmware or mode diagram"><strong>Firmware / mode diagram placeholder</strong><span>Add a control map, code screenshot, or air-mouse demo here.</span></div>
     </section>
 
     <section id="next-steps" class="process-section airmouse-section">
@@ -245,7 +557,6 @@
       <h2 class="gallery-title">Assembly &amp; final testing</h2>
       <div class="step-copy">
         <p>Next, I will solder and assemble the controller, debug the firmware on the final hardware, and test it with a PC game. Testing will cover the inputs, mode switching, Bluetooth connection, and whether the buttons are comfortable to reach during one-handed play.</p>
-        <p>This prototype is for PC. A PS5 version would need a supported controller interface and authentication.</p>
       </div>
       <div class="media-placeholder" role="img" aria-label="Placeholder for AirMouse assembly and final testing"><strong>Assembly &amp; testing placeholder</strong><span>Add finished-controller photos, PC gameplay, and usability findings here.</span></div>
     </section>
@@ -285,6 +596,7 @@
 
     <p class="bom-intro">© 2026 Enqi Wang. All rights reserved.</p>
   </main>
+  <script src="js/image-viewer.js"></script>
 </body>
 
 </html>

@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Snakeboy Customized Controller | Enqi Wang</title>
   <link rel="stylesheet" href="css/project.css">
-  <link rel="stylesheet" href="css/bom.css">
 </head>
 
 <body>
@@ -424,10 +423,12 @@
     ];
 
     const galleryAlts = [
-      "Controller 1",
-      "Controller 2",
-      "Controller 3",
-      "Controller 4"
+      "Snakeboy controller parts and electronics",
+      "Electronic component measurements",
+      "Snakeboy controller design, view 1",
+      "Snakeboy controller design, view 2",
+      "Snakeboy controller design, view 3",
+      "Snakeboy controller design, view 4"
     ];
 
     let currentIndex = 0;
@@ -455,6 +456,7 @@
     function updateGallery() {
       galleryImage.src = galleryImages[currentIndex];
       galleryImage.alt = galleryAlts[currentIndex];
+      galleryImage.setAttribute("aria-label", `Enlarge image: ${galleryAlts[currentIndex]}`);
       renderDots();
     }
 
@@ -470,6 +472,7 @@
 
     updateGallery();
   </script>
+  <script src="js/image-viewer.js"></script>
 </body>
 
 </html>

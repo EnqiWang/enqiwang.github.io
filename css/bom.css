@@ -42,69 +42,6 @@
   line-height: 1.35;
 }
 
-.bom-table-wrap {
-  max-width: 900px;
-  margin: 0 auto;
-  overflow-x: auto;
-  background: rgba(255, 255, 255, 0.82);
-  border: 1px solid rgba(214, 107, 232, 0.12);
-  box-shadow: var(--shadow);
-  border-radius: 20px;
-}
-
-.bom-table {
-  width: 100%;
-  border-collapse: collapse;
-  min-width: 820px;
-  font-size: 0.92rem;
-}
-
-.bom-table thead th {
-  background: rgba(255, 111, 174, 0.12);
-  color: var(--pink-strong);
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-size: 0.8rem;
-}
-
-.bom-table th,
-.bom-table td {
-  padding: 11px 12px;
-  text-align: left;
-  border-bottom: 1px solid var(--line);
-  vertical-align: top;
-}
-
-.bom-table tbody tr:hover {
-  background: rgba(255, 111, 174, 0.03);
-}
-
-.bom-table td.cost {
-  text-align: right;
-  white-space: nowrap;
-  font-variant-numeric: tabular-nums;
-}
-
-.bom-table td.level {
-  white-space: nowrap;
-  width: 70px;
-  color: rgba(255, 255, 255, 0.78);
-}
-
-.bom-table td.partnum {
-  white-space: nowrap;
-  width: 120px;
-  color: #fff;
-  font-weight: 700;
-}
-
-.bom-table td.vendor {
-  white-space: nowrap;
-  color: rgba(255, 255, 255, 0.82);
-}
-
-
 .sheet-frame {
   max-width: 900px;
   margin: 0 auto;
