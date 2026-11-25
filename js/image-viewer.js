@@ -69,7 +69,7 @@
     if (event.target === dialog || (event.target === stage && !dragged)) dialog.close();
   });
 
-  preview.addEventListener('click', () => {
+  preview.addEventListener('dblclick', () => {
     if (!dragged) { if (scale === 1) zoom(2); else reset(); }
   });
   stage.addEventListener('wheel', event => {
@@ -105,7 +105,12 @@
     img.setAttribute('role', 'button');
     img.setAttribute('aria-haspopup', 'dialog');
     img.setAttribute('aria-label', `Enlarge image: ${img.alt || 'Image'}`);
+    img.title = 'Double-click to enlarge';
     img.addEventListener('click', event => {
+      event.preventDefault();
+      event.stopPropagation();
+    });
+    img.addEventListener('dblclick', event => {
       event.preventDefault();
       event.stopPropagation();
       open(img);
